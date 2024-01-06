@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Practice</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // Different ways of createing an object
+        // 1. Literal way
+        const personDetails = {
+            fname: "naveen",
+            lname: "Bellam",
+        }
+        // adding property using dot(.) notation
+        personDetails.age = 27;
+        // adding property using square bracket ([]) notation
+        personDetails["isIndian"] = true;
+        console.log(personDetails);
+
+        // adding methods to literal object
+        personDetails.fullName = function () {
+            return this.fname + " " + this.lname;
+        }
+        console.log(personDetails.fullName())
+
+
+
+        // 2. constructor function
+        function CarDetails(carName, carModel) {
+            this.carName = carName;
+            this.carModel = carModel;
+        }
+
+        var abc = new CarDetails("Baleno", 2023);
+        console.log(abc);
+
+        // Using prototype property adding property to the constructor 
+        CarDetails.prototype.language = "English";
+        console.log(abc.language);
+
+        // Using prototype property adding method to the constructor
+        CarDetails.prototype.fullDetails = function () {
+            return this.carName + " " + this.carModel;
+        };
+        console.log(abc.fullDetails());
+
+        // adding property using dot (.) notation
+        abc.isCarForSell = true;
+
+        // adding property using square bracket ([]) notation
+        abc["carManufacturer"] = "India";
+        console.log(abc);
+
+
+        // 3. using class 
+        class Employee {
+            constructor(empName, empSalary) {
+                this.empName = empName;
+                this.empSalary = empSalary;
+            }
+        }
+        var empDetails = new Employee("Mahesh Kumar", 50000);
+
+        // Using prototype property adding property to the constructor 
+        Employee.prototype.existingEmployee = true;
+        console.log(empDetails.existingEmployee);
+
+        // Using prototype property adding method to the constructor
+        Employee.prototype.empCompleteDetails = function () {
+            return this.empName + " " + this.empSalary;
+        }
+        console.log(empDetails.empCompleteDetails());
+        // console.log(empDetails);
+
+        const empDetailsEmpty = {};
+        Object.setPrototypeOf(empDetailsEmpty, empDetails);
+        empDetailsEmpty.isEmp = true;
+        empDetailsEmpty.empName = "Karthik"
+        console.log(empDetails);
+        console.log(empDetailsEmpty.empName);
+        console.log(empDetailsEmpty);
+
+        // 4. Built-in methods
+        const cars = {
+            carName: "Audi",
+            carModel: 2023
+        }
+
+        var newCar = Object.create(cars);
+        newCar.carModel = 2020;
+        newCar["isAvaiable"] = false;
+        for (a in newCar) {
+            console.log(newCar[a]);
+        }
+        console.log(newCar);
+        console.log(cars);
+
+
+        var newCarData = Object.assign({ carExp: 2045 }, newCar);
+        console.log(newCarData);
+
+        // shorthand property(ES6)
+        // Object property shorthand 
+        const name = 'Raj'
+        const age1 = 20
+        const locationDetails = 'India'
+
+        const user ={
+            name,
+            age1,
+            locationDetails
+        }
+        console.log(user);
+
+        
+        // nested objects
+        const myObj = {
+            firstName: "John",
+            lastName: "Kumar",
+            age: 30,
+            cars: [
+                { name: "Ford", models: ["Fiesta", "Focus", "Mustang"] },
+                { name: "BMW", models: ["320", "X3", "X5"] },
+                { name: "Fiat", models: ["500", "Panda"] }
+            ],
+            language: "en",
+            get lang() {
+                return this.language;
+            },
+            details: "",
+            set additonalDetails(notes) {
+                return this.details = notes;
+            }
+        }
+
+        // accessing nested objects
+        console.log(myObj.cars[0].models[2]);
+
+        // deleting the object
+        delete myObj.cars[1].models;
+        console.log(myObj);
+
+        // Adding method to the object
+        myObj.fullName = function () {
+            return (this.firstName + " " + this.lastName).toUpperCase();
+        }
+        console.log(myObj.fullName());
+
+        // get a data from the object using a getter:
+        console.log(myObj.lang);
+
+        // Set an object property using a setter:
+        myObj.additonalDetails = "Car looks awesome";
+        console.log(myObj.details);
+
+        // Object.entries() using in for of loop
+        const numbers = {
+            a: 1,
+            b: 2,
+            c: 3
+        }
+
+        for (const [key, values] of Object.entries(numbers)) {
+            console.log(`${key}` + " value is : " + `${values}`)
+        }
+        console.log(Object.entries(numbers))
+        console.log(Object.keys(numbers));
+        console.log(Object.values(numbers))
+
+        // Object destructuring
+        const des_Person = {
+            firstName: "Suman",
+            lastName: "Babu",
+            age: 26,
+        }
+        const { firstName, lastName, age = 12 } = des_Person;
+        console.log(firstName); // Suman
+        console.log(lastName); //Babu
+        // console.log(middleName); //undefined
+        console.log(age); //26 -- we have defined the default age
+
+
+        //  Destructuring function arguments
+        let des_Emp = {
+            empFirstName: "Mohan",
+            empLastName: "Babu",
+        }
+        // with out destructuring
+        let displayEmp = (data) => console.log(`${data.empFirstName}` + " " + `${data.empLastName}`);
+        displayEmp(des_Emp);
+
+        // with destructuring
+        let display = ({ empFirstName, empLastName }) => {
+            return console.log(`${empFirstName}` + " " + `${empLastName}`);
+        }
+        display(des_Emp);
+
+
+        // Object comparision
+        var a = 10;
+        var b = '10';
+        var c = 10.0;
+        console.log(a == b);
+        console.log(a === b);
+        console.log(+0 == -0);
+        console.log(+0 === -0);
+
+        console.log(Object.is(a, b));
+        console.log(Object.is(a, c));
+        console.log(Object.is(+0, -0));
+
+
+        // Object.assign()  -> it will club 2 diff objects into an new array
+        const data1 = {
+            abc_Name: "Suresh",
+        }
+        const data2 = {
+            def_Name: "Kumar"
+        }
+        const data = Object.assign(data1, data2);
+        console.log(data);
+
+        //Spread operator
+
+        const objectData = {
+            firstName: "John", 
+            lastName: "Doe", 
+            age: 50, 
+            eyeColor: "blue"
+        }
+
+        const spreadObjectData = { ...objectData };
+        console.log(spreadObjectData);
+        spreadObjectData.age = 45;
+        console.log(spreadObjectData);
+        console.log(objectData);
+
+    </script>
+
+</body>
+
+</html>

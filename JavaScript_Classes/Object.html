@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <script>
+        // Literal way Of Creating Object 
+        const cars = {
+            carName: "Audi",
+            carModel: 2023
+        }
+        // delete cars.carModel
+        
+        cars.isActive = true;
+        cars["location"] = "Hyderabad";
+
+        for (a in cars) {
+            console.log(cars[a]);
+        }
+
+        // Creating An Object with Constructor Function 
+        function Person(fname, lname) {
+            this.fname = fname;
+            this.lname = lname
+        }
+        var ps1 = new Person("Ram", "Krishna");
+        ps1.nationality = "Indian";
+        ps1["country"] = "ABC";
+        ps1.fname = "Kumar";
+        console.log(ps1)
+
+        // creating an object with class
+        class Student {
+            constructor(fname, lname) {
+                this.fname = fname;
+                this.lname = lname;
+            }
+        }
+
+        var std1 = new Student("Ram", "Ravi");
+        // sd1.isIndian = true;
+        // sd1["isEmployee"] = false;
+        console.log(std1)
+
+        /*
+            Built-in methods
+        */
+       const data = {
+        name : "Naveen",
+        age : 26,
+        employee : true
+       }
+
+        var emp = Object.create(data);
+        var emp1= Object.setPrototypeOf({},data);
+        emp["companyName"] = "Accenture";
+        emp1["companyName"] = "IBM"
+        console.log(emp);
+        console.log(emp1)
+        emp.name = "Venky";
+        for(a in emp){
+            console.log(emp[a]);
+        }
+        console.log(data)
+
+
+        // club source & target objects(2 objects) into a single object 
+        var emp1 = Object.assign({ some: "new" }, cars)
+        console.log(emp1);
+
+        // converting object to an array
+        var objArray = Object.keys(cars)
+        var objArrVal = Object.values(cars)
+        console.log(objArray);
+        console.log(objArrVal);
+
+        
+       
+    </script>
+</body>
+
+</html>
