@@ -34,7 +34,7 @@
         ps1.fname = "Kumar";
         console.log(ps1)
 
-        // creating an object with class
+        // creating an object with class constructor
         class Student {
             constructor(fname, lname) {
                 this.fname = fname;
@@ -79,7 +79,17 @@
         console.log(objArray);
         console.log(objArrVal);
 
-        
+        let new1 =Object.setPrototypeOf(emp1,{});
+        console.log(new1);
+        new1.some = "updated";
+        console.log(new1);
+
+        let boolean = new Boolean(true);
+        let string = new String("Naveen");
+        let no = new Number(10);
+        console.log(typeof boolean)
+        console.log(typeof string)
+        console.log(typeof no)
        
     </script>
 </body>

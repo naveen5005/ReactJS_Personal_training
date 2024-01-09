@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(fname, lname, email) {
+            this.fname = fname;
+            this.lname = lname;
+            this.emai = email;
+        }
+        Person.prototype.fullName = function () {
+            console.log(this.fname + " " + this.lname)
+        }
+
+        var person1 = new Person("Ram", "Krishna", "ram@gmail.com");
+        var person2 = new Person("Sam", "Sundhar", "ram@gmail.com");
+        var person3 = new Person("Kiran", "Kumar", "ram@gmail.com");
+
+        person1.fullName()
+        person2.fullName()
+        person3.fullName()
+    </script>
+</body>
+
+</html>

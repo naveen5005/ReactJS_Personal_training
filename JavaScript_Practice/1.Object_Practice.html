@@ -59,7 +59,7 @@
         console.log(abc);
 
 
-        // 3. using class 
+        // 3. using class constructor
         class Employee {
             constructor(empName, empSalary) {
                 this.empName = empName;
@@ -80,12 +80,13 @@
         // console.log(empDetails);
 
         const empDetailsEmpty = {};
-        Object.setPrototypeOf(empDetailsEmpty, empDetails);
+        const employee1 =Object.setPrototypeOf(empDetailsEmpty, empDetails);
+        console.log(employee1);
         empDetailsEmpty.isEmp = true;
         empDetailsEmpty.empName = "Karthik"
         console.log(empDetails);
         console.log(empDetailsEmpty.empName);
-        console.log(empDetailsEmpty);
+        console.log(empDetailsEmpty.empSalary);
 
         // 4. Built-in methods
         const cars = {
@@ -101,7 +102,6 @@
         }
         console.log(newCar);
         console.log(cars);
-
 
         var newCarData = Object.assign({ carExp: 2045 }, newCar);
         console.log(newCarData);
@@ -168,7 +168,8 @@
         }
 
         for (const [key, values] of Object.entries(numbers)) {
-            console.log(`${key}` + " value is : " + `${values}`)
+            // console.log(`${key}` + " value is : " + `${values}`)
+            console.log(key + " Value is :"+values)
         }
         console.log(Object.entries(numbers))
         console.log(Object.keys(numbers));
@@ -198,7 +199,8 @@
 
         // with destructuring
         let display = ({ empFirstName, empLastName }) => {
-            return console.log(`${empFirstName}` + " " + `${empLastName}`);
+            // return console.log(`${empFirstName}` + " " + `${empLastName}`);
+            return console.log(empFirstName+" "+empLastName);
         }
         display(des_Emp);
 
@@ -207,17 +209,21 @@
         var a = 10;
         var b = '10';
         var c = 10.0;
+        var obj1 = {};
+        var obj2 = {};
         console.log(a == b);
         console.log(a === b);
         console.log(+0 == -0);
         console.log(+0 === -0);
+        console.log(obj1 == obj2);
+        console.log(obj1 === obj2);
 
         console.log(Object.is(a, b));
         console.log(Object.is(a, c));
         console.log(Object.is(+0, -0));
+        console.log(Object.is(obj1,obj2));
 
-
-        // Object.assign()  -> it will club 2 diff objects into an new array
+        // Object.assign()  -> it will club 2 diff objects into an new object
         const data1 = {
             abc_Name: "Suresh",
         }
