@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <h1>Arrays</h1>
+
+    <script>
+        var userDetails = ["Naveen", "Venky", "Ram", "Kiran", "Sachin"];
+
+        // Array Methods
+        // Adding data to an array
+        // 1. Push  ->  will add at the last indexed position
+        userDetails.push("Kavya");
+
+        // 2. unshift -> will add at the starting indexed position 
+        userDetails.unshift("Mahesh");
+
+        // 3. splice -> will add at the specified indexed position when 2nd arg is 0
+        userDetails.splice(2, 0, "Kumar");
+
+        // Removng data
+        // 4. pop -> remove the data at the last indexed position
+        userDetails.pop();
+
+        // 5. shift -> remove the data at the first indexed position
+        userDetails.shift();
+
+        // 6. splice -> remove the data at the from the specified start position and 
+        // delete the positions specified in the second arg(it shoulde be >= 1)
+        userDetails.splice(2, 2);
+        console.log(userDetails);
+
+        // 7. concat -> it will join two arrays
+        let data1 = [1, 2, 3, 4, 5, 6]
+        console.log(data1.concat(5, 6, 7, 8));
+
+        // 8. join -> it will add content to the array and return type is string
+        console.log(userDetails.join(" is in VMR institute "));
+
+        // 9. slice -> it gives new array based on start index to the no of positions-1
+        console.log(data1.slice(1, 3));
+
+        // 10. indexof -> it will print index for that value
+        console.log(data1.indexOf(3));
+
+        // 11. includes -> if the value is present it will return Boolean value(True)
+        console.log(data1.includes(2));
+
+        // 12. at -> it will give the value for the specified index
+        console.log(data1.at(1));
+
+        // 13. find -> it gives the first matching values based on the condition satisfied
+        let result = data1.find((n) => {
+            return n % 2 == 0;
+        });
+        console.log(result);
+
+        // 14. filter -> it gives all matching values based on the condition satisfied
+        let results = data1.filter((n) => {
+            return n % 2 == 0;
+        });
+        console.log(results);
+
+        // 15. findIndex -> it gives the first matching index values based on the condition satisfied
+        let resultFindIndex = data1.findIndex((n) => {
+            return n % 2 == 0;
+        });
+        console.log(resultFindIndex);
+
+        // 16. forEach -> it is used to iterate over elements in an array.
+        // It is a higher-order function that takes a callback function as its argument and executes that callback once for each element in the array. 
+        data1.forEach(function (number) {
+            console.log(number);
+        });
+
+        // 17. map -> it is used to iterate over elements in an array.
+        // It is a higher-order function that takes a callback function as its argument and executes that callback once for each element in the array. 
+        // Major difference b/w map and forEach is map will return a new array
+        let newData1 = data1.map(function (number,i) {
+            return number + 10 + " index is : " +i ;
+        })
+        console.log(newData1);
+
+        // 18. some -> Based on the condition it will check the elements in the array, if the condition matches for any one of the element it will return true
+        let someArray = ["Naveen","Kiran","Mahesh"]
+        let someResult = someArray.some(function(data){
+            return data.length == 6
+        });
+        console.log(someResult);
+
+        // 19. every -> Based on the condition it will check the elements in the array, if the condition matches for all the element it will return true
+        let everyArray = ["Naveen","Kiran","Mahesh"]
+        let everyResult = everyArray.every(function(data){
+            return data.length == 6
+        });
+        console.log(everyResult);
+
+        let dataLists = [20,23,25,53,56,98];
+        let totalDataLists = dataLists.reduce(function(a,b){
+            return  a+b;
+        });
+        console.log(totalDataLists);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

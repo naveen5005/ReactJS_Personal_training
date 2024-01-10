@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <h1>Different ways of creating functions</h1>
+
+    <script>
+
+// ES5 
+        // 1. simple function
+        function employeeDetails(){
+            console.log("Hello employee!!! welcome to the coding world");
+        }
+        // invoking or executing the function
+        employeeDetails();
+
+       // 2. function expression / with out using the variable it is Anonymous function
+        let empDetails1 = function(){
+            console.log("Checking emp1 details")
+        }
+        // invoking or executing the function
+        empDetails1();
+
+        // 3. Function with named function
+        let empDetails2 = function empDetails(){
+            console.log("checking the emp2 details using named function");
+        }
+        empDetails2(); // receive the console o/p
+        // empDetails(); // ReferenceError: empDetails is not defined
+
+// ES6        
+        // 4. Arrow or Flat arrow function
+        let empDetails3 = () =>{
+            console.log("checking the emp3 details using arrow or flat arrow function");
+        }
+        empDetails3();
+
+
+        (()=>{
+            console.log("Special func without invloking")
+        })()
+    </script>
+</body>
+</html>

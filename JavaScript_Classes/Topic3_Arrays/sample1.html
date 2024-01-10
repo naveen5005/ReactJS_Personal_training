@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="showAllUsers()">Display All Values</button>
+
+    <button>Add A Value</button>
+    <script>
+        var students = ['Ram', "Murali", "Satheesh", "Ravi", "Abi", "Bharat"]
+        // students.push("Kiran");
+        // students.unshift("Sam");
+        // students.splice(1,1,"Kumar")
+
+        // students.pop()
+        // students.shift()
+        // students.splice(2,1)
+
+        // students.sort().reverse()
+
+        // let threeCharWords = students.find(function (student){
+        //     return student.length === 3
+        // })
+
+        // let threeCharWords = students.filter(function (student){
+        //     return student.length === 3
+        // })
+
+        // console.log(threeCharWords)
+
+        // students.forEach(function(student){
+        //     console.log(student)
+        // })
+
+        // var newStudents = students.map(function(student){
+        //     return student+" VMR"
+        // })
+
+        // console.log(students);
+
+        // var check = students.every(function (std){
+        //     return std.length >=3
+        // })
+
+        var check = students.some(function (std) {
+            return std.length === 6
+        })
+
+        console.log(check)
+        // console.log(newStudents);
+
+        function showAllUsers(){
+             students.forEach(function(student){
+            console.log(student)
+        })
+
+        }
+    </script>
+</body>
+
+</html>

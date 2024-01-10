@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions with Arguments</title>
+</head>
+<body>
+    <h1>Functions using Aruguments / Parameters</h1>
+    
+    <script>
+        // 1. simple function with arguments
+        function personDetails(fname,lname){
+            // console.log("person name is : "+fname+" "+lname);
+            return fname+" "+lname;
+        }    
+
+       var per1 =  personDetails("Naveen" , "Venky"); // return type String
+       // if we are not returning in the function the return type is Void
+       console.log("person name is : " + per1);
+
+       // 2. function expression / with out using the variable it is Anonymous function
+       let personDetails1 = function(fname,lname){
+        console.log("Person Details1 : "+fname+" "+lname);
+       }
+       personDetails1("Kavya","Kumari");
+
+       // 3. Function with named function with arguments
+       let personDetails2 = function personDetailInfo(fname,lname){
+            console.log("person Details2 : "+fname + " " +lname);
+       }
+       personDetails2("Devisetty","Venky");
+
+       // 4. Arrow or Flat arrow function with arguments
+       let personDetails3 = (fname,lname) =>{
+            console.log("Person Details3 : "+fname+" "+lname);
+       }
+       personDetails3("Syam","Kumar");
+
+
+    </script>
+</body>
+</html>
