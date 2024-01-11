@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects Events</title>
+</head>
+
+<body>
+    <h1>Objects - Events</h1>
+    <button type="button" onclick="personDetails()">Literal Object</button>
+    <button type="button" onclick="carCompleteDetails('Audi' , 2023)">Constructor Function</button>
+    <button type="button" onclick="emp1('Naveen','Kumar')">Class Construtor</button>
+    <button type="button" onclick="Obj1_Details()">Bilt-in  Method(Object.create())</button>
+
+    <script>
+        // 1. Literal Object
+        const person = {
+            fname: 'Naveen',
+            lname: "Kumar",
+            gender: 'Male',
+            age: 26,
+            company: 'Accenture',
+            location: 'Hydrabad'
+        }
+        // 1. Simple Function
+        function personDetails() {
+            console.log(person);
+        }
+
+        // 2. Constructor function - creating Object
+
+        function carDetails(carName, carModel) {
+            this.carName = carName;
+            this.carModel = carModel;
+        }
+        // 2. Function expression
+        let carCompleteDetails = function (a, b) {
+            var car1 = new carDetails(a, b);
+            console.log(car1)
+        }
+
+        // 3. class constructor
+        class EmployeeDetails {
+            constructor(empName, empSalary) {
+                this.empName = empName,
+                    this.empSalary = empSalary
+            }
+        }
+        //3. Named function
+        let emp1 = function CompleteEmp1_Details(empName, empSalary) {
+            var empDetails_1 = new EmployeeDetails(empName, empSalary);
+            console.log(empDetails_1);
+        }
+
+        // 4. Built-In Object
+        const obj1 = {
+            fname: "Syam",
+            age: 23
+        }
+
+        //4. Arrow or Flat Arrow Function
+        let Obj1_Details = () => {
+            const newObj = Object.create(obj1);
+            console.log(newObj);
+        }
+    </script>
+</body>
+
+</html>
