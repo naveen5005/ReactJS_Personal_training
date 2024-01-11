@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function - Events</title>
+</head>
+<body>
+    <h1>Functions - Events</h1>
+
+    <button type="button" onclick="sayHello('naveen','kumar')">Normal function</button> 
+    <button type="button" onclick="greetNow('Venky','Javascript')">Function Expression</button> 
+    <button type="button" onclick="employeeDetails('Syam','Kumar')" >Named Function</button>
+    <button type="button" onclick="carInfo('Audi','40 Lakhs')">Flat Arrow Function</button>
+    <script>
+        // 1. Normal function
+        function sayHello(fname,lname){
+            console.log(fname+" "+lname);
+        }
+
+        // sayHello('naveen','kumar');
+        // 2. function expression
+        let greetNow = function(fname,message){
+            console.log(fname+" Welcome to the "+message+" coding world!!!");
+        }
+
+        // 3. Named Function 
+        let employeeDetails = function presentEmployee(fname,lname){
+            console.log(fname+" "+lname+" is working in MNC company.");
+        }
+
+        // Arrow or Flat arror function
+        let carInfo = (carName , carPrice) =>{
+            console.log("The price of an "+carName+" car in India is "+carPrice+".");
+        }
+
+    </script>
+</body>
+</html>
