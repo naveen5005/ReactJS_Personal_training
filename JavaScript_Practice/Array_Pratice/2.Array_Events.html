@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays - Events</title>
+</head>
+
+<body>
+    <h1>Arrays - Events(onclick)</h1>
+
+    <button type="button" onclick="push_Array()">push</button>
+    <button type="button" onclick="unshift_Array()">unshift</button>
+    <button type="button" onclick="spliceAdding_Array()">splice - adding</button>
+    <button type="button" onclick="pop_Array()">pop</button>
+    <button type="button" onclick="shift_Array()">shift</button>
+    <button type="button" onclick="spliceDeleting_Array()">splice - deleting</button>
+    <button type="button" onclick="join_Array()">join</button>
+    <button type="button" onclick="concat_Array()">concat</button>
+    <button type="button" onclick="slice_Array()">slice</button>
+    <button type="button" onclick="indexOf_Array('naveen')">indexOf</button>
+    <button type="button" onclick="includes_Array('syam')">includes</button>
+    <button type="button" onclick="at_Array(2)">at</button>
+    <button type="button" onclick="find_Array()">find</button>
+    <button type="button" onclick="filter_Array()">filter</button>
+    <button type="button" onclick="findIndex_Array()">findIndex</button>
+    <button type="button" onclick="forEach_Array()">forEach</button>
+    <button type="button" onclick="map_Array()">map</button>
+    <button type="button" onclick="some_Array()">some</button>
+    <button type="button" onclick="every_Array()">every</button>
+    <button type="button" onclick="reduce_Array()">reduce</button>
+    <button type="button" onclick="sort_Array()">sort</button>
+    <button type="button" onclick="sort_Reverse_Array()">reverse</button>
+    <script>
+        let arr = ["kumar", "syam", "murali", "naveen"]
+
+        // adding data to an array
+        function push_Array() {
+            arr.push("Kavya");
+            console.log(arr);
+        }
+        function unshift_Array() {
+            arr.unshift("Suma");
+            console.log(arr);
+        }
+        function spliceAdding_Array() {
+            arr.splice(2, 0, "Amulya");
+            console.log(arr);
+        }
+
+        // deleting data to an array
+        function pop_Array() {
+            arr.pop();
+            console.log(arr);
+        }
+        function shift_Array() {
+            arr.shift();
+            console.log(arr);
+        }
+        function spliceDeleting_Array() {
+            arr.splice(1, 2);
+            console.log(arr);
+        }
+
+        function join_Array() {
+            let joinResult = arr.join(" is working in Accenture company. ");
+            console.log(joinResult);
+        }
+        function concat_Array() {
+            let concatResult = arr.concat("Shushma", "Shresta", "Sukaya");
+            console.log(concatResult);
+        }
+        function slice_Array() {
+            let sliceResult = arr.slice(0, 3);
+            console.log(sliceResult);
+
+        }
+        function indexOf_Array(data) {
+            let indexOfResult = arr.indexOf(data);
+            console.log(indexOfResult);
+        }
+        function includes_Array(data) {
+            let includesResult = arr.includes(data);
+            console.log(includesResult);
+        }
+        function at_Array(data) {
+            let atResult = arr.at(data);
+            console.log(atResult)
+        }
+        function find_Array() {
+            let findResult = arr.find((n) => {
+                return n.length == 6;
+            });
+            console.log(findResult, typeof findResult);
+        }
+        function filter_Array() {
+            let filterResult = arr.filter((n) => {
+                return n.length == 6;
+            });
+            console.log(filterResult, typeof filterResult);
+        }
+        const findIndex_Array = () => {
+            let findIndexResult = arr.findIndex((n) => {
+                return n.length == 6;
+            })
+            console.log(findIndexResult, typeof findIndexResult);
+        }
+        const forEach_Array = () => {
+            arr.forEach((data, i) => {
+                console.log(i, " : ", data);
+            })
+        }
+        const map_Array = () => {
+            let mapResult = arr.map((data) => {
+                return data + " is working in Accenture company."
+            });
+            console.log(mapResult);
+        }
+        const some_Array = () => {
+            let someResult = arr.some((data) => {
+                return data.length == 6
+            });
+            console.log(someResult);
+        }
+        const every_Array = () => {
+            let everyResult = arr.every((data) => {
+                return data.length == 6
+            });
+            console.log(everyResult);
+        }
+
+        let num1 = [9, 45, 78, 1, 2, 3, 4, 5];
+        function reduce_Array() {
+            let reduceResult = num1.reduce((a, b) => {
+                return a + b;
+            });
+            console.log(reduceResult);
+        }
+        const sort_Array = () => {
+            console.log(num1.sort());
+        }
+        const sort_Reverse_Array = () => {
+            console.log(num1.sort().reverse());
+        }
+
+        (function DisplayArray() {
+            console.log(arr)
+            console.log(num1)
+        })()
+    </script>
+</body>
+
+</html>
