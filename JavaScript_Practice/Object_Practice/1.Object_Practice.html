@@ -155,7 +155,14 @@
             }
         };
         const clonedObject = { ...originalObject };
-        console.log(clonedObject)
+        clonedObject.b = "Naveen";
+        console.log(clonedObject);
+        console.log(originalObject);
+
+        const deepCloning = JSON.parse(JSON.stringify(originalObject));
+        deepCloning.a="Kumar";
+        console.log(deepCloning);
+        console.log(originalObject)
 
         // accessing nested objects
         console.log(myObj.cars[0].models[2]);
