@@ -57,6 +57,8 @@
        }
 
         var emp = Object.create(data);
+        console.log(emp)
+        console.log(emp.age)
         var emp1= Object.setPrototypeOf({},data);
         emp["companyName"] = "Accenture";
         emp1["companyName"] = "IBM"

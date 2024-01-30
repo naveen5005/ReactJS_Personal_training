@@ -12,7 +12,7 @@
 
     <script>
 
-        // Different ways of createing an object
+        // Different ways of creating an object
         // 1. Literal way
         const personDetails = {
             fname: "naveen",
@@ -80,7 +80,7 @@
         // console.log(empDetails);
 
         const empDetailsEmpty = {};
-        const employee1 =Object.setPrototypeOf(empDetailsEmpty, empDetails);
+        const employee1 = Object.setPrototypeOf(empDetailsEmpty, empDetails);
         console.log(employee1);
         empDetailsEmpty.isEmp = true;
         empDetailsEmpty.empName = "Karthik"
@@ -112,14 +112,14 @@
         const age1 = 20
         const locationDetails = 'India'
 
-        const user ={
+        const user = {
             name,
             age1,
             locationDetails
         }
         console.log(user);
 
-        
+
         // nested objects
         const myObj = {
             firstName: "John",
@@ -139,6 +139,23 @@
                 return this.details = notes;
             }
         }
+
+        const originalObject = {
+            a: 1,
+            b: 2,
+            c: {
+                a1: 2,
+                b1: {
+                    c1: 1,
+                    c2: {
+                        d1: 1,
+                        d2: 2
+                    }
+                }
+            }
+        };
+        const clonedObject = { ...originalObject };
+        console.log(clonedObject)
 
         // accessing nested objects
         console.log(myObj.cars[0].models[2]);
@@ -169,7 +186,7 @@
 
         for (const [key, values] of Object.entries(numbers)) {
             // console.log(`${key}` + " value is : " + `${values}`)
-            console.log(key + " Value is :"+values)
+            console.log(key + " Value is :" + values)
         }
         console.log(Object.entries(numbers))
         console.log(Object.keys(numbers));
@@ -200,7 +217,7 @@
         // with destructuring
         let display = ({ empFirstName, empLastName }) => {
             // return console.log(`${empFirstName}` + " " + `${empLastName}`);
-            return console.log(empFirstName+" "+empLastName);
+            return console.log(empFirstName + " " + empLastName);
         }
         display(des_Emp);
 
@@ -221,7 +238,7 @@
         console.log(Object.is(a, b));
         console.log(Object.is(a, c));
         console.log(Object.is(+0, -0));
-        console.log(Object.is(obj1,obj2));
+        console.log(Object.is(obj1, obj2));
 
         // Object.assign()  -> it will club 2 diff objects into an new object
         const data1 = {
@@ -236,9 +253,9 @@
         //Spread operator
 
         const objectData = {
-            firstName: "John", 
-            lastName: "Doe", 
-            age: 50, 
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
             eyeColor: "blue"
         }
 
