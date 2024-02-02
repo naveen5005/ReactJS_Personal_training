@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="">First Name :</label>
+        <input type="text" name="" id=""> <br>
+        <button>Add User</button>
+
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+
+       var  users = [
+            {
+                "id": 1,
+                "username": "john_doe",
+                "email": "john.doe@example.com",
+                "age": 28,
+                "city": "New York"
+            },
+            {
+                "id": 2,
+                "username": "jane_smith",
+                "email": "jane.smith@example.com",
+                "age": 35,
+                "city": "Los Angeles"
+            },
+            {
+                "id": 3,
+                "username": "mike_jones",
+                "email": "mike.jones@example.com",
+                "age": 22,
+                "city": "Chicago"
+            },
+            {
+                "id": 4,
+                "username": "sara_wilson",
+                "email": "sara.wilson@example.com",
+                "age": 31,
+                "city": "Houston"
+            },
+            {
+                "id": 5,
+                "username": "david_brown",
+                "email": "david.brown@example.com",
+                "age": 25,
+                "city": "San Francisco"
+            },
+            {
+                "id": 6,
+                "username": "emily_rodriguez",
+                "email": "emily.rodriguez@example.com",
+                "age": 29,
+                "city": "Miami"
+            },
+            {
+                "id": 7,
+                "username": "chris_taylor",
+                "email": "chris.taylor@example.com",
+                "age": 33,
+                "city": "Seattle"
+            },
+            {
+                "id": 8,
+                "username": "laura_miller",
+                "email": "laura.miller@example.com",
+                "age": 26,
+                "city": "Boston"
+            },
+            {
+                "id": 9,
+                "username": "ryan_carter",
+                "email": "ryan.carter@example.com",
+                "age": 30,
+                "city": "Dallas"
+            },
+            {
+                "id": 10,
+                "username": "amanda_young",
+                "email": "amanda.young@example.com",
+                "age": 27,
+                "city": "Atlanta"
+            }
+        ]
+
+for(i=0;i<users.length;i++){
+    var myTr = document.createElement("tr");
+    var user =  users[i];
+    for(a in user){
+        var myTd = document.createElement("td");
+        myTd.innerHTML = user[a];
+        myTr.appendChild(myTd);
+    }
+    document.querySelector("tbody").appendChild(myTr)
+}
+    </script>
+</body>
+
+</html>

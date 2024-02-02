@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <h2 id="demo" class="myHeading" name="some">Hello From Javascript</h2>
+    <form action="">
+        <label for="">Gender</label> <br>
+        <input type="radio" name="gender" >Male 
+        <input type="radio" name="gender" >Female
+        <input type="radio" name="gender" >Others <br> <br>
+
+        <label for="">Subjects </label> <br>
+        <input type="checkbox" name="" id=""> HTML
+        <input type="checkbox" name="" id=""> CSS
+        <input type="checkbox" name="" id=""> JS
+        <input type="checkbox" name="" id=""> ReactJS
+
+    </form>
+    <script>
+        // document.querySelector("h2").style.color = "red"
+        // document.querySelectorAll("h2")[0].style.color="red"
+        // document.getElementsByTagName("h2")[0].style.color="red"
+
+        // document.getElementById("demo").style.color="red"
+        // document.querySelector("#demo").style.color="red"
+        // document.querySelectorAll("#demo")[0].style.color = "red"
+
+        // document.getElementsByClassName("myHeading")[0].style.color = "green"
+        document.getElementsByName("some")[0].style.color = "blue"
+    </script>
 </body>
+
 </html>

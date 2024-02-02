@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <img src="" alt="" onmouseover="handleHover()">
+    <script>
+        var myImages = [
+            "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?w=2000&t=st=1706839342~exp=1706839942~hmac=3aa417d9bf8bdc6c556c443bbabfa8149d0c7ea597b7fb4b57c68eda825cc38f",
+            "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000&t=st=1706839343~exp=1706839943~hmac=ca450e336ab3091ce1a55261de528685a62d0071730150274338c2b25457e179",
+            "https://img.freepik.com/free-photo/cascade-boat-clean-china-natural-rural_1417-1356.jpg?w=2000&t=st=1706839344~exp=1706839944~hmac=d02fd321d73399276d4285d8f047cc1cc95e473cf3ac50b103958f59e7fcf70b",
+            "https://img.freepik.com/free-photo/beautiful-shot-small-lake-with-wooden-rowboat-focus-breathtaking-clouds-sky_181624-2490.jpg?w=2000&t=st=1706839345~exp=1706839945~hmac=77e2dfcba1ecd5bcde3142ca996a1636b43ecca7b5c7a20a500838e456eeaca3",
+            "https://img.freepik.com/free-photo/green-field-tree-blue-skygreat-as-backgroundweb-banner-generative-ai_1258-153069.jpg?w=2000&t=st=1706839347~exp=1706839947~hmac=40f1658291dfb8279e63dc41eeb6973473b757a188ef5cff002bfbc2f0669874",
+            "https://img.freepik.com/free-photo/fog-dark-clouds-mountains_1204-503.jpg?w=2000&t=st=1706839348~exp=1706839948~hmac=57bea7fbc8d31a5f482e62e6724d4bb6f998f8276039d41e5185d02d29972378"
+        ]
+
+        for(i=0;i<myImages.length;i++){
+            var myImg = document.createElement("img");
+            myImg.setAttribute('src',myImages[i]);
+           
+            myImg.style.width="300px"
+            myImg.style.height="150px"
+            // document.body.appendChild(myImg);
+            document.querySelector("#demo").appendChild(myImg)
+        }
+
+        var allImages = document.getElementsByTagName("img");
+        for(i=0;i<allImages.length;i++){
+            console.log(allImages[i])
+            allImages[i].addEventListener('mouseover',(event)=>{
+                console.log(event)
+                var targetImage = event.target
+                targetImage.style.border="4px solid red"
+            })
+
+            allImages[i].addEventListener('mouseout',(event)=>{
+                var targetImage = event.target;
+                targetImage.style.border=""
+            })
+            allImages[i].addEventListener('click',(event)=>{
+                var targetImage = event.target;
+                var parentElement = targetImage.parentNode;
+                console.log("parentElement",parentElement)
+                parentElement.removeChild(targetImage)
+                
+            })
+        }
+        console.log(allImages.length)
+
+    </script>
+</body>
+</html>
