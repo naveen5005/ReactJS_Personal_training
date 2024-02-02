@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Practice</title>
+</head>
+
+<body>
+    <h1>Array Question Pratice</h1>
+    <a href="https://www.w3resource.com/javascript-exercises/javascript-array-exercises.php">W3Resource</a>
+
+
+    <script>
+        // 1. Write a JavaScript function to check whether an `input` is an array or not.
+        // Test Data :
+        // console.log(is_array('w3resource'));
+        // console.log(is_array([1, 2, 4, 0]));
+
+
+        let is_array = (n) => {
+            if (toString.call(n) == "[object Array]") {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        console.log(is_array('w3resource'));
+        console.log(is_array([1, 2, 4, 0]));
+
+
+        // 2. Write a JavaScript function to clone an array.
+        let x = [1, 2, 3, 4, [0, 1, 2]];
+        // using spread operator
+        let y1 = [...x];
+        console.log(y1)
+        // using slice method
+        let y2 = x.slice(0,);
+        console.log(y2)
+        // using Array.from()
+        let y3 = Array.from(x);
+        console.log(y3);
+
+        // 3. Write a JavaScript function to get the first element of an array. Passing the parameter 'n' will return 
+        // the first 'n' elements of the array.
+
+        let firstElement = (n) => {
+            let result = n.find((data, i) => {
+                if (i == 0) {
+                    return data;
+                }
+            })
+            console.log(result);
+        }
+        firstElement([[1, 2, 3], 4, 5]);
+        firstElement([1, 2, 3, 4, 5])
+
+        // 4. Write a JavaScript function to get the last element of an array. 
+        // Passing the parameter 'n' will return the last 'n' elements of the array.
+
+        let lastElement = (n) => {
+            let result = n.find((data, i) => {
+                if (i == n.length - 1) {
+                    return data;
+                }
+            })
+            console.log(result);
+        }
+        lastElement([[1, 2, 3], 4, 5]);
+        lastElement([1, 2, 3, 4, [1, 2, 3, 4]])
+
+        // 5. Write a simple JavaScript program to join all elements of the following array into a string.
+        let myColor = ["Red", "Green", "White", "Black"];
+        console.log(myColor.join(" "));
+        console.log(typeof (myColor.join(" ")));
+
+        // 6. Write a JavaScript program that accepts a number as input and inserts dashes (-) between each even number. 
+        // For example if you accept 025468 the output should be 0-254-6-8.
+
+        let numberDashes = (n) => {
+            let result = [n[0]];
+            for (let i = 1; i <= n.length - 1; i++) {
+                if (n[i] % 2 == 0 && n[i - 1] % 2 == 0) {
+                    result.push('-', n[i]);
+                } else {
+                    result.push(n[i]);
+                }
+            }
+            console.log(n);
+            console.log(result);
+            console.log(result.join(""));
+        }
+        numberDashes("02546899");
+
+        // 7. Write a JavaScript program to sort the items of an array.
+        var arr1 = [-3, 8, 7, 6, 5, -4, 3, 2, 1];
+        console.log(arr1.sort());
+
+        // 8. Write a JavaScript program to find the most frequent item in an array.
+        // Sample array : var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+        // Sample Output : a ( 5 times )
+        var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+
+        let counter = 0;
+        let highestNumber = 1;
+        let arrayItemData;
+        for (let i = 0; i <= arr1.length - 1; i++) {
+            for (let j = i; j <= arr1.length - 1; j++) {
+                if (arr1[i] === arr1[j]) {
+                    counter++;
+                }
+                if (highestNumber < counter) {
+                    highestNumber = counter;
+                    arrayItemData = arr1[i];
+                }
+            }
+            counter = 0;
+        }
+        console.log(arrayItemData + " (" + highestNumber + " times)");
+
+        // 9. Write a JavaScript program that accepts a string as input and swaps the case of each character. 
+        // For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.
+        let swapCases = ((n) => {
+            let result = [];
+            for (let i = 0; i <= n.length - 1; i++) {
+                if (n[i] == n[i].toLowerCase()) {
+                    result.push(n[i].toUpperCase())
+                } else {
+                    result.push(n[i].toLowerCase())
+                }
+            }
+            console.log(result.join(""));
+        })
+        swapCases("The Quick Brown Fox");
+
+        // 10. Write a JavaScript program that prints the elements of the following array.
+        var a = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+        a.forEach((data, i) => {
+            console.log("row : ", i)
+            data.forEach((subdata, j) => {
+                console.log(subdata);
+            })
+        })
+
+        // 14. Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity).
+        var arr2 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+
+        //using set
+        var uniqueSet = new Set(arr2);
+        console.log(uniqueSet, typeof (uniqueSet));
+        const uniqueArray = [...uniqueSet];
+        console.log(uniqueArray);
+        console.log(Array.from(new Set(arr2)));
+
+        // with out inbuilt methods
+        function removeDuplicates(arr2) {
+            let unique = [];
+            for (i = 0; i < arr2.length; i++) {
+                if (unique.indexOf(arr2[i]) === -1) {
+                    unique.push(arr2[i]);
+                }
+            }
+            return unique;
+        }
+        console.log(removeDuplicates(arr2));
+
+        // 15 Write a JavaScript program to compute the union of two arrays.
+        data1 = [1, 2, 3], 
+        data2 = [100, 2, 1, 10]
+console.log(Array.from(new Set([...data1,...data2])).sort((a,b)=>{
+    return a-b;
+}));
+
+    let sortResult = data2.sort((a,b)=>{
+        return a-b;
+    })
+
+    console.log(sortResult);
+    
+    </script>
+</body>
+
+</html>
