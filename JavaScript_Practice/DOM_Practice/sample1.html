@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 1</title>
+</head>
+
+<body>
+    <form action="" style="position: absolute; left: 700px;">
+        <label for="id">Id : </label>
+        <input type="number" name="" id="" readonly> <br><br>
+
+        <label for="uname">userName : </label>
+        <input type="text" name="uname" id="uname"> <br> <br>
+
+        <label for="email">Email : </label>
+        <input type="email" name="email" id="email"> <br> <br>
+
+        <label for="age">Age : </label>
+        <input type="number" name="age" id="age"> <br> <br>
+
+        <label for="city">City : </label>
+        <input type="text" name="city" id="city"> <br> <br>
+
+        <button type="button">Add User</button>
+    </form>
+    <script>
+        var users = [
+            {
+                "id": 1,
+                "username": "john_doe",
+                "email": "john.doe@example.com",
+                "age": 28,
+                "city": "New York"
+            },
+            {
+                "id": 2,
+                "username": "jane_smith",
+                "email": "jane.smith@example.com",
+                "age": 35,
+                "city": "Los Angeles"
+            },
+            {
+                "id": 3,
+                "username": "mike_jones",
+                "email": "mike.jones@example.com",
+                "age": 22,
+                "city": "Chicago"
+            },
+            {
+                "id": 4,
+                "username": "sara_wilson",
+                "email": "sara.wilson@example.com",
+                "age": 31,
+                "city": "Houston"
+            },
+            {
+                "id": 5,
+                "username": "david_brown",
+                "email": "david.brown@example.com",
+                "age": 25,
+                "city": "San Francisco"
+            },
+            {
+                "id": 6,
+                "username": "emily_rodriguez",
+                "email": "emily.rodriguez@example.com",
+                "age": 29,
+                "city": "Miami"
+            },
+            {
+                "id": 7,
+                "username": "chris_taylor",
+                "email": "chris.taylor@example.com",
+                "age": 33,
+                "city": "Seattle"
+            },
+            {
+                "id": 8,
+                "username": "laura_miller",
+                "email": "laura.miller@example.com",
+                "age": 26,
+                "city": "Boston"
+            },
+            {
+                "id": 9,
+                "username": "ryan_carter",
+                "email": "ryan.carter@example.com",
+                "age": 30,
+                "city": "Dallas"
+            },
+            {
+                "id": 10,
+                "username": "amanda_young",
+                "email": "amanda.young@example.com",
+                "age": 27,
+                "city": "Atlanta"
+            }
+        ]
+
+        // creating table
+        var myTable = document.createElement("table");
+        myTable.style.border = "2px solid black";
+        myTable.style.borderCollapse = "collapse"
+
+        document.querySelector("body").appendChild(myTable);
+
+        // creating thead and displaying the headings
+        var myThead = document.createElement("thead");
+        myTable.appendChild(myThead);
+
+        var myTheadTr = document.createElement("tr");
+        myThead.appendChild(myTheadTr);
+        for (a in users[0]) {
+            var myTheadTd = document.createElement("td");
+            myTheadTd.style.border = "2px solid black";
+            myTheadTd.innerHTML = a;
+            myTheadTd.style.fontWeight = "bolder";
+            myTheadTd.style.textAlign = "center"
+            myTheadTr.appendChild(myTheadTd);
+        }
+        var myTheadEdit = document.createElement("td");
+        myTheadEdit.innerHTML = "edit";
+        myTheadTr.appendChild(myTheadEdit);
+        myTheadEdit.style.border = "2px solid black";
+        myTheadEdit.style.fontWeight = "bolder";
+        myTheadEdit.style.textAlign = "center"
+
+        var myTheadDelete = document.createElement("td");
+        myTheadDelete.innerHTML = "delete";
+        myTheadTr.appendChild(myTheadDelete);
+        myTheadDelete.style.border = "2px solid black";
+        myTheadDelete.style.fontWeight = "bolder";
+        myTheadDelete.style.textAlign = "center"
+
+
+        // creating tbody and displaying the data
+        var myTbody = document.createElement("tbody");
+        myTable.appendChild(myTbody);
+        for (i = 0; i < users.length; i++) {
+            var myTbodyTr = document.createElement("tr");
+            var user = users[i];
+            for (a in user) {
+                var myTbodyTd = document.createElement("td");
+                myTbodyTd.innerHTML = user[a];
+                myTbodyTd.style.border = "2px solid black"
+                myTbodyTd.style.padding = "5px"
+                myTbodyTd.style.textAlign = "center";
+                myTbodyTr.appendChild(myTbodyTd);
+            }
+            var myEditTd = document.createElement("td");
+            var myEditButton = document.createElement("button");
+            myEditButton.innerHTML = "EDIT";
+            myEditTd.appendChild(myEditButton);
+            myEditTd.style.border = "2px solid black"
+            myEditTd.style.padding = "5px"
+            myEditTd.style.textAlign = "center";
+            myTbodyTr.appendChild(myEditTd);
+
+            var myDeleteTd = document.createElement("td");
+            var myDeleteButton = document.createElement("button");
+            myDeleteButton.innerHTML = "DELETE";
+            myDeleteTd.appendChild(myDeleteButton);
+            myDeleteTd.style.border = "2px solid black"
+            myDeleteTd.style.padding = "5px"
+            myDeleteTd.style.textAlign = "center";
+            myTbodyTr.appendChild(myDeleteTd);
+
+            myTbody.appendChild(myTbodyTr);
+        }
+
+
+    </script>
+</body>
+
+</html>

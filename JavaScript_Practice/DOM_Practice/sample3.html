@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 3</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="id">ID : </label>
+        <input type="number" name="id" id="id"> <br>
+
+        <label for="university">University : </label>
+        <input type="text" name="university" id="university"> <br>
+
+        <label for="institute">Institute : </label>
+        <input type="text" name="institute" id="institute"> <br>
+
+        <label for="branch">Branch : </label>
+        <select name="branch" id="branch">
+            <option value="--select--">--select--</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">ECE</option>
+            <option value="CSE">CSE</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+        </select> <br>
+
+        <label for="degree">Degree : </label>
+        <select name="degree" id="degree">
+            <option value="--select--">--select--</option>
+            <option value="BTECH">BTECH</option>
+            <option value="MASTERS">MASTERS</option>
+            <option value="DEGREE">DEGREE</option>
+        </select> <br>
+
+        <input type="radio" name="status" id="">
+        <label for="status">Persuing</label>
+        <input type="radio" name="status" id="">
+        <label for="status">Completed</label> <br>
+
+        <label for="areasOfInterest">Areas Of Interest : </label> <br>
+        <input type="checkbox" name="" id="">
+        <label for="">HTML</label> <br>
+        <input type="checkbox" name="" id="">
+        <label for="">CSS</label> <br>
+        <input type="checkbox" name="" id="">
+        <label for="">JS</label> <br>
+        <input type="checkbox" name="" id="">
+        <label for="">REACTJS</label> <br>
+        <input type="checkbox" name="" id="">
+        <label for="">BOOTSTRAP</label> <br> <br>
+
+        <label for="category">CATEGORY : </label>
+        <input type="text" name="category" id="category"> <br>
+
+        <label for="image">IMAGE : </label>
+        <input type="text" name="image" id="image"> <br>
+
+        <label for="joiningDate">JOINING DATE : </label>
+        <input type="date" name="joiningDate" id="joiningDate"> <br> <br>
+
+        <button type="button">ADD DETAILS</button> <br><br>
+
+
+
+    </form>
+    <table border="2" style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>UNIVERISTY</th>
+                <th>INSTITUTE</th>
+                <th>BRANCH</th>
+                <th>DEGREE</th>
+                <th>PERSUING STATUS</th>
+                <th>AREAS OF INTEREST</th>
+                <th>CATEGORY</th>
+                <th>IMAGE</th>
+                <th>JOINING DATE</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var universityDetails = [
+            {
+                "id": 1,
+                "university": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "institute": "Demeed to be university",
+                "branch": "ECE",
+                "degree": "BTECH",
+                "status": "completed",
+                "areasOfInterest": ["HTML", "CSS", "JS", "REACTJS", "BOOTSTRAP"],
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "joiningDate": "2024-02-02"
+            }
+        ]
+        for (let i = 0; i < universityDetails.length; i++) {
+            console.log(universityDetails[i])
+            var myTr = document.createElement("tr");
+            var uni = universityDetails[i];
+            for (a in uni) {
+                var myTd = document.createElement("td");
+                if(a == "image"){
+                    var myImage = document.createElement("img");
+                    myImage.setAttribute("src",uni[a]);
+                    myImage.setAttribute("width","150px");
+                    myImage.setAttribute("height","150px");
+                    myTd.appendChild(myImage);
+                }else{
+                    myTd.innerHTML = uni[a];
+                }
+                myTr.appendChild(myTd);
+            }
+            var myEditTd = document.createElement("td");
+            var myEditButton = document.createElement("button");
+            myEditButton.innerHTML = "EDIt";
+            myEditTd.appendChild(myEditButton);
+            myTr.appendChild(myEditTd);
+
+            var myDeleteTd = document.createElement("td");
+            var myDeleteButton = document.createElement("button");
+            myDeleteButton.innerHTML = "DELETE";
+            myDeleteTd.appendChild(myDeleteButton);
+            myTr.appendChild(myDeleteTd);
+            
+            document.querySelector("tbody").appendChild(myTr);
+        }
+    </script>
+</body>
+
+</html>
