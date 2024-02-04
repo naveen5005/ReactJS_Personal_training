@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 4</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="get">
+        <label for="id">Player id : </label>
+        <input type="number" name="id" id="id" readonly> <br>
+
+        <label for="name">Player name : </label>
+        <input type="text" name="name" id="name"> <br>
+
+        <label for="team">Team : </label>
+        <input type="text" name="team" id="team"> <br>
+
+        <fieldset>
+            <legend>Batting Stats : </legend>
+            <label for="runs">Runs</label>
+            <input type="number" name="runs" id="runs"> <br>
+            <label for="centuries">Centuries : </label>
+            <input type="number" name="centuries" id="centuries"> <br>
+            <label for="half_centuries">Half Centuries : </label>
+            <input type="number" name="half_centuries" id="half_centuries"> <br>
+            <label for="average">Average : </label>
+            <input type="number" name="average" id="average"> <br>
+        </fieldset> <br>
+        <fieldset>
+            <legend>Bowling Stats : </legend>
+            <label for="wickets">Wickets: </label>
+            <input type="number" name="wickets" id="wickets"> <br>
+            <label for="overs_bowled">Overs Bowled : </label>
+            <input type="number" name="overs_bowled" id="overs_bowled"> <br>
+            <label for="economy_rate">Economy Rate : </label>
+            <input type="number" name="economy_rate" id="economy_rate">
+        </fieldset> <br><br>
+        <button type="button">Add cricket statistics</button>
+    </form> <br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">PLAYER ID</th>
+                <th rowspan="2">PLAYER NAME</th>
+                <th rowspan="2">TEAM</th>
+                <th colspan="4">BATTING STATS</th>
+                <th colspan="3">BOWLING STATS</th>
+                <th rowspan="2">EDIT</th>
+                <th rowspan="2">DELETE</th>
+            </tr>
+            <tr>
+                <th>RUNS</th>
+                <th>CENTURIES</th>
+                <th>HALF_CENTURIES</th>
+                <th>AVERAGE</th>
+                <th>WICKETS</th>
+                <th>OVERS_BOWLED</th>
+                <th>ECONOMY_RATE</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        let cricketStatics = {
+            "cricket_statistics": [
+                {
+                    "player_id": 1,
+                    "player_name": "Virat Kohli",
+                    "team": "India",
+                    "batting_stats": {
+                        "runs": 11235,
+                        "centuries": 27,
+                        "half_centuries": 58,
+                        "average": 59.34
+                    },
+                    "bowling_stats": {
+                        "wickets": 4,
+                        "overs_bowled": 22.3,
+                        "economy_rate": 6.75
+                    }
+                },
+                {
+                    "player_id": 2,
+                    "player_name": "Steve Smith",
+                    "team": "Australia",
+                    "batting_stats": {
+                        "runs": 7542,
+                        "centuries": 26,
+                        "half_centuries": 40,
+                        "average": 61.80
+                    },
+                    "bowling_stats": {
+                        "wickets": 9,
+                        "overs_bowled": 35.1,
+                        "economy_rate": 5.92
+                    }
+                },
+                {
+                    "player_id": 3,
+                    "player_name": "Kane Williamson",
+                    "team": "New Zealand",
+                    "batting_stats": {
+                        "runs": 6728,
+                        "centuries": 24,
+                        "half_centuries": 32,
+                        "average": 53.50
+                    },
+                    "bowling_stats": {
+                        "wickets": 12,
+                        "overs_bowled": 42.2,
+                        "economy_rate": 4.95
+                    }
+                },
+                {
+                    "player_id": 4,
+                    "player_name": "Joe Root",
+                    "team": "England",
+                    "batting_stats": {
+                        "runs": 8249,
+                        "centuries": 20,
+                        "half_centuries": 49,
+                        "average": 49.39
+                    },
+                    "bowling_stats": {
+                        "wickets": 5,
+                        "overs_bowled": 29.5,
+                        "economy_rate": 5.60
+                    }
+                },
+                {
+                    "player_id": 5,
+                    "player_name": "Babar Azam",
+                    "team": "Pakistan",
+                    "batting_stats": {
+                        "runs": 3852,
+                        "centuries": 9,
+                        "half_centuries": 17,
+                        "average": 45.12
+                    },
+                    "bowling_stats": {
+                        "wickets": 3,
+                        "overs_bowled": 18.4,
+                        "economy_rate": 6.23
+                    }
+                },
+                {
+                    "player_id": 6,
+                    "player_name": "David Warner",
+                    "team": "Australia",
+                    "batting_stats": {
+                        "runs": 8718,
+                        "centuries": 24,
+                        "half_centuries": 48,
+                        "average": 48.09
+                    },
+                    "bowling_stats": {
+                        "wickets": 8,
+                        "overs_bowled": 26.1,
+                        "economy_rate": 5.95
+                    }
+                },
+                {
+                    "player_id": 7,
+                    "player_name": "Kagiso Rabada",
+                    "team": "South Africa",
+                    "batting_stats": {
+                        "runs": 567,
+                        "centuries": 0,
+                        "half_centuries": 2,
+                        "average": 15.75
+                    },
+                    "bowling_stats": {
+                        "wickets": 103,
+                        "overs_bowled": 203.4,
+                        "economy_rate": 4.85
+                    }
+                },
+                {
+                    "player_id": 8,
+                    "player_name": "Mitchell Starc",
+                    "team": "Australia",
+                    "batting_stats": {
+                        "runs": 756,
+                        "centuries": 0,
+                        "half_centuries": 3,
+                        "average": 19.38
+                    },
+                    "bowling_stats": {
+                        "wickets": 184,
+                        "overs_bowled": 344.2,
+                        "economy_rate": 4.89
+                    }
+                },
+                {
+                    "player_id": 9,
+                    "player_name": "Shakib Al Hasan",
+                    "team": "Bangladesh",
+                    "batting_stats": {
+                        "runs": 3867,
+                        "centuries": 5,
+                        "half_centuries": 24,
+                        "average": 38.42
+                    },
+                    "bowling_stats": {
+                        "wickets": 210,
+                        "overs_bowled": 438.3,
+                        "economy_rate": 3.92
+                    }
+                },
+                {
+                    "player_id": 10,
+                    "player_name": "Rashid Khan",
+                    "team": "Afghanistan",
+                    "batting_stats": {
+                        "runs": 342,
+                        "centuries": 0,
+                        "half_centuries": 1,
+                        "average": 21.38
+                    },
+                    "bowling_stats": {
+                        "wickets": 135,
+                        "overs_bowled": 262.1,
+                        "economy_rate": 3.97
+                    }
+                }
+            ]
+        }
+        for (a in cricketStatics) {
+            if (a == "cricket_statistics") {
+                cricketStatics[a].forEach((data, i) => {
+                    var myTr = document.createElement("tr");
+                    for (b in data) {
+                        var myTd = document.createElement("td");
+                        if (b === "batting_stats" || b === "bowling_stats") {
+                            for (c in data[b]) {
+                                var myTd_BS = document.createElement("td");
+                                myTd_BS.innerHTML = data[b][c];
+                                myTr.appendChild(myTd_BS);
+                            }
+                        }
+                        else {
+                            myTd.innerHTML = data[b];
+                            myTr.appendChild(myTd);
+                        }
+                    }
+                    var myEditTd = document.createElement("td");
+                    var myEditButton = document.createElement("button");
+                    myEditButton.innerHTML = "EDIt";
+                    myEditTd.appendChild(myEditButton);
+                    myTr.appendChild(myEditTd);
+
+                    var myDeleteTd = document.createElement("td");
+                    var myDeleteButton = document.createElement("button");
+                    myDeleteButton.innerHTML = "DELETE";
+                    myDeleteTd.appendChild(myDeleteButton);
+                    myTr.appendChild(myDeleteTd);
+                    document.querySelector("tbody").appendChild(myTr);
+                })
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
