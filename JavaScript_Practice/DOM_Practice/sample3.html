@@ -36,21 +36,21 @@
             <option value="DEGREE">DEGREE</option>
         </select> <br>
 
-        <input type="radio" name="status" id="">
+        <input type="radio" name="status" value="Persuing">
         <label for="status">Persuing</label>
-        <input type="radio" name="status" id="">
+        <input type="radio" name="status" value="Completed">
         <label for="status">Completed</label> <br>
 
         <label for="areasOfInterest">Areas Of Interest : </label> <br>
-        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="areasOfInterest" value="HTML">
         <label for="">HTML</label> <br>
-        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="areasOfInterest" value="CSS">
         <label for="">CSS</label> <br>
-        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="areasOfInterest" value="JS">
         <label for="">JS</label> <br>
-        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="areasOfInterest" value="REACTJS">
         <label for="">REACTJS</label> <br>
-        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="areasOfInterest" value="BOOTSTRAP">
         <label for="">BOOTSTRAP</label> <br> <br>
 
         <label for="category">CATEGORY : </label>
@@ -60,13 +60,15 @@
         <input type="text" name="image" id="image"> <br>
 
         <label for="joiningDate">JOINING DATE : </label>
-        <input type="date" name="joiningDate" id="joiningDate"> <br> <br>
+        <input type="date" name="joiningDate" id="joiningDate"> <br>
 
-        <button type="button">ADD DETAILS</button> <br><br>
+        <button type="button" id="addUniveristy" onclick="addUniversityDetails()" style="display: block;">ADD
+            DETAILS</button>
+        <button type="button" id="updateUniversity" onclick="updateUniversityDetails()" style="display: none;">UPDATE
+            DETAILS</button>
 
 
-
-    </form>
+    </form> <br>
     <table border="2" style="border-collapse: collapse;">
         <thead>
             <tr>
@@ -89,6 +91,143 @@
         </tbody>
     </table>
     <script>
+        function returnObj() {
+            return {
+                id: "",
+                university: "",
+                institute: "",
+                branch: "",
+                degree: "",
+                status: "",
+                areasOfInterest: [],
+                category: "",
+                image: "",
+                joiningDate: ""
+            }
+        }
+        addUniversityDetails = () => {
+            var addPayload = returnObj()
+            for (a in addPayload) {
+                if (a !== "image" && a !== "status" && a !== "areasOfInterest") {
+                    addPayload[a] = document.getElementById(a).value;
+                } else if (a == "image") {
+                    addPayload[a] = document.getElementById(a).value;
+                } else if (a == "status") {
+                    let allRadioButtons = document.getElementsByName(a);
+                    allRadioButtons.forEach((element) => {
+                        if (element.checked) {
+                            addPayload[a] = element.value;
+                        }
+                    })
+                } else if (a == "areasOfInterest") {
+                    let allCheckBoxes = document.getElementsByName(a);
+                    allCheckBoxes.forEach((element) => {
+                        if (element.checked) {
+                            addPayload[a].push(element.value);
+                        }
+                    })
+                }
+            }
+            displayUniveristyDetails(universityDetails.push(addPayload));
+            clearForm();
+            console.log(addPayload);
+        }
+        function clearForm() {
+            for (a in returnObj()) {
+                if (a !== "image" && a !== "status" && a !== "areasOfInterest") {
+                    document.getElementById(a).value = "";
+                } else if (a == "image") {
+                    document.getElementById(a).value = "";
+                } else if (a == "status") {
+                    let allRadioButtons = document.getElementsByName(a);
+                    allRadioButtons.forEach((element) => {
+                        if (element.checked) {
+                            element.checked = false
+                            // element = { ...element, checked: false }
+                        }
+                    })
+
+                } else if (a == "areasOfInterest") {
+                    let allCheckBoxes = document.getElementsByName(a);
+                    allCheckBoxes.forEach((element) => {
+                        if (element.checked) {
+                            element.checked = false;
+                        }
+                    })
+                }
+            }
+        }
+        function deleteUniveristyDetails(i) {
+            universityDetails = universityDetails.filter((data, index) => index !== i);
+            displayUniveristyDetails(universityDetails);
+        }
+        let addToogleBtn = document.getElementById("addUniveristy");
+        let updateToggleBtn = document.getElementById("updateUniversity");
+        let updateIndex = null;
+
+        editUniversityDetails = (i) => {
+            let editPayload = universityDetails[i];
+            updateIndex = i;
+            for (a in editPayload) {
+                if (a !== "image" && a !== "status" && a !== "areasOfInterest") {
+                    document.getElementById(a).value = editPayload[a];
+                } else if (a == "image") {
+                    document.getElementById(a).value = editPayload[a];
+                } else if (a == "status") {
+                    let allRadioButtons = document.getElementsByName(a);
+                    allRadioButtons.forEach((element) => {
+                        if (element.value == editPayload[a]) {
+                            element.checked = true;
+                        }
+                    })
+                } else if (a == "areasOfInterest") {
+                    let allCheckBoxes = document.getElementsByName(a);
+                    allCheckBoxes.forEach((element) => {
+                        editPayload[a].forEach((data, i) => {
+                            if (element.value == data) {
+                                element.checked = true;
+                            }
+                        })
+                    })
+                }
+                console.log(a, editPayload[a])
+            }
+            addToogleBtn.setAttribute("style", "display:none");
+            updateToggleBtn.setAttribute("style", "display:block");
+        }
+        updateUniversityDetails = () => {
+            console.log(updateIndex);
+            let updatePayload = universityDetails[updateIndex];
+            for (a in updatePayload) {
+                if (a !== "images" && a !== "status" && a !== "areasOfInterest") {
+                    updatePayload[a] = document.getElementById(a).value;
+                } else if (a == "images") {
+                    updateIndex[a] = document.getElementById(a).value;
+                } else if (a == "status") {
+                    let allRadioButtons = document.getElementsByName(a);
+                    allRadioButtons.forEach((element) => {
+                        if (element.checked) {
+                            updatePayload[a] = element.value
+                        }
+                    })
+                } else if (a == "areasOfInterest") {
+                    let allCheckBoxes = document.getElementsByName(a);
+                    let dummy = [];
+                    allCheckBoxes.forEach((element) => {
+                        if (element.checked) {
+                            dummy.push(element.value);
+                        }
+                    })
+                    updatePayload[a] = dummy;
+                }
+            }
+            addToogleBtn.setAttribute("style", "display:block");
+            updateToggleBtn.setAttribute("style", "display:none");
+
+            universityDetails[updateIndex] = updatePayload;
+            displayUniveristyDetails(universityDetails);
+            clearForm();
+        }
         var universityDetails = [
             {
                 "id": 1,
@@ -96,44 +235,50 @@
                 "institute": "Demeed to be university",
                 "branch": "ECE",
                 "degree": "BTECH",
-                "status": "completed",
+                "status": "Completed",
                 "areasOfInterest": ["HTML", "CSS", "JS", "REACTJS", "BOOTSTRAP"],
                 "category": "men's clothing",
                 "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
                 "joiningDate": "2024-02-02"
             }
         ]
-        for (let i = 0; i < universityDetails.length; i++) {
-            console.log(universityDetails[i])
-            var myTr = document.createElement("tr");
-            var uni = universityDetails[i];
-            for (a in uni) {
-                var myTd = document.createElement("td");
-                if(a == "image"){
-                    var myImage = document.createElement("img");
-                    myImage.setAttribute("src",uni[a]);
-                    myImage.setAttribute("width","150px");
-                    myImage.setAttribute("height","150px");
-                    myTd.appendChild(myImage);
-                }else{
-                    myTd.innerHTML = uni[a];
+        function displayUniveristyDetails() {
+            document.querySelector("tbody").innerHTML = "";
+            for (let i = 0; i < universityDetails.length; i++) {
+                // console.log(universityDetails[i])
+                var myTr = document.createElement("tr");
+                var uni = universityDetails[i];
+                for (a in uni) {
+                    var myTd = document.createElement("td");
+                    if (a == "image") {
+                        var myImage = document.createElement("img");
+                        myImage.setAttribute("src", uni[a]);
+                        myImage.setAttribute("width", "150px");
+                        myImage.setAttribute("height", "150px");
+                        myTd.appendChild(myImage);
+                    } else {
+                        myTd.innerHTML = uni[a];
+                    }
+                    myTr.appendChild(myTd);
                 }
-                myTr.appendChild(myTd);
-            }
-            var myEditTd = document.createElement("td");
-            var myEditButton = document.createElement("button");
-            myEditButton.innerHTML = "EDIt";
-            myEditTd.appendChild(myEditButton);
-            myTr.appendChild(myEditTd);
+                var myEditTd = document.createElement("td");
+                var myEditButton = document.createElement("button");
+                myEditButton.innerHTML = "EDIT";
+                myEditButton.setAttribute("onclick", "editUniversityDetails(" + i + ")");
+                myEditTd.appendChild(myEditButton);
+                myTr.appendChild(myEditTd);
 
-            var myDeleteTd = document.createElement("td");
-            var myDeleteButton = document.createElement("button");
-            myDeleteButton.innerHTML = "DELETE";
-            myDeleteTd.appendChild(myDeleteButton);
-            myTr.appendChild(myDeleteTd);
-            
-            document.querySelector("tbody").appendChild(myTr);
+                var myDeleteTd = document.createElement("td");
+                var myDeleteButton = document.createElement("button");
+                myDeleteButton.innerHTML = "DELETE";
+                myDeleteButton.setAttribute("onclick", "deleteUniveristyDetails(" + i + ")");
+                myDeleteTd.appendChild(myDeleteButton);
+                myTr.appendChild(myDeleteTd);
+
+                document.querySelector("tbody").appendChild(myTr);
+            }
         }
+        displayUniveristyDetails();
     </script>
 </body>
 
