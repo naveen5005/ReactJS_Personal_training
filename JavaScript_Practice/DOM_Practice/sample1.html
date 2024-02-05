@@ -10,10 +10,10 @@
 <body>
     <form action="" style="position: absolute; left: 700px;">
         <label for="id">Id : </label>
-        <input type="number" name="" id="" readonly> <br><br>
+        <input type="number" name="" id="id"> <br><br>
 
         <label for="uname">userName : </label>
-        <input type="text" name="uname" id="uname"> <br> <br>
+        <input type="text" name="username" id="username"> <br> <br>
 
         <label for="email">Email : </label>
         <input type="email" name="email" id="email"> <br> <br>
@@ -24,9 +24,11 @@
         <label for="city">City : </label>
         <input type="text" name="city" id="city"> <br> <br>
 
-        <button type="button">Add User</button>
+        <button type="button" id="adduser" onclick="addUser()" style="display: block;">Add User</button>
+        <button type="button" id="updateuser" onclick="updateUser()" style="display: none;">Update User</button>
     </form>
     <script>
+
         var users = [
             {
                 "id": 1,
@@ -100,6 +102,64 @@
             }
         ]
 
+        const user = {
+            id: "",
+            username: "",
+            email: "",
+            age: "",
+            city: ""
+        }
+        addUser = () => {
+            const addPayload = { ...user };
+            document.querySelector("tbody").innerHTML = "";
+
+            for (a in addPayload) {
+                addPayload[a] = document.getElementById(a).value;
+            }
+            displayUsers(users.push(addPayload));
+            console.log(addPayload);
+            console.log(users);
+            clearForm();
+        }
+
+        function clearForm() {
+            for (a in user) {
+                document.getElementById(a).value = "";
+            }
+        }
+
+        function deleteUser(i) {
+            users = users.filter((element, index) => i !== index)
+            displayUsers(users)
+        }
+
+        let addUserToggle = document.getElementById("adduser");
+        let deleteUserToggle = document.getElementById("updateuser");
+        let updateUserIndex = null;
+        
+        function editUser(i){
+            updateUserIndex = i;
+            const editPayload = users[i];
+            for(a in editPayload){
+                document.getElementById(a).value = editPayload[a];
+            }
+
+
+            addUserToggle.setAttribute("style","display : none");
+            deleteUserToggle.setAttribute("style","display:block");
+        }
+        updateUser = () =>{
+            const updatePayload = {...user};
+            for (a in updatePayload) {
+                updatePayload[a] = document.getElementById(a).value;
+            }
+            users[updateUserIndex] = updatePayload;
+            displayUsers(users);
+            clearForm();
+            // console.log(updatePayload ,updateUserIndex);
+            addUserToggle.setAttribute("style","display:block");
+            deleteUserToggle.setAttribute("style","display : none");
+        }
         // creating table
         var myTable = document.createElement("table");
         myTable.style.border = "2px solid black";
@@ -113,6 +173,7 @@
 
         var myTheadTr = document.createElement("tr");
         myThead.appendChild(myTheadTr);
+
         for (a in users[0]) {
             var myTheadTd = document.createElement("td");
             myTheadTd.style.border = "2px solid black";
@@ -139,38 +200,46 @@
         // creating tbody and displaying the data
         var myTbody = document.createElement("tbody");
         myTable.appendChild(myTbody);
-        for (i = 0; i < users.length; i++) {
-            var myTbodyTr = document.createElement("tr");
-            var user = users[i];
-            for (a in user) {
-                var myTbodyTd = document.createElement("td");
-                myTbodyTd.innerHTML = user[a];
-                myTbodyTd.style.border = "2px solid black"
-                myTbodyTd.style.padding = "5px"
-                myTbodyTd.style.textAlign = "center";
-                myTbodyTr.appendChild(myTbodyTd);
+
+        // display user function to display the data in the users array
+        function displayUsers() {
+            document.querySelector("tbody").innerHTML = "";
+            for (i = 0; i < users.length; i++) {
+                var myTbodyTr = document.createElement("tr");
+                var user = users[i];
+
+                for (a in user) {
+                    var myTbodyTd = document.createElement("td");
+                    myTbodyTd.innerHTML = user[a];
+                    myTbodyTd.style.border = "2px solid black"
+                    myTbodyTd.style.padding = "5px"
+                    myTbodyTd.style.textAlign = "center";
+                    myTbodyTr.appendChild(myTbodyTd);
+                }
+                var myEditTd = document.createElement("td");
+                var myEditButton = document.createElement("button");
+                myEditButton.innerHTML = "EDIT";
+                myEditButton.setAttribute("onclick","editUser("+i+")");
+                myEditTd.appendChild(myEditButton);
+                myEditTd.style.border = "2px solid black"
+                myEditTd.style.padding = "5px"
+                myEditTd.style.textAlign = "center";
+                myTbodyTr.appendChild(myEditTd);
+
+                var myDeleteTd = document.createElement("td");
+                var myDeleteButton = document.createElement("button");
+                myDeleteButton.innerHTML = "DELETE";
+                myDeleteButton.setAttribute("onclick", "deleteUser(" + i + ")");
+                myDeleteTd.appendChild(myDeleteButton);
+                myDeleteTd.style.border = "2px solid black"
+                myDeleteTd.style.padding = "5px"
+                myDeleteTd.style.textAlign = "center";
+                myTbodyTr.appendChild(myDeleteTd);
+
+                myTbody.appendChild(myTbodyTr);
             }
-            var myEditTd = document.createElement("td");
-            var myEditButton = document.createElement("button");
-            myEditButton.innerHTML = "EDIT";
-            myEditTd.appendChild(myEditButton);
-            myEditTd.style.border = "2px solid black"
-            myEditTd.style.padding = "5px"
-            myEditTd.style.textAlign = "center";
-            myTbodyTr.appendChild(myEditTd);
-
-            var myDeleteTd = document.createElement("td");
-            var myDeleteButton = document.createElement("button");
-            myDeleteButton.innerHTML = "DELETE";
-            myDeleteTd.appendChild(myDeleteButton);
-            myDeleteTd.style.border = "2px solid black"
-            myDeleteTd.style.padding = "5px"
-            myDeleteTd.style.textAlign = "center";
-            myTbodyTr.appendChild(myDeleteTd);
-
-            myTbody.appendChild(myTbodyTr);
         }
-
+        displayUsers();
 
     </script>
 </body>
