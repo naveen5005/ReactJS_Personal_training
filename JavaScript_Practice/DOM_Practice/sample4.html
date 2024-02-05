@@ -18,17 +18,17 @@
 <body>
     <form action="" method="get">
         <label for="id">Player id : </label>
-        <input type="number" name="id" id="id" readonly> <br>
+        <input type="number" name="id" id="player_id" > <br>
 
         <label for="name">Player name : </label>
-        <input type="text" name="name" id="name"> <br>
+        <input type="text" name="name" id="player_name"> <br>
 
         <label for="team">Team : </label>
         <input type="text" name="team" id="team"> <br>
 
         <fieldset>
             <legend>Batting Stats : </legend>
-            <label for="runs">Runs</label>
+            <label for="runs">Runs : </label>
             <input type="number" name="runs" id="runs"> <br>
             <label for="centuries">Centuries : </label>
             <input type="number" name="centuries" id="centuries"> <br>
@@ -46,7 +46,8 @@
             <label for="economy_rate">Economy Rate : </label>
             <input type="number" name="economy_rate" id="economy_rate">
         </fieldset> <br><br>
-        <button type="button">Add cricket statistics</button>
+        <button type="button" id = "addStats" onclick="addPlayer()" style="display: block;">Add cricket statistics</button>
+        <button type="button" id="updateStats" onclick="updatePlayer()" style="display: none;">Update cricket statistics</button>
     </form> <br><br><br>
     <table>
         <thead>
@@ -75,6 +76,92 @@
     </table>
 
     <script>
+        const stats = {
+            player_id: "",
+            player_name: "",
+            team: "",
+            batting_stats: {
+                runs: "",
+                centuries: "",
+                half_centuries: "",
+                average: ""
+            },
+            bowling_stats: {
+                wickets: "",
+                overs_bowled: "",
+                economy_rate: ""
+            }
+        }
+        addPlayer = () => {
+            const addPayload = { ...stats };
+            for (a in addPayload) {
+                if (a !== "batting_stats" && a !== "bowling_stats") {
+                    addPayload[a] = document.getElementById(a).value;
+                } else {
+                    for (b in addPayload[a]) {
+                        addPayload[a][b] = document.getElementById(b).value;
+                    }
+                }
+            }
+            displayUser(cricketStatics.cricket_statistics.push(addPayload));
+            clearForm();
+            console.log(addPayload);
+        }
+        function clearForm(){
+            for(a in stats){
+                if (a !== "batting_stats" && a !== "bowling_stats") {
+                    document.getElementById(a).value = "";
+                } else {
+                    for (b in stats[a]) {
+                        document.getElementById(b).value = "";
+                    }
+                }
+            }
+        }
+        deleteStats = (i) =>{
+            allStats = cricketStatics.cricket_statistics.filter((data,index)=>index !== i);
+            cricketStatics.cricket_statistics = allStats;
+            // console.log(cricketStatics.cricket_statistics);
+            // console.log(allStats);
+            displayUser(allStats);
+        }
+        let updateIndex = null;
+        let addStatsToggle = document.getElementById("addStats");
+        let updateStatsToggle = document.getElementById("updateStats");
+        editStats = (i) =>{
+            updateIndex = i;
+            let editPayload = cricketStatics.cricket_statistics[i];
+            for(a in editPayload){
+                if( a!== "batting_stats" && a !== "bowling_stats"){
+                    document.getElementById(a).value = editPayload[a];
+                } else{
+                    for(b in editPayload[a]){
+                        document.getElementById(b).value = editPayload[a][b];
+                    }
+                }
+            }
+
+            addStatsToggle.setAttribute("style","display:none");
+            updateStatsToggle.setAttribute("style","display:block");
+        }
+        updatePlayer = () =>{
+            let updatePayload = cricketStatics.cricket_statistics[updateIndex];
+            for(a in updatePayload){
+                if(a!=="batting_stats" && a !== "bowling_stats"){
+                    updatePayload[a] = document.getElementById(a).value;
+                }else{
+                    for(b in updatePayload[a]){
+                        updatePayload[a][b] = document.getElementById(b).value;
+                    }
+                }
+            }
+            cricketStatics.cricket_statistics[updateIndex] = updatePayload;
+            displayUser(cricketStatics.cricket_statistics);
+            clearForm();
+
+            addStatsToggle.setAttribute("style","display:block");
+            updateStatsToggle.setAttribute("style","display:none");
+        }
         let cricketStatics = {
             "cricket_statistics": [
                 {
@@ -239,41 +326,46 @@
                 }
             ]
         }
-        for (a in cricketStatics) {
-            if (a == "cricket_statistics") {
-                cricketStatics[a].forEach((data, i) => {
-                    var myTr = document.createElement("tr");
-                    for (b in data) {
-                        var myTd = document.createElement("td");
-                        if (b === "batting_stats" || b === "bowling_stats") {
-                            for (c in data[b]) {
-                                var myTd_BS = document.createElement("td");
-                                myTd_BS.innerHTML = data[b][c];
-                                myTr.appendChild(myTd_BS);
+        function displayUser() {
+            for (a in cricketStatics) {
+                if (a == "cricket_statistics") {
+                    document.querySelector("tbody").innerHTML = "";
+                    cricketStatics[a].forEach((data, i) => {
+                        var myTr = document.createElement("tr");
+                        for (b in data) {
+                            var myTd = document.createElement("td");
+                            if (b === "batting_stats" || b === "bowling_stats") {
+                                for (c in data[b]) {
+                                    var myTd_BS = document.createElement("td");
+                                    myTd_BS.innerHTML = data[b][c];
+                                    myTr.appendChild(myTd_BS);
+                                }
+                            }
+                            else {
+                                myTd.innerHTML = data[b];
+                                myTr.appendChild(myTd);
                             }
                         }
-                        else {
-                            myTd.innerHTML = data[b];
-                            myTr.appendChild(myTd);
-                        }
-                    }
-                    var myEditTd = document.createElement("td");
-                    var myEditButton = document.createElement("button");
-                    myEditButton.innerHTML = "EDIt";
-                    myEditTd.appendChild(myEditButton);
-                    myTr.appendChild(myEditTd);
+                        var myEditTd = document.createElement("td");
+                        var myEditButton = document.createElement("button");
+                        myEditButton.innerHTML = "EDIt";
+                        myEditButton.setAttribute("onclick","editStats("+i+")");
+                        myEditTd.appendChild(myEditButton);
+                        myTr.appendChild(myEditTd);
 
-                    var myDeleteTd = document.createElement("td");
-                    var myDeleteButton = document.createElement("button");
-                    myDeleteButton.innerHTML = "DELETE";
-                    myDeleteTd.appendChild(myDeleteButton);
-                    myTr.appendChild(myDeleteTd);
-                    document.querySelector("tbody").appendChild(myTr);
-                })
+                        var myDeleteTd = document.createElement("td");
+                        var myDeleteButton = document.createElement("button");
+                        myDeleteButton.innerHTML = "DELETE";
+                        myDeleteButton.setAttribute("onclick","deleteStats("+i+")");
+                        myDeleteTd.appendChild(myDeleteButton);
+                        myTr.appendChild(myDeleteTd);
+                        document.querySelector("tbody").appendChild(myTr);
+                    })
+                }
             }
+
         }
-
-
+        displayUser();
 
     </script>
 </body>

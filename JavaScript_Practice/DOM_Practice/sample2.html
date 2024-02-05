@@ -7,7 +7,7 @@
     <title>DOM 2</title>
 </head>
 <style>
-    .DOMDetails{
+    .DOMDetails {
         display: grid;
         grid-template-columns: auto auto;
         grid-gap: 50px;
@@ -20,14 +20,14 @@
         <div class="formDetails">
             <form action="" method="get">
                 <label for="id">ID: </label>
-                <input type="number" name="" id="id" readonly> <br>
+                <input type="number" name="" id="id"> <br>
 
                 <label for="title">Title : </label>
                 <input type="text" name="title" id="title"> <br>
 
                 <label for="price">Price : </label>
                 <input type="number" name="price" id="price"> <br>
-                
+
                 <label for="description">Description : </label>
                 <input type="text" name="description" id="description"> <br>
 
@@ -35,7 +35,8 @@
                 <input type="text" name="category" id="category"> <br>
 
                 <label for="image">Image : </label>
-                <input type="image" src="" alt=""> <br>
+                <!-- <input type="image" src="" alt="" id="image"> <br> -->
+                <input type="text" name="" id="image"> <br>
 
                 <label for="rate">Rate : </label>
                 <input type="number" name="rate" id="rate"> <br>
@@ -43,7 +44,8 @@
                 <label for="count">Count : </label>
                 <input type="number" name="count" id="count"> <br><br>
 
-                <button type="button">Add Product</button>
+                <button type="button" id="adduser" onclick="addProduct()" style="display: block;">Add Product</button>
+                <button type="button" id="updateuser" onclick="updateProduct()" style="display: none;">Update Product</button>
 
             </form>
         </div>
@@ -74,6 +76,72 @@
     </div>
 
     <script>
+        const prod = {
+            id: "",
+            title: "",
+            price: "",
+            description: "",
+            category: "",
+            image: "",
+            rate: "",
+            count: ""
+        }
+
+        addProduct = () => {
+            const addPayload = { ...prod };
+            for (a in addPayload) {
+                addPayload[a] = document.getElementById(a).value;
+            }
+
+            displayProducts(allProducts.push(addPayload));
+            clearForm();
+        }
+        function clearForm(){
+            for(a in prod){
+                document.getElementById(a).value = "";
+            }
+        }
+        function deleteProduct(i){
+            allProducts = allProducts.filter((data,index)=> index !== i)
+            displayProducts(allProducts);
+        }
+        let addUserToggle = document.getElementById("adduser");
+        let updateUserToggle = document.getElementById("updateuser");
+        let updateUserIndex = null;
+
+        editProduct = (i) =>{
+            // console.log(i);
+            const singleEditProd = allProducts[i];
+            updateUserIndex = i;
+            // console.log(singleEditProd);
+            for(a in singleEditProd){
+                if(a == "rating"){
+                    for(b in singleEditProd[a]){
+                        document.getElementById(b).value = singleEditProd[a][b];
+                    }
+                }else
+                document.getElementById(a).value = singleEditProd[a];
+            }
+
+            addUserToggle.setAttribute("style","display : none");
+            updateUserToggle.setAttribute("style","display:block");
+        }
+        updateProduct = ()=>{
+            const singleUpdateProduct = allProducts[updateUserIndex];
+            for( a in singleUpdateProduct){
+                if(a == "rating"){
+                    for(b in singleUpdateProduct[a]){
+                        singleUpdateProduct[a][b]=document.getElementById(b).value;
+                    }
+                }else
+                singleUpdateProduct[a] = document.getElementById(a).value;
+            }
+            displayProducts(allProducts);
+            clearForm();
+
+            addUserToggle.setAttribute("style","display : block");
+            updateUserToggle.setAttribute("style","display : none");
+        }
         var allProducts = [
             {
                 "id": 1,
@@ -196,46 +264,52 @@
                 }
             }
         ]
-        
-        for(i=0;i<allProducts.length;i++){
-            var myTr = document.createElement("tr");
-            var product = allProducts[i];
-            for(a in product){
-                var myTd = document.createElement("td");
-                if(a == "image"){
-                    var myImage = document.createElement("img");
-                    myTd.appendChild(myImage);
-                    myImage.setAttribute("src",product[a]);
-                    myImage.style.width = "100px";
-                    myImage.style.height = "100px"
-                    myTr.appendChild(myTd);
-                }else if(a == "rating"){
-                    for(b in product[a]){
-                        var myTdinner = document.createElement("td");
-                        myTdinner.innerHTML = product[a][b]
-                        myTr.appendChild(myTdinner);
+
+        function displayProducts() {
+            document.querySelector("tbody").innerHTML = "";
+            for (i = 0; i < allProducts.length; i++) {
+                var myTr = document.createElement("tr");
+                var product = allProducts[i];
+                for (a in product) {
+                    var myTd = document.createElement("td");
+                    if (a == "image") {
+                        var myImage = document.createElement("img");
+                        myTd.appendChild(myImage);
+                        myImage.setAttribute("src", product[a]);
+                        myImage.style.width = "100px";
+                        myImage.style.height = "100px"
+                        myTr.appendChild(myTd);
+                    } else if (a == "rating") {
+                        for (b in product[a]) {
+                            var myTdinner = document.createElement("td");
+                            myTdinner.innerHTML = product[a][b]
+                            myTr.appendChild(myTdinner);
+                        }
+                    }
+                    else {
+                        myTd.innerHTML = product[a];
+                        myTr.appendChild(myTd);
                     }
                 }
-                else{
-                    myTd.innerHTML = product[a];
-                    myTr.appendChild(myTd);
-                }
+                var myEditTd = document.createElement("td");
+                var myEditButton = document.createElement("button");
+                myEditButton.innerHTML = "EDIT";
+                myEditButton.setAttribute("onclick","editProduct("+i+")");
+                myEditTd.appendChild(myEditButton);
+                myTr.appendChild(myEditTd);
+
+                var myDeleteTd = document.createElement("td");
+                var myDeleteButton = document.createElement("button");
+                myDeleteButton.innerHTML = "DELETE";
+                myDeleteButton.setAttribute("onclick","deleteProduct("+i+")")
+                myDeleteTd.appendChild(myDeleteButton);
+                myTr.appendChild(myDeleteTd);
+
+                document.querySelector("tbody").appendChild(myTr);
             }
-            var myEditTd = document.createElement("td");
-            var myEditButton = document.createElement("button");
-            myEditButton.innerHTML = "EDIT";
-            myEditTd.appendChild(myEditButton);
-            myTr.appendChild(myEditTd);
-            
-            var myDeleteTd = document.createElement("td");
-            var myDeleteButton = document.createElement("button");
-            myDeleteButton.innerHTML = "DELETE";
-            myDeleteTd.appendChild(myDeleteButton);
-            myTr.appendChild(myDeleteTd);
-            
-            document.querySelector("tbody").appendChild(myTr);
         }
 
+        displayProducts();
     </script>
 </body>
 
