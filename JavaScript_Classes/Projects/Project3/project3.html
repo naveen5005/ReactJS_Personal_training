@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./mystyles.css">
 </head>
+
 <body>
     <div class="formbold-main-wrapper">
         <!-- Author: FormBold Team -->
@@ -15,25 +17,26 @@
             <form action="https://formbold.com/s/FORM_ID" method="POST">
                 <div class="formbold-input-group">
                     <label for="name" class="formbold-form-label"> Name </label>
-                    <input type="text" name="name" id="name" placeholder="Enter your name" class="formbold-form-input" />
+                    <input type="text" name="name" id="name" placeholder="Enter your name"
+                        class="formbold-form-input" />
                 </div>
-    
+
                 <div class="formbold-input-group">
                     <label for="email" class="formbold-form-label"> Email </label>
                     <input type="email" name="lastname" id="email" placeholder="Enter your email"
                         class="formbold-form-input" />
                 </div>
-    
+
                 <div class="formbold-input-group">
                     <label for="age" class="formbold-form-label"> Age </label>
                     <input type="number" name="age" id="age" placeholder="Enter your age" class="formbold-form-input" />
                 </div>
-    
+
                 <div class="formbold-input-group">
                     <label class="formbold-form-label">
                         Which option best describes you?
                     </label>
-    
+
                     <select class="formbold-form-select" name="occupation" id="occupation">
                         <option value="Student">Student</option>
                         <option value="designer">UX/UI Designer</option>
@@ -41,12 +44,12 @@
                         <option value="frontend">Front End Developer</option>
                     </select>
                 </div>
-    
+
                 <div class="formbold-input-radio-wrapper">
                     <label for="ans" class="formbold-form-label">
                         Would you recomend our site to a friend?
                     </label>
-    
+
                     <div class="formbold-radio-flex">
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label">
@@ -55,7 +58,7 @@
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label">
                                 <input class="formbold-input-radio" type="radio" name="ans" id="ans" value="No" />
@@ -63,7 +66,7 @@
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label">
                                 <input class="formbold-input-radio" type="radio" name="ans" id="ans" value="Maybe" />
@@ -73,95 +76,104 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="formbold-input-radio-wrapper">
                     <label class="formbold-form-label">
                         Which languages & freameworks you know?
                     </label>
-    
+
                     <div class="formbold-radio-flex">
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="c">
-                                <input class="formbold-input-radio languages" type="checkbox" name="c" id="c" onclick="handleChange(this)"/>
+                                <input class="formbold-input-radio languages" type="checkbox" name="c" value="c"
+                                    onclick="handleChange(this)" />
                                 C
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="c++">
-                                <input class="formbold-input-radio languages" type="checkbox" name="c++" id="c++" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="c++" value="c++" />
                                 c++
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="java">
-                                <input class="formbold-input-radio languages" type="checkbox" name="java" id="java" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="java"
+                                    value="java" />
                                 Java
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="python">
-                                <input class="formbold-input-radio languages" type="checkbox" name="python" id="python" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="python"
+                                    value="python" />
                                 Python
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="javaScript">
-                                <input class="formbold-input-radio languages" type="checkbox" name="javaScript" id="javaScript" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="javaScript"
+                                    value="javaScript" />
                                 JavaScript
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="react">
-                                <input class="formbold-input-radio languages" type="checkbox" name="react" id="react" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="react"
+                                    value="react" />
                                 React
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="angular">
-                                <input class="formbold-input-radio languages" type="checkbox" name="angular" id="angular" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="angular"
+                                    value="angular" />
                                 Angular
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="django">
-                                <input class="formbold-input-radio languages" type="checkbox" name="django" id="django" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="django"
+                                    value="django" />
                                 Django
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="tailwind">
-                                <input class="formbold-input-radio languages" type="checkbox" name="tailwind" id="tailwind" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="tailwind"
+                                    value="tailwind" />
                                 Tailwind CSS
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
-    
+
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="bootstrap">
-                                <input class="formbold-input-radio languages" type="checkbox" name="bootstrap" id="bootstrap" />
+                                <input class="formbold-input-radio languages" type="checkbox" name="bootstrap"
+                                    value="bootstrap" />
                                 Bootstrap
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
                         </div>
                     </div>
                 </div>
-    
+
                 <div>
                     <label for="message" class="formbold-form-label">
                         Any comments or suggestions
@@ -169,13 +181,19 @@
                     <textarea rows="6" name="message" id="message" placeholder="Type here..."
                         class="formbold-form-input"></textarea>
                 </div>
-    
+                <div class="formbold-input-group" hidden>
+                    <label for="name" class="formbold-form-label"> ID </label>
+                    <input type="text" name="name" id="id" placeholder="Enter your name" class="formbold-form-input" />
+                </div>
+
                 <button class="formbold-btn" type="button" onclick="addUser()">Submit</button>
+                <button class="formbold-btn" type="button" onclick="updateUser()">Update</button>
             </form>
         </div>
         <div class="table">
             <table border="1">
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Age</th>
@@ -191,4 +209,5 @@
     </div>
     <script src="./main.js"></script>
 </body>
+
 </html>
