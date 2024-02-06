@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table CRUD</title>
+    <style>
+        table,
+        thead,
+        tbody {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        function deleteUser(i) {
+            console.log(i)
+            users = users.filter((data, index) => index !== i);
+            console.log(users)
+            displayUser(users);
+        }
+        let updateIndex = null;
+
+        function editUser(i) {
+            updateIndex = i;
+            // console.log(i)
+            let textInput = document.querySelectorAll("input[type=text]");
+            let editToggle = document.querySelectorAll("#edituser");
+            // console.log(editToggle);
+            let updateToggle = document.querySelectorAll("#updateuser");
+            // console.log(updateToggle);
+            textInput.forEach((data, index) => {
+                if (index === i) {
+                    textInput[i].removeAttribute("readonly", "");
+                    editToggle[i].setAttribute("style", "display : none");
+                    updateToggle[i].setAttribute("style", "display:block");
+                }
+            })
+        }
+        function returnObj() {
+            return {
+                uname: ""
+            }
+        }
+        updateUser = () => {
+            const user = returnObj();
+            let textInputUpdate = document.querySelectorAll("input[type=text]");
+            textInputUpdate.forEach((data, i) => {
+                if (i == updateIndex) {
+                    console.log(data);
+                    for (a in user) {
+                        user[a] = data.value;
+                    }
+                }
+            })
+
+            users[updateIndex] = user;
+            displayUser(users);
+
+            let editToggle = document.querySelectorAll("#edituser");
+            // console.log(editToggle);
+            let updateToggle = document.querySelectorAll("#updateuser");
+            // console.log(updateToggle);
+
+            editToggle[updateIndex].setAttribute("style", "display : block");
+            updateToggle[updateIndex].setAttribute("style", "display: none");
+
+            let textInput = document.querySelectorAll("input[type=text]");
+            textInput[updateIndex].setAttribute("readonly", "");
+        }
+        var users = [
+            {
+                uname: "Naveen",
+            },
+            {
+                uname: "Kiran"
+            },
+            {
+                uname: ""
+            },
+            {
+                uname: "Venky"
+            }
+        ]
+        function displayUser() {
+            document.querySelector("tbody").innerHTML = "";
+            users.forEach((data, i) => {
+                var myTr = document.createElement("tr");
+                for (a in data) {
+                    // console.log(a, data[a])
+                    var myTd = document.createElement("td");
+                    var myInput = document.createElement("input");
+                    // myInput.innerHTML = data[a];
+                    myInput.setAttribute("type", "text");
+                    myInput.setAttribute("value", data[a]);
+                    myInput.setAttribute("id", a);
+                    myInput.setAttribute("readonly", "");
+                    myTd.appendChild(myInput);
+                    myTr.appendChild(myTd);
+
+                    var myEditTd = document.createElement("td");
+                    var myEditButton = document.createElement("button");
+                    myEditButton.innerHTML = "EDIT";
+                    myEditButton.setAttribute("onclick", "editUser(" + i + ")")
+                    myEditTd.setAttribute("style", "display:block");
+                    myEditTd.setAttribute("id", "edituser");
+                    myEditTd.appendChild(myEditButton);
+                    myTr.appendChild(myEditTd);
+
+                    var myUpdateTd = document.createElement("td");
+                    var myUpdateButton = document.createElement("button");
+                    myUpdateButton.innerHTML = "UPDATE";
+                    myUpdateButton.setAttribute("onclick", "updateUser()");
+                    myUpdateTd.setAttribute("id", "updateuser");
+                    myUpdateTd.setAttribute("style", "display : none")
+                    myUpdateTd.appendChild(myUpdateButton);
+                    myTr.appendChild(myUpdateTd);
+
+                    var myDeleteTd = document.createElement("td");
+                    var myDeleteButton = document.createElement("button");
+                    myDeleteButton.innerHTML = " DELETE";
+                    myDeleteButton.setAttribute("onclick", "deleteUser(" + i + ")");
+                    myDeleteTd.appendChild(myDeleteButton);
+                    myTr.appendChild(myDeleteTd);
+                }
+                document.querySelector("tbody").appendChild(myTr);
+            })
+        }
+        displayUser();
+    </script>
+</body>
+
+</html>
