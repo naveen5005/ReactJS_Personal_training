@@ -12,7 +12,8 @@
             border: 2px solid black;
             border-collapse: collapse;
         }
-        th{
+
+        th {
             border: 1px solid black;
         }
     </style>
@@ -48,7 +49,9 @@
             // console.log(editToggle);
             let updateToggle = document.querySelectorAll("#updateuser");
             // console.log(updateToggle);
+            console.log(textInput);
             textInput.forEach((data, index) => {
+                console.log(data)
                 if (index === i) {
                     textInput[i].removeAttribute("readonly", "");
                     editToggle[i].setAttribute("style", "display : none");
@@ -58,7 +61,7 @@
         }
         function returnObj() {
             return {
-                uname: ""
+                uname: "",
             }
         }
         updateUser = () => {
@@ -117,31 +120,33 @@
                     myTd.appendChild(myInput);
                     myTr.appendChild(myTd);
 
-                    var myEditTd = document.createElement("td");
-                    var myEditButton = document.createElement("button");
-                    myEditButton.innerHTML = "EDIT";
-                    myEditButton.setAttribute("onclick", "editUser(" + i + ")")
-                    myEditTd.setAttribute("style", "display:block");
-                    myEditTd.setAttribute("id", "edituser");
-                    myEditTd.appendChild(myEditButton);
-                    myTr.appendChild(myEditTd);
 
-                    var myUpdateTd = document.createElement("td");
-                    var myUpdateButton = document.createElement("button");
-                    myUpdateButton.innerHTML = "UPDATE";
-                    myUpdateButton.setAttribute("onclick", "updateUser()");
-                    myUpdateTd.setAttribute("id", "updateuser");
-                    myUpdateTd.setAttribute("style", "display : none")
-                    myUpdateTd.appendChild(myUpdateButton);
-                    myTr.appendChild(myUpdateTd);
-
-                    var myDeleteTd = document.createElement("td");
-                    var myDeleteButton = document.createElement("button");
-                    myDeleteButton.innerHTML = " DELETE";
-                    myDeleteButton.setAttribute("onclick", "deleteUser(" + i + ")");
-                    myDeleteTd.appendChild(myDeleteButton);
-                    myTr.appendChild(myDeleteTd);
                 }
+                var myEditTd = document.createElement("td");
+                var myEditButton = document.createElement("button");
+                myEditButton.innerHTML = "EDIT";
+                myEditButton.setAttribute("onclick", "editUser(" + i + ")")
+                myEditTd.setAttribute("style", "display:block");
+                myEditTd.setAttribute("id", "edituser");
+                myEditTd.appendChild(myEditButton);
+                myTr.appendChild(myEditTd);
+
+                var myUpdateTd = document.createElement("td");
+                var myUpdateButton = document.createElement("button");
+                myUpdateButton.innerHTML = "UPDATE";
+                myUpdateButton.setAttribute("onclick", "updateUser()");
+                myUpdateTd.setAttribute("id", "updateuser");
+                myUpdateTd.setAttribute("style", "display : none")
+                myUpdateTd.appendChild(myUpdateButton);
+                myTr.appendChild(myUpdateTd);
+
+                var myDeleteTd = document.createElement("td");
+                var myDeleteButton = document.createElement("button");
+                myDeleteButton.innerHTML = " DELETE";
+                myDeleteButton.setAttribute("onclick", "deleteUser(" + i + ")");
+                myDeleteTd.appendChild(myDeleteButton);
+                myTr.appendChild(myDeleteTd);
+
                 document.querySelector("tbody").appendChild(myTr);
             })
         }
