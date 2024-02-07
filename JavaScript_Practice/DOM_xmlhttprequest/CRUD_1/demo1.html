@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-1 using XMLHttpRequest</title>
+    <style>
+        table,tr,th,td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainConetent">
+        <div class="formDisplay">
+            <form action="" style="position: absolute; left: 700px;">
+                <label for="id">Id : </label>
+                <input type="text" name="" id="id" readonly disabled> <br><br>
+
+                <label for="uname">userName : </label>
+                <input type="text" name="username" id="username"> <br> <br>
+
+                <label for="email">Email : </label>
+                <input type="email" name="email" id="email"> <br> <br>
+
+                <label for="age">Age : </label>
+                <input type="number" name="age" id="age"> <br> <br>
+
+                <label for="city">City : </label>
+                <input type="text" name="city" id="city"> <br> <br>
+
+                <button type="button" id="adduser" onclick="addUser()" style="display: block;">Add User</button>
+                <button type="button" id="updateuser" onclick="updateUser()" style="display: none;">Update User</button>
+            </form>
+        </div>
+        <div class="tableData">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="demo1.js"></script>
+</body>
+
+</html>
