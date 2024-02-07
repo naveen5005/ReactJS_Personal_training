@@ -41,9 +41,14 @@
         }
         let updateIndex = null;
 
+        function returnObj() {
+            return {
+                uname: "",
+            }
+        }
         function editUser(i) {
             updateIndex = i;
-            // console.log(i)
+            console.log(i)
             let textInput = document.querySelectorAll("input[type=text]");
             let editToggle = document.querySelectorAll("#edituser");
             // console.log(editToggle);
@@ -58,11 +63,6 @@
                     updateToggle[i].setAttribute("style", "display:block");
                 }
             })
-        }
-        function returnObj() {
-            return {
-                uname: "",
-            }
         }
         updateUser = () => {
             const user = returnObj();
