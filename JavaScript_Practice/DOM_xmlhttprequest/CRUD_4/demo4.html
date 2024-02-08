@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD4 using XMLHttpRequest</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="get" >
+        <label for="id">Player id : </label>
+        <input type="text" name="id" id="id" disabled readonly> <br>
+
+        <label for="name">Player name : </label>
+        <input type="text" name="name" id="player_name"> <br>
+
+        <label for="team">Team : </label>
+        <input type="text" name="team" id="team"> <br>
+
+        <fieldset>
+            <legend>Batting Stats : </legend>
+            <label for="runs">Runs : </label>
+            <input type="number" name="runs" id="runs"> <br>
+            <label for="centuries">Centuries : </label>
+            <input type="number" name="centuries" id="centuries"> <br>
+            <label for="half_centuries">Half Centuries : </label>
+            <input type="number" name="half_centuries" id="half_centuries"> <br>
+            <label for="average">Average : </label>
+            <input type="number" name="average" id="average"> <br>
+        </fieldset> <br>
+        <fieldset>
+            <legend>Bowling Stats : </legend>
+            <label for="wickets">Wickets: </label>
+            <input type="number" name="wickets" id="wickets"> <br>
+            <label for="overs_bowled">Overs Bowled : </label>
+            <input type="number" name="overs_bowled" id="overs_bowled"> <br>
+            <label for="economy_rate">Economy Rate : </label>
+            <input type="number" name="economy_rate" id="economy_rate">
+        </fieldset> <br><br>
+        <button type="button" id = "addStats" onclick="addPlayer()" style="display: block;">Add cricket statistics</button>
+        <button type="button" id="updateStats" onclick="updatePlayer()" style="display: none;">Update cricket statistics</button>
+    </form> <br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">PLAYER ID</th>
+                <th rowspan="2">PLAYER NAME</th>
+                <th rowspan="2">TEAM</th>
+                <th colspan="4">BATTING STATS</th>
+                <th colspan="3">BOWLING STATS</th>
+                <th rowspan="2">EDIT</th>
+                <th rowspan="2">DELETE</th>
+            </tr>
+            <tr>
+                <th>RUNS</th>
+                <th>CENTURIES</th>
+                <th>HALF_CENTURIES</th>
+                <th>AVERAGE</th>
+                <th>WICKETS</th>
+                <th>OVERS_BOWLED</th>
+                <th>ECONOMY_RATE</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script src="demo4.js"></script>
+</body>
+
+</html>
