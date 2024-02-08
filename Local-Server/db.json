@@ -1,3 +1,93 @@
 {
-  "demo1": []
+  "demo1": [
+    {
+      "id": "u2wvjhyq",
+      "username": "Naveen",
+      "email": "bellamnaveen314@gmail.com",
+      "age": "56",
+      "city": "Kakinada"
+    }
+  ],
+  "demo2": [
+    {
+      "id": "2tz5c2ej",
+      "title": "Bag",
+      "price": "987.98",
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": {
+        "rate": "7.8",
+        "count": "650"
+      }
+    },
+    {
+      "id": "ivtnyd7d",
+      "title": "",
+      "price": "",
+      "description": "",
+      "category": "",
+      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "rating": {
+        "rate": "",
+        "count": ""
+      }
+    },
+    {
+      "id": "9uq7vz2c",
+      "title": "",
+      "price": "3212",
+      "description": "",
+      "category": "fghjkl",
+      "image": "",
+      "rating": {
+        "rate": "7.9",
+        "count": "980"
+      }
+    }
+  ],
+  "demo3": [
+    {
+      "id": "a6dql0shxb",
+      "university": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "institute": "Demeed to be university",
+      "branch": "ECE",
+      "degree": "BTECH",
+      "status": "Completed",
+      "areasOfInterest": [
+        "HTML",
+        "BOOTSTRAP"
+      ],
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "joiningDate": "2024-02-20"
+    },
+    {
+      "id": "pax78mj1h6",
+      "university": "",
+      "institute": "",
+      "branch": "--select--",
+      "degree": "--select--",
+      "status": "",
+      "areasOfInterest": [
+        "CSS"
+      ],
+      "category": "",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "joiningDate": ""
+    },
+    {
+      "id": "jlicpl92g8",
+      "university": "",
+      "institute": "",
+      "branch": "--select--",
+      "degree": "--select--",
+      "status": "",
+      "areasOfInterest": [],
+      "category": "",
+      "image": "",
+      "joiningDate": ""
+    }
+  ],
+  "demo4": []
 }
