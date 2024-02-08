@@ -85,8 +85,7 @@
                     <div class="formbold-radio-flex">
                         <div class="formbold-radio-group">
                             <label class="formbold-radio-label" for="c">
-                                <input class="formbold-input-radio languages" type="checkbox" name="c" value="c"
-                                    onclick="handleChange(this)" />
+                                <input class="formbold-input-radio" type="checkbox" name="c" value="c" />
                                 C
                                 <span class="formbold-radio-checkmark"></span>
                             </label>
@@ -186,7 +185,7 @@
                     <input type="text" name="name" id="id" placeholder="Enter your name" class="formbold-form-input" />
                 </div>
 
-                <button class="formbold-btn" type="button" onclick="addUser()">Submit</button>
+                <button class="formbold-btn" type="button" onclick="commonServerCommunication('POST')">Submit</button>
                 <button class="formbold-btn" type="button" onclick="updateUser()">Update</button>
             </form>
         </div>
@@ -207,7 +206,8 @@
             </table>
         </div>
     </div>
-    <script src="./main.js"></script>
+    <script src="./project3.js"></script>
+    <!-- <script src="./main.js"></script> -->
 </body>
 
 </html>

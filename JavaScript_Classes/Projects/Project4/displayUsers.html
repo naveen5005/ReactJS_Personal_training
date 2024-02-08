@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 5px 2px;
+
+        }
+
+        table {
+            width: 900px;
+            margin: 20px auto;
+        }
+
+        th::first-letter {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center; background: lavender;padding: 15px;">Welcome to displayUsers Page !!</h2>
+    <div style="float: right; padding: 10px;">
+        <button onclick="handleCreateUser()">Create User</button>
+    </div>
+    <table>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <script src="./project4.js"></script>
+    <script>
+        var users = JSON.parse(localStorage.getItem('users'));
+        createDynaminButton = (text, event, target, i) => {
+            var myTd = document.createElement("td")
+            var btn = document.createElement("button");
+            btn.setAttribute("onclick", event + "(" + i + ")");
+            btn.innerHTML = text;
+            myTd.appendChild(btn);
+            target.appendChild(myTd);
+        }
+        createDynamicTh = (cell, target, text) => {
+            var myTh = document.createElement(cell);
+            myTh.innerHTML = text
+            target.appendChild(myTh);
+        }
+        createTableData = (cell, target, obj, i) => {
+            var myTr = document.createElement("tr")
+            for (a in obj) {
+                if (a !== 'isEdit') {
+                    var tableCell = document.createElement(cell);
+                    if (obj.isEdit) {
+                        var myInput = document.createElement('input');
+                        myInput.setAttribute("id", a)
+                        myInput.value = obj[a];
+                        tableCell.appendChild(myInput);
+                        myTr.appendChild(tableCell)
+
+                    } else {
+                        tableCell.innerHTML = cell == "th" ? a : obj[a];
+                        myTr.appendChild(tableCell)
+                    }
+                }
+
+            }
+            if (cell == "td") {
+                obj.isEdit ? createDynaminButton("Update", "updateUser", myTr, i) : createDynaminButton("EDIT", "editUser", myTr, i)
+                createDynaminButton("DELETE", "DeleteUser", myTr, i)
+            } else {
+                createDynamicTh("th", myTr, "Edit")
+                createDynamicTh("th", myTr, "Delete")
+            }
+            document.querySelector(target).appendChild(myTr)
+        }
+        createTableData("th", "thead", users[0])
+        displayUsers = () => {
+            document.querySelector('tbody').innerHTML = ""
+            users.forEach((user, i) => {
+                createTableData("td", "tbody", user, i)
+            });
+        }
+        displayUsers();
+
+        handleCreateUser = () => {
+            window.location.href = "project4.html"
+        }
+
+        editUser = (i) => {
+            users[i].isEdit = true;
+            displayUsers()
+        }
+        DeleteUser = (i) => { 
+             users = users.filter(function (el,index) { return i != index })
+             localStorage.setItem("users", JSON.stringify(users))
+            displayUsers()
+        }
+        updateUser = (i) => {
+            var user = readDataFromForm();
+            user.isEdit = false;
+            users[i] = user
+            localStorage.setItem("users", JSON.stringify(users))
+            displayUsers()
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@ function readDataFromForm() {
     recomend: null,
     languages: [],
     message: "",
-    id:null
+    id: null,
   };
 
   for (const a in user) {
@@ -38,7 +38,6 @@ function readDataFromForm() {
 }
 function addUser() {
   var user = readDataFromForm();
-  delete user.id
   postDataToAPI(user);
 }
 
@@ -47,15 +46,9 @@ function handleChange(element) {
 }
 
 function postDataToAPI(user) {
-  var postData = new XMLHttpRequest();
-  postData.open("POST", "http://localhost:3000/users");
-  postData.setRequestHeader("Content-Type", "Application/json");
-  postData.send(JSON.stringify(user));
-  postData.onreadystatechange = function () {
-    if (postData.readyState == 4 && postData.status == 201) {
-      console.log("User Created Successfully");
-    }
-  };
+  user.id = Math.round(Math.random() * 10000);
+  // console.log(user);
+  commonServerCommunication("POST", user);
 }
 
 function getDataFromAPI() {
@@ -97,14 +90,14 @@ function displayUsers() {
     deleteTd.appendChild(delBtn);
     delBtn.addEventListener("click", function () {
       console.log(users[i]);
-      deleteUser(users[i])
+      deleteUser(users[i]);
     });
     myTr.appendChild(deleteTd);
     document.querySelector("tbody").appendChild(myTr);
   });
 }
 
-function deleteUser(user){
+function deleteUser(user) {
   var postData = new XMLHttpRequest();
   postData.open("DELETE", "http://localhost:3000/users/" + user.id);
   postData.send();
@@ -148,3 +141,7 @@ function updateUser(user) {
     }
   };
 }
+
+commonServerCommunicatio = (method, payload) => {
+ 
+};
