@@ -49,6 +49,31 @@ function readDataFromFOM() {
 
     return data;
 }
+function readDataFromFOMUpdate() {
+    var data = returnObj()
+    for (a in data) {
+        if (a != "image" && a !== "status" && a != "areasOfInterest") {
+            data[a] = document.getElementById(a).value;
+        } else if (a == "image") {
+            data[a] = document.getElementById(a).value;
+        } else if (a == "status") {
+            var allStatus = document.getElementsByName("status");
+            allStatus.forEach((element) => {
+                if (element.checked) {
+                    data[a] = element.value;
+                }
+            })
+        } else if (a == "areasOfInterest") {
+            var allCheckboxes = document.getElementsByName("areasOfInterest");
+            allCheckboxes.forEach((element) => {
+                if (element.checked) {
+                    data[a].push(element.value);
+                }
+            })
+        }
+    }
+    return data;
+}
 
 addUniversityDetails = () => {
     var data = readDataFromFOM();
@@ -76,8 +101,17 @@ function displayUniversityDetails(universityDetails) {
         var myTr = document.createElement("tr");
         for (a in data) {
             var myTd = document.createElement("td");
-            myTd.innerHTML = data[a];
-            myTr.appendChild(myTd);
+            if (a == "image") {
+                var myImage = document.createElement("img");
+                myImage.setAttribute("src", data[a]);
+                myImage.setAttribute("width", "100px");
+                myImage.setAttribute("height", "100px");
+                myTd.appendChild(myImage);
+                myTr.appendChild(myTd);
+            } else {
+                myTd.innerHTML = data[a];
+                myTr.appendChild(myTd);
+            }
         }
         var myEditTd = document.createElement("td");
         var myEditButton = document.createElement("button");
@@ -106,7 +140,8 @@ deleteDetails = (data) => {
     deleteData.open("DELETE", "http://localhost:3000/demo3/" + data.id);
     deleteData.send();
 }
-
+var editToggle = document.querySelector("#adddetails");
+var updateToggle = document.querySelector("#updatedetails");
 editDetails = (data) => {
     for (a in data) {
         if (a != "image" && a !== "status" && a != "areasOfInterest") {
@@ -116,20 +151,32 @@ editDetails = (data) => {
         } else if (a == "status") {
             var allStatus = document.getElementsByName("status");
             // console.log(allStatus)
-            allStatus.forEach((element,i) => {
-                if(element.value == data[a]){
+            allStatus.forEach((element, i) => {
+                if (element.value == data[a]) {
                     element.checked = true;
                 }
             })
         } else if (a == "areasOfInterest") {
             var allCheckboxes = document.getElementsByName("areasOfInterest");
             allCheckboxes.forEach((element) => {
-                data[a].forEach((subData,index)=>{
-                    if(element.value == subData){
+                data[a].forEach((subData, index) => {
+                    if (element.value == subData) {
                         element.checked = true;
                     }
                 })
             })
         }
     }
+
+    editToggle.setAttribute("style", "display:none");
+    updateToggle.setAttribute("style", "display:block");
+
+}
+
+updateUniversityDetails = () => {
+    var data = readDataFromFOMUpdate();
+    var putData = new XMLHttpRequest();
+    putData.open("PUT", "http://localhost:3000/demo3/" + data.id);
+    putData.setRequestHeader("Content-Type", "Application/json");
+    putData.send(JSON.stringify(data));
 }

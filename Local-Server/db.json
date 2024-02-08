@@ -69,24 +69,24 @@
       "branch": "--select--",
       "degree": "--select--",
       "status": "",
-      "areasOfInterest": [
-        "CSS"
-      ],
+      "areasOfInterest": [],
       "category": "",
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
       "joiningDate": ""
     },
     {
-      "id": "jlicpl92g8",
-      "university": "",
-      "institute": "",
+      "id": "4gqejfv375",
+      "university": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "institute": "Demeed to be university",
       "branch": "--select--",
       "degree": "--select--",
       "status": "",
-      "areasOfInterest": [],
+      "areasOfInterest": [
+        "REACTJS"
+      ],
       "category": "",
       "image": "",
-      "joiningDate": ""
+      "joiningDate": "2024-02-13"
     }
   ],
   "demo4": []
