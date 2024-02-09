@@ -24,7 +24,7 @@
     {
       "id": "fnp3phqzj",
       "username": "mike_jones",
-      "email": "dummy@gmail.com",
+      "email": "",
       "age": "",
       "city": ""
     },
@@ -34,13 +34,6 @@
       "email": "",
       "age": "76",
       "city": "Chicago"
-    },
-    {
-      "id": "zu00vyon59",
-      "username": "",
-      "email": "",
-      "age": "",
-      "city": ""
     }
   ]
 }
