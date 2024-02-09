@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inputFieldDiv {
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <select name="" id="forms" onchange="hanldeFormChange()"></select>
+    <br><br>
+    <form></form>
+    <script>
+        let allForms = [];
+
+        genarateForm = (formDetails) => {
+            formDetails.fields.forEach((obj) => {
+                console.log(obj)
+                let inputFieldDiv = document.createElement('div');
+                inputFieldDiv.setAttribute("class", "inputFieldDiv")
+                for (a in obj) {
+
+                    if (a == "label") {
+                        let labelField = document.createElement("label")
+                        labelField.innerHTML = obj[a] + " : " + "<br>"
+                        inputFieldDiv.appendChild(labelField);
+                    } else if (a === "type") {
+                        let inputField = document.createElement("input")
+                        inputField.setAttribute('name', obj['name'])
+                        inputField.setAttribute(a, obj[a])
+                        inputFieldDiv.appendChild(inputField)
+                    }
+                }
+                document.querySelector("form").appendChild(inputFieldDiv)
+            })
+            var submitBtn = document.createElement("button");
+            submitBtn.setAttribute('type', 'button')
+            submitBtn.setAttribute('onclick', 'submitData()');
+            document.querySelector("form").appendChild(submitBtn).innerHTML = 'Submit'
+        }
+        hanldeFormChange = () => {
+            let formDetails = allForms.find((form) => form.formName === document.getElementById("forms").value);
+            document.querySelector('form').innerHTML = ""
+            genarateForm(formDetails)
+        }
+        makeUrl = (method) => {
+            if (method == 'GET') {
+                return 'http://localhost:3000/forms'
+            }
+        }
+        displayFormsNames = () => {
+            allForms.forEach((formObj) => {
+                console.log(formObj)
+                let opt = document.createElement("option");
+                opt.innerHTML = formObj.formName;
+                opt.value = formObj.formName;
+                document.getElementById("forms").appendChild(opt);
+            })
+        }
+        commonServiceCall = (method) => {
+            const url = makeUrl(method);
+            fetch(url, { method })
+                .then((response) => response.json())
+                .catch((error) => console.log('Error:', error))
+                .then((data) => {
+                    allForms = data;
+                    displayFormsNames()
+                });
+        }
+
+        commonServiceCall("GET")
+    </script>
+</body>
+
+</html>

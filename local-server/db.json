@@ -1,5 +1,126 @@
 {
-  "users": [
-    
+  "users": [],
+  "forms": [
+    {
+      "formName": "Contact Information",
+      "fields": [
+        {
+          "label": "First Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Last Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "label": "Phone Number",
+          "type": "tel",
+          "required": false
+        }
+      ]
+    },
+    {
+      "formName": "Feedback Form",
+      "fields": [
+        {
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "label": "Feedback",
+          "type": "textarea",
+          "required": true
+        }
+      ]
+    },
+    {
+      "formName": "Registration Form",
+      "fields": [
+        {
+          "label": "Full Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "label": "Password",
+          "type": "password",
+          "required": true
+        },
+        {
+          "label": "Confirm Password",
+          "type": "password",
+          "required": true
+        }
+      ]
+    },
+    {
+      "formName": "Survey",
+      "fields": [
+        {
+          "label": "Question 1",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Question 2",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Question 3",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Additional Comments",
+          "type": "textarea",
+          "required": false
+        }
+      ]
+    },
+    {
+      "formName": "Job Application",
+      "fields": [
+        {
+          "label": "Full Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Email",
+          "type": "email",
+          "required": true
+        },
+        {
+          "label": "Resume",
+          "type": "file",
+          "required": true
+        },
+        {
+          "label": "Cover Letter",
+          "type": "textarea",
+          "required": false
+        }
+      ]
+    }
   ]
+  
 }
