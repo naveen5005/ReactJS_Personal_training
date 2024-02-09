@@ -15,13 +15,6 @@
       "city": "Chicago"
     },
     {
-      "id": "m7i1fy2exp",
-      "username": "kavya",
-      "email": "abc@gmail.com",
-      "age": "27",
-      "city": "Chicago"
-    },
-    {
       "id": "u7a30ui7vg",
       "username": "Ram",
       "email": "abc@gmail.com",
@@ -32,6 +25,20 @@
       "id": "fnp3phqzj",
       "username": "mike_jones",
       "email": "dummy@gmail.com",
+      "age": "",
+      "city": ""
+    },
+    {
+      "id": "u7a30ui7vg",
+      "username": "Ram",
+      "email": "",
+      "age": "76",
+      "city": "Chicago"
+    },
+    {
+      "id": "zu00vyon59",
+      "username": "",
+      "email": "",
       "age": "",
       "city": ""
     }

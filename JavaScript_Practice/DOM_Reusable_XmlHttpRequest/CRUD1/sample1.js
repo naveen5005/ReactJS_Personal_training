@@ -15,8 +15,8 @@ function readDataFromFOM() {
     var data = returnObj();
     for (a in data) {
         if (a == "id") {
-            console.log(data[a] , typeof(data[a]))
-            data[a] = data[a].value === "" ? uniqueIdentifier() : document.getElementById(a).value;
+            // console.log(data[a] , typeof(data[a]))
+            data[a] = document.getElementById(a).value === "" ? uniqueIdentifier() : document.getElementById(a).value;
         } else {
             data[a] = document.getElementById(a).value;
         }
