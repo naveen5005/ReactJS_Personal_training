@@ -1,0 +1,115 @@
+{
+  "demo1": [
+    {
+      "id": "weai9jg82e",
+      "username": "Naveen",
+      "email": "bellamnaveen314@gmail.com",
+      "age": "27",
+      "city": "Kakinada"
+    },
+    {
+      "id": "3n4kpcibje",
+      "username": "mike_jones",
+      "email": "abc@gmail.com",
+      "age": "76",
+      "city": "Chicago"
+    },
+    {
+      "id": "u7a30ui7vg",
+      "username": "Ram",
+      "email": "abc@gmail.com",
+      "age": "76",
+      "city": "Chicago"
+    },
+    {
+      "id": "fnp3phqzj",
+      "username": "mike_jones",
+      "email": "",
+      "age": "",
+      "city": ""
+    },
+    {
+      "id": "u7a30ui7vg",
+      "username": "Ram",
+      "email": "",
+      "age": "76",
+      "city": "Chicago"
+    }
+  ],
+  "demo2": [
+    {
+      "id": "yyap8dibp",
+      "title": "Round Neck T-Shirts",
+      "price": "456",
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": {
+        "rate": "8.9",
+        "count": "600"
+      }
+    },
+    {
+      "id": "2x64mc0v0j",
+      "title": "Naveen",
+      "price": "89",
+      "description": "Good Boy",
+      "category": "fghjkl",
+      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "rating": {
+        "rate": "10",
+        "count": "100"
+      }
+    }
+  ],
+  "demo4": [
+    {
+      "id": "f1bf",
+      "player_name": "Naveen Babu Bellam",
+      "team": "India",
+      "batting_stats": {
+        "runs": "98",
+        "centuries": "98",
+        "half_centuries": "98",
+        "average": "98"
+      },
+      "bowling_stats": {
+        "wickets": "88",
+        "overs_bowled": "910",
+        "economy_rate": "9.87"
+      }
+    },
+    {
+      "id": "9b23",
+      "player_name": "Syam",
+      "team": "Pakistan",
+      "batting_stats": {
+        "runs": "76",
+        "centuries": "23",
+        "half_centuries": "68",
+        "average": "78.65"
+      },
+      "bowling_stats": {
+        "wickets": "56",
+        "overs_bowled": "87",
+        "economy_rate": "78.98"
+      }
+    },
+    {
+      "player_name": "Virat Kohli",
+      "team": "Sri Lanka",
+      "batting_stats": {
+        "runs": "78",
+        "centuries": "8",
+        "half_centuries": "6",
+        "average": "9"
+      },
+      "bowling_stats": {
+        "wickets": "69",
+        "overs_bowled": "97",
+        "economy_rate": "98.65"
+      },
+      "id": "2b27"
+    }
+  ]
+}
