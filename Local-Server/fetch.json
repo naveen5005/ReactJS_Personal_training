@@ -111,52 +111,52 @@
   ],
   "demo4": [
     {
-      "id": "f1bf",
-      "player_name": "Naveen Babu Bellam",
+      "player_id": "s03wuoryham",
+      "player_name": "",
+      "team": "",
+      "batting_stats": {
+        "runs": "",
+        "centuries": "",
+        "half_centuries": "",
+        "average": ""
+      },
+      "bowling_stats": {
+        "wickets": "",
+        "overs_bowled": "",
+        "economy_rate": ""
+      }
+    },
+    {
+      "player_id": "f6q5y0k0wl",
+      "player_name": "Virat Kohli",
       "team": "India",
       "batting_stats": {
-        "runs": "98",
+        "runs": "87",
         "centuries": "98",
-        "half_centuries": "98",
-        "average": "98"
+        "half_centuries": "45",
+        "average": "87.67"
       },
       "bowling_stats": {
-        "wickets": "88",
-        "overs_bowled": "910",
-        "economy_rate": "9.87"
+        "wickets": "76",
+        "overs_bowled": "45",
+        "economy_rate": "98.67"
       }
     },
     {
-      "id": "9b23",
-      "player_name": "Syam",
-      "team": "Pakistan",
-      "batting_stats": {
-        "runs": "76",
-        "centuries": "23",
-        "half_centuries": "68",
-        "average": "78.65"
-      },
-      "bowling_stats": {
-        "wickets": "56",
-        "overs_bowled": "87",
-        "economy_rate": "78.98"
-      }
-    },
-    {
-      "player_name": "Virat Kohli",
+      "player_id": "zpqjdo04kcj",
+      "player_name": "",
       "team": "Sri Lanka",
       "batting_stats": {
-        "runs": "78",
-        "centuries": "8",
-        "half_centuries": "6",
-        "average": "9"
+        "runs": "",
+        "centuries": "",
+        "half_centuries": "",
+        "average": ""
       },
       "bowling_stats": {
-        "wickets": "69",
-        "overs_bowled": "97",
-        "economy_rate": "98.65"
-      },
-      "id": "2b27"
+        "wickets": "",
+        "overs_bowled": "",
+        "economy_rate": ""
+      }
     }
   ]
 }
