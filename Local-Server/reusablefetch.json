@@ -1,0 +1,28 @@
+{
+  "demo1": [
+    {
+      "id": "gdq2sy8v43o",
+      "username": "mike_jones",
+      "email": "abc@gmail.com",
+      "age": "65",
+      "city": "Chicago"
+    },
+    {
+      "id": "dy13oihadi",
+      "username": "Naveen",
+      "email": "bellamnaveen314@gmail.com",
+      "age": "27",
+      "city": "Kakinada"
+    },
+    {
+      "id": "goc98v8q5u",
+      "username": "kavya",
+      "email": "abc@gmail.com",
+      "age": "28",
+      "city": "Houston"
+    }
+  ],
+  "demo2": [],
+  "demo3": [],
+  "demo4": []
+}
