@@ -22,7 +22,44 @@
       "city": "Houston"
     }
   ],
-  "demo2": [],
+  "demo2": [
+    {
+      "id": "kjrfz1zwdsi",
+      "title": "Branded Shoes",
+      "price": "1200",
+      "description": "imported shoes",
+      "category": "men's shoes",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": {
+        "rate": "9.8",
+        "count": "120"
+      }
+    },
+    {
+      "id": "hsub01tzzhm",
+      "title": "ABC",
+      "price": "658",
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rating": {
+        "rate": "7.8",
+        "count": "200"
+      }
+    },
+    {
+      "id": "tin17dd2r7h",
+      "title": "clothes",
+      "price": "450",
+      "description": "round necked tshirt",
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "rating": {
+        "rate": "8.5",
+        "count": "800"
+      }
+    }
+  ],
   "demo3": [],
   "demo4": []
 }
