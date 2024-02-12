@@ -60,6 +60,39 @@
       }
     }
   ],
-  "demo3": [],
+  "demo3": [
+    {
+      "id": "zhrgb1s5ted",
+      "university": "JNTUH",
+      "institute": "main campus",
+      "branch": "MECH",
+      "degree": "DEGREE",
+      "status": "Persuing",
+      "areasOfInterest": [
+        "HTML",
+        "JS",
+        "BOOTSTRAP"
+      ],
+      "category": "Degree Graduate",
+      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "joiningDate": "2024-02-20"
+    },
+    {
+      "id": "lozedy3aoe",
+      "university": "Vignan University",
+      "institute": "Demeed to be university",
+      "branch": "EEE",
+      "degree": "BTECH",
+      "status": "Completed",
+      "areasOfInterest": [
+        "CSS",
+        "JS",
+        "BOOTSTRAP"
+      ],
+      "category": "men's clothing",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "joiningDate": "2024-02-22"
+    }
+  ],
   "demo4": []
 }
