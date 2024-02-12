@@ -94,5 +94,38 @@
       "joiningDate": "2024-02-22"
     }
   ],
-  "demo4": []
+  "demo4": [
+    {
+      "player_id": "ezlteeumty",
+      "player_name": "Naveen Babu Bellam",
+      "team": "India",
+      "batting_stats": {
+        "runs": "87",
+        "centuries": "56",
+        "half_centuries": "34",
+        "average": "87.56"
+      },
+      "bowling_stats": {
+        "wickets": "13",
+        "overs_bowled": "45",
+        "economy_rate": "93.45"
+      }
+    },
+    {
+      "player_id": "2d0jtygdomp",
+      "player_name": "Naveen Babu Bellam",
+      "team": "India",
+      "batting_stats": {
+        "runs": "0",
+        "centuries": "0",
+        "half_centuries": "0",
+        "average": "0"
+      },
+      "bowling_stats": {
+        "wickets": "0",
+        "overs_bowled": "0",
+        "economy_rate": "0"
+      }
+    }
+  ]
 }
