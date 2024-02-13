@@ -1,0 +1,184 @@
+{
+  "forms": [
+    {
+      "formName": "--select--"
+    },
+    {
+        "formName": "Contact Information",
+        "fields": [
+            {
+                "type": "text",
+                "label": "First Name",
+                "required": true
+            },
+            {
+                "type": "email",
+                "label": "Email",
+                "required": true
+            },
+            {
+                "type": "tel",
+                "label": "Phone"
+            }
+        ]
+    }
+    ,
+    {
+      "formName": "Survey",
+      "fields": [
+        {
+          "type": "text",
+          "label": "What is your favorite color?",
+          "required": true
+        },
+        {
+          "type": "textarea",
+          "label": "Why do you like this color?"
+        }
+      ]
+    },
+    {
+      "formName": "Registration",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Username",
+          "required": true
+        },
+        {
+          "type": "password",
+          "label": "Password",
+          "required": true
+        },
+        {
+          "type": "Confirm Password",
+          "label": "Confirm Password",
+          "required": true
+        },
+        {
+          "type": "checkbox",
+          "label": "I agree to the terms and conditions",
+          "required": true
+        }
+      ]
+    },
+    {
+      "formName": "Feedback",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "type": "email",
+          "label": "Email"
+        },
+        {
+          "type": "textarea",
+          "label": "Your Feedback",
+          "required": true
+        }
+      ]
+    },
+    {
+      "formName": "Order",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Product Name",
+          "required": true
+        },
+        {
+          "type": "number",
+          "label": "Quantity",
+          "required": true
+        },
+        {
+          "type": "textarea",
+          "label": "Additional Comments"
+        }
+      ]
+    }
+  ],
+  "formDetails2": [
+    {
+      "id": "ec48",
+      "text": "White",
+      "textarea": "I love the color"
+    },
+    {
+      "id": "2474",
+      "text": "Red",
+      "textarea": ""
+    },
+    {
+      "id": "5ea9",
+      "text": "Black",
+      "textarea": "shadow"
+    },
+    {
+      "id": "deb2",
+      "text": "",
+      "textarea": ""
+    },
+    {
+      "id": "bc0e",
+      "text": "Blue",
+      "textarea": "good"
+    },
+    {
+      "id": "7c4f",
+      "text": "Red",
+      "textarea": "good"
+    },
+    {
+      "id": "6555",
+      "text": "",
+      "textarea": ""
+    }
+  ],
+  "formDetails1": [],
+  "formDetails3": [
+    {
+      "id": "58ee",
+      "text": "Michel Jones",
+      "password": "jones@123",
+      "Confirm Password": "Jones@123",
+      "checkbox": "on"
+    }
+  ],
+  "formDetails4": [
+    {
+      "id": "a8b6",
+      "text": "Mahesh",
+      "email": "mahesh123@gmail.com",
+      "textarea": "Good Guy"
+    },
+    {
+      "id": "1be5",
+      "text": "Naveen",
+      "email": "bellamnaveen314@gmail.com",
+      "textarea": ""
+    },
+    {
+      "id": "f4eb",
+      "text": "Salman Khan",
+      "email": "salman@gmail.com",
+      "textarea": "Excellent"
+    }
+  ],
+  "formDetails5": [
+    {
+      "id": "0388",
+      "text": "Pencil",
+      "number": "120",
+      "textarea": "light weight to use and more contrast"
+    },
+    {
+      "id": "031a",
+      "text": "Naveen",
+      "number": "",
+      "textarea": ""
+    }
+  ]
+}

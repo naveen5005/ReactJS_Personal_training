@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Table Display</title>
+    <style>
+        table,th,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        th{
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Contact Table Display</h1>
+    <button id="mainPage" type="button" onclick="returnPrevPage()" style="margin-left: 1300px;">Return</button>
+    <table style="margin: auto;">
+        <thead>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    returnPrevPage = () => {
+        window.location.href = "formBuilder01.html";
+    }
+    commonServerCommunication = (method,data) => {
+            method === "GET" ? url = "http://localhost:3000/formDetails1" : url = "http://localhost:3000/formDetails1/"+data.id;
+            fetch(url, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: null,
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error("Response is not ok...!!!");
+                }
+                return response.json();
+            }).then((details) => {
+                displayTable(details);
+            })
+        }
+    commonServerCommunication("GET");
+
+    dynamicThText = (text,target) =>{
+        var Th = document.createElement("th");
+        Th.innerHTML = text,
+        target.appendChild(Th);
+    }
+    dynamicButtons = (text,target,event,data) =>{
+        var Td = document.createElement("td");
+        var Button = document.createElement("button");
+        Button.innerHTML = text;
+        Button.addEventListener("click",function(){
+            event(data);
+        })
+        Td.appendChild(Button);
+        target.appendChild(Td);
+    }
+    commonDataDisplayTable = (obj,cell,target,data) =>{
+        var myTr = document.createElement("tr");
+        for(a in obj){
+            var myTh = document.createElement(cell);
+            myTh.innerHTML = cell === "th" ? a : obj[a];
+            myTh.setAttribute("style","padding:5px");
+            myTr.appendChild(myTh);
+        }
+        if(cell === "th"){
+            dynamicThText("EDIT",myTr);
+            dynamicThText("DELETE",myTr);
+        }else{
+            dynamicButtons("Edit",myTr,editData,data);
+            dynamicButtons("Delete",myTr,deleteData,data)
+        }
+        document.querySelector(target).appendChild(myTr);
+    }
+    editData = (data)=>{
+        console.log(data);
+        
+    }
+    updateData= (data) =>{
+        console.log(data)
+    }
+    deleteData = (data) =>{
+        commonServerCommunication("DELETE",data)
+    }
+    function displayTable(details){
+        commonDataDisplayTable(details[0],"th","thead");
+        details.forEach((data)=>{
+            commonDataDisplayTable(data,"td","tbody",data);
+        })
+    }
+</script>
+
+</html>
