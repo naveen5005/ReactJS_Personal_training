@@ -2,28 +2,21 @@
     padding: 10px 0px;
 }
 
-input {
-    width: 230px;
-    height: 25px;
-    border: 1px solid rgb(36, 36, 37);
-    border-radius: 5px;
-}
-
 button {
     width: 230px;
-    /* height: 30px; */
     margin-top: 10px;
     margin-bottom: 20px;
 }
-#Survey{
-    position: relative;
-    left: 10px;
-    /* width: fit-content;  */
-}
+
 .inputFieldDiv {
     border: 1px solid black;
     border-radius: 7px;
     width: fit-content;
     padding: 30px 40px 40px 40px;
     margin: auto;
+}
+
+.actionStyles{
+    position: relative;
+    left: 10px;
 }
