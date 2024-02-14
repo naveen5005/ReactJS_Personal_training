@@ -9,7 +9,7 @@ button {
 }
 
 .inputFieldDiv {
-    border: 1px solid black;
+    border: 2px solid rgb(38, 53, 61);
     border-radius: 7px;
     width: fit-content;
     padding: 30px 40px 40px 40px;

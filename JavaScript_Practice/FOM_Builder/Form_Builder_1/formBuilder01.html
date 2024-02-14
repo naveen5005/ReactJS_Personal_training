@@ -24,7 +24,7 @@
         Display</button>
     <button type="button" style="display: none;" value="Survey" id="Survey" onclick="surveyTableData()" class="btn btn-primary actionStyles">Survey Data
         Display</button>
-    <button type="button" style="display: none;" value="Registration" id="Registration" class="btn btn-primary"
+    <button type="button" style="display: none;" value="Registration" id="Registration" class="btn btn-primary actionStyles"
         onclick="registrationTableData()">Registration Data
         Display</button>
     <button type="button" style="display: none;" value="Feedback" id="Feedback" onclick="feedbackTableData()" class="btn btn-primary actionStyles">feedback
@@ -113,7 +113,9 @@
         generateFORM = (fields, formName) => {
             let inputFieldDiv = document.createElement('div');
             inputFieldDiv.setAttribute("class", "inputFieldDiv");
+            console.log(fields);
             fields.forEach((data, i) => {
+                console.log(data)
                 var myDiv = document.createElement("div");
                 myDiv.setAttribute("class", "formsDetails");
                 myDiv.setAttribute("style", "display:grid;grid-template-columns:1fr");
@@ -132,7 +134,7 @@
                         var myDiv2 = document.createElement("div");
                         inputField.setAttribute('id', data[a])
                         inputField.setAttribute(a, data[a]);
-                        inputField.setAttribute("class","form-control");
+                        data[a] ==="checkbox" ? inputField.setAttribute("class","form-check-input"): inputField.setAttribute("class","form-control");
                         myDiv2.setAttribute("class", "first");
                         myDiv2.setAttribute("style", "grid-row:2");
                         myDiv2.appendChild(inputField);
@@ -147,7 +149,6 @@
             myButton.setAttribute("type", "button");
             myButton.setAttribute("class","btn btn-primary");
             myButton.setAttribute("style","margin-top:15px")
-            console.log(formName);
             myButton.setAttribute("onclick", "addDetails(" + formName + ")");
             myDiv3.appendChild(myButton).innerHTML = 'Submit';
             inputFieldDiv.appendChild(myDiv3);
