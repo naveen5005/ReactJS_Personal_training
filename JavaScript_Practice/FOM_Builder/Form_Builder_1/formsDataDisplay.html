@@ -92,10 +92,19 @@
                 var myTh = document.createElement(cell);
                 if (obj.isEdit) {
                     var myInput = document.createElement("input");
-                    myInput.setAttribute("id", a);
-                    myInput.setAttribute("value", obj[a]);
-                    myTh.appendChild(myInput);
-                    myTr.appendChild(myTh);
+                    if (a == "id") {
+                        myInput.setAttribute("id", a);
+                        myInput.setAttribute("value", obj[a]);
+                        myInput.setAttribute("readonly", "");
+                        myInput.setAttribute("disabled", "");
+                        myTh.appendChild(myInput);
+                        myTr.appendChild(myTh);
+                    } else {
+                        myInput.setAttribute("id", a);
+                        myInput.setAttribute("value", obj[a]);
+                        myTh.appendChild(myInput);
+                        myTr.appendChild(myTh);
+                    }
                 } else {
                     myTh.innerHTML = cell === "th" ? a : obj[a];
                     myTh.setAttribute("style", "padding:5px");
