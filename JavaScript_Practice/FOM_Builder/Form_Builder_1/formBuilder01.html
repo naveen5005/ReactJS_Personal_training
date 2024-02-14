@@ -14,31 +14,36 @@
     <form action="">
 
     </form>
-    <button type="button" style="display: none;" value="Contact Information" id="Contact Information" onclick="contactTableData()">Contact Data
+    <button type="button" style="display: none;" value="Contact Information" id="Contact Information"
+        onclick="contactTableData()">Contact Data
         Display</button>
-    <button type="button" style="display: none;" value="Survey" id="Survey" onclick="surveyTableData()">Survey Data Display</button>
-    <button type="button" style="display: none;"value = "Registration" id="Registration" onclick="registrationTableData()">Registration Data
+    <button type="button" style="display: none;" value="Survey" id="Survey" onclick="surveyTableData()">Survey Data
         Display</button>
-    <button type="button" style="display: none;" value="Feedback" id="Feedback" onclick="feedbackTableData()">feedback Data
+    <button type="button" style="display: none;" value="Registration" id="Registration"
+        onclick="registrationTableData()">Registration Data
         Display</button>
-    <button type="button" style="display: none;" value = "Order" id="Order" onclick="orderTableData()">order Data Display</button>
+    <button type="button" style="display: none;" value="Feedback" id="Feedback" onclick="feedbackTableData()">feedback
+        Data
+        Display</button>
+    <button type="button" style="display: none;" value="Order" id="Order" onclick="orderTableData()">order Data
+        Display</button>
 
     <script>
 
         let allForms = [];
         let ObjectIterate = {}
-        
+
         var Contact = document.getElementById("Contact Information");
         var survey = document.getElementById("Survey");
         var registration = document.getElementById("Registration");
         var feedback = document.getElementById("Feedback");
         var order = document.getElementById("Order");
-        displayNone = () =>{
-            Contact.setAttribute("style","display:none");
-            survey.setAttribute("style","display:none");
-            registration.setAttribute("style","display:none");
-            feedback.setAttribute("style","display:none");
-            order.setAttribute("style","display:none");
+        displayNone = () => {
+            Contact.setAttribute("style", "display:none");
+            survey.setAttribute("style", "display:none");
+            registration.setAttribute("style", "display:none");
+            feedback.setAttribute("style", "display:none");
+            order.setAttribute("style", "display:none");
         }
         commonServerCommunicationFORMS = (method) => {
             method === "GET" ? url = "http://localhost:3000/forms" : url = "http://localhost:3000/forms";
@@ -52,7 +57,7 @@
                 }
                 return response.json();
             }).then((data) => {
-                console.log(data)
+                // console.log(data)
                 allForms = data;
                 displayFormNames();
             })
@@ -84,7 +89,7 @@
                 allOptions.forEach((element) => {
                     if (element.selected) {
                         console.log(element)
-                        generateFORM(form.fields , form.formName);
+                        generateFORM(form.fields, form.formName);
                         handleButtonEventActions(form.formName);
                         clearKeysInObject(ObjectIterate);
                         form.fields.forEach((data) => {
@@ -99,7 +104,7 @@
             });
             returnObj(ObjectIterate);
         }
-        generateFORM = (fields , formName) => {
+        generateFORM = (fields, formName) => {
             let inputFieldDiv = document.createElement('div');
             inputFieldDiv.setAttribute("class", "inputFieldDiv");
             fields.forEach((data, i) => {
@@ -134,7 +139,7 @@
             var myButton = document.createElement("button");
             myButton.setAttribute("type", "button");
             console.log(formName);
-            myButton.setAttribute("onclick", "addDetails("+formName+")");
+            myButton.setAttribute("onclick", "addDetails(" + formName + ")");
             myDiv3.appendChild(myButton).innerHTML = 'Submit';
             inputFieldDiv.appendChild(myDiv3);
         }
@@ -164,39 +169,47 @@
             if (formName === "Contact Information") {
                 var data = readOnlyDataFromFOM();
                 console.log(data);
-                commonServerCommunicationData("POST", data,formName);
+                commonServerCommunicationData("POST", data, formName);
             }
             else if (formName === "Survey") {
                 var data = readOnlyDataFromFOM();
-                commonServerCommunicationData("POST", data,formName);
+                commonServerCommunicationData("POST", data, formName);
             } else if (formName === "Registration") {
                 var data = readOnlyDataFromFOM();
-                commonServerCommunicationData("POST", data,formName);
+                commonServerCommunicationData("POST", data, formName);
             } else if (formName === "Feedback") {
                 var data = readOnlyDataFromFOM();
-                commonServerCommunicationData("POST", data,formName);
+                commonServerCommunicationData("POST", data, formName);
             } else if (formName === "Order") {
                 var data = readOnlyDataFromFOM();
                 console.log(data);
-                commonServerCommunicationData("POST", data,formName);
+                commonServerCommunicationData("POST", data, formName);
             }
         }
-        surveyTableData = () => {
-            window.location.href = "surveryData.html";
+        dynamicButtonAccess = (btnDetails) =>{
+            var button = document.getElementById(btnDetails);
+            let formName = {}
+            formName.name = button.value
+            localStorage.setItem("formName", JSON.stringify(formName));
+            window.location.href = "formsDataDisplay.html";
         }
-        contactTableData = () =>{
-            window.location.href = "contactData.html";
+        surveyTableData = () => {
+            dynamicButtonAccess("Survey");
+        }
+        contactTableData = () => {
+            dynamicButtonAccess("Contact Information");
         }
         registrationTableData = () => {
-            window.location.href = "registrationData.html"
+            dynamicButtonAccess("Registration");
         }
         feedbackTableData = () => {
-            window.location.href = "feedbackData.html"
+            dynamicButtonAccess("Feedback");
         }
-        orderTableData = () =>{
-            window.location.href = "orderData.html";
+        orderTableData = () => {
+            dynamicButtonAccess("Order");
         }
         function returnObj(ObjectIterate) {
+            localStorage.setItem("ObjectDetails", JSON.stringify(ObjectIterate));
             return ObjectIterate;
         }
         function readOnlyDataFromFOM() {

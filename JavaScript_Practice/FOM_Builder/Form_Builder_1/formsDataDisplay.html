@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Data Display</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">FORM DATA DISPLAY</h1>
+    <button id="mainPage" type="button" onclick="returnPrevPage()" style="margin-left: 1300px;">Return</button>
+    <table style="margin: auto;">
+        <thead>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    returnPrevPage = () => {
+        window.location.href = "formBuilder01.html";
+    }
+    let details = null;
+    commonServerCommunication = (method, data) => {
+        let stringData = localStorage.getItem("formName");
+        let formName = JSON.parse(stringData);
+        if (formName.name === "Contact Information") {
+            method === "GET" ? url = "http://localhost:3000/formDetails1" : url = "http://localhost:3000/formDetails1/" + data.id;
+        } else if (formName.name === "Survey") {
+            method === "GET" ? url = "http://localhost:3000/formDetails2" : url = "http://localhost:3000/formDetails2/" + data.id;
+
+        } else if (formName.name === "Registration") {
+            method === "GET" ? url = "http://localhost:3000/formDetails3" : url = "http://localhost:3000/formDetails3/" + data.id;
+
+        } else if (formName.name === "Feedback") {
+            method === "GET" ? url = "http://localhost:3000/formDetails4" : url = "http://localhost:3000/formDetails4/" + data.id;
+
+        } else if (formName.name === "Order") {
+            method === "GET" ? url = "http://localhost:3000/formDetails5" : url = "http://localhost:3000/formDetails5/" + data.id;
+        }
+        fetch(url, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: method === "PUT" ? JSON.stringify(data) : null,
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error("Response is not ok...!!!");
+            }
+            return response.json();
+        }).then((apiData) => {
+            details = apiData;
+            displayTable();
+            headingDisplay();
+        })
+    }
+    commonServerCommunication("GET");
+
+    dynamicThText = (text, target) => {
+        var Th = document.createElement("th");
+        Th.innerHTML = text,
+            target.appendChild(Th);
+    }
+    dynamicButtons = (text, target, event, data) => {
+        var Td = document.createElement("td");
+        var Button = document.createElement("button");
+        Button.innerHTML = text;
+        Button.addEventListener("click", function () {
+            event(data);
+        })
+        Td.appendChild(Button);
+        target.appendChild(Td);
+    }
+    commonDataDisplayTable = (obj, cell, target, data) => {
+        var myTr = document.createElement("tr");
+        for (a in obj) {
+            if (a !== "isEdit") {
+                var myTh = document.createElement(cell);
+                if (obj.isEdit) {
+                    var myInput = document.createElement("input");
+                    myInput.setAttribute("id", a);
+                    myInput.setAttribute("value", obj[a]);
+                    myTh.appendChild(myInput);
+                    myTr.appendChild(myTh);
+                } else {
+                    myTh.innerHTML = cell === "th" ? a : obj[a];
+                    myTh.setAttribute("style", "padding:5px");
+                    myTr.appendChild(myTh);
+                }
+            }
+        }
+        if (cell === "th") {
+            dynamicThText("EDIT", myTr);
+            dynamicThText("DELETE", myTr);
+        } else {
+            obj.isEdit ? dynamicButtons("Update", myTr, updateData, data) : dynamicButtons("Edit", myTr, editData, data);
+            dynamicButtons("Delete", myTr, deleteData, data)
+        }
+        document.querySelector(target).appendChild(myTr);
+    }
+    editData = (data) => {
+        data.isEdit = true;
+        console.log(data)
+        let editData = localStorage.setItem("editDetails", JSON.stringify(data));
+        // window.location.href = "formBuilder01.html";
+        displayTable();
+    }
+    updateData = () => {
+        var data = readOnlyDataFromFOM();
+        console.log(data);
+        commonServerCommunication("PUT", data)
+    }
+    deleteData = (data) => {
+        commonServerCommunication("DELETE", data)
+    }
+    function headingDisplay() {
+        commonDataDisplayTable(details[0], "th", "thead");
+    }
+
+    function displayTable() {
+        document.querySelector("tbody").innerHTML = "";
+        details.forEach((data) => {
+            commonDataDisplayTable(data, "td", "tbody", data);
+        })
+    }
+    function readOnlyDataFromFOM() {
+        let obj = {};
+        obj.id = "";
+        var StringObject = localStorage.getItem("ObjectDetails")
+        let originalObject = JSON.parse(StringObject);
+        let data = Object.assign(obj, originalObject);
+        for (a in data) {
+            data[a] = document.getElementById(a).value;
+        }
+        return data;
+    }
+</script>
+
+</html>
