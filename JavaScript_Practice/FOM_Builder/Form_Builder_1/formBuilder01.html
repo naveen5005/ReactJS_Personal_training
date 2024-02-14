@@ -78,11 +78,6 @@
                 document.querySelector("select").appendChild(option);
             })
         }
-        function clearKeysInObject(obj) {
-            for (const key in obj) {
-                delete obj[key];
-            }
-        }
         handleButtonEventActions = (value) => {
             var survey = document.getElementById(value);
             survey.setAttribute("style", "display:block");
@@ -97,7 +92,6 @@
                         console.log(element)
                         generateFORM(form.fields, form.formName);
                         handleButtonEventActions(form.formName);
-                        clearKeysInObject(ObjectIterate);
                         form.fields.forEach((data) => {
                             for (a in data) {
                                 if (a === "type") {
