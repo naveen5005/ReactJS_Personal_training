@@ -10,16 +10,20 @@ input {
 }
 
 button {
-    width: 235px;
-    height: 30px;
+    width: 230px;
+    /* height: 30px; */
     margin-top: 10px;
     margin-bottom: 20px;
 }
-
+#Survey{
+    position: relative;
+    left: 10px;
+    /* width: fit-content;  */
+}
 .inputFieldDiv {
     border: 1px solid black;
     border-radius: 7px;
     width: fit-content;
-    padding: 15px 40px;
+    padding: 30px 40px 40px 40px;
     margin: auto;
 }

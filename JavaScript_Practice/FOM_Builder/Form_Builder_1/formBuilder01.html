@@ -4,28 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM Builder-01</title>
+    <title>FORM Builder</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>FORM BUILDER - 01</h1> <br>
-    <select name="" id="allForms" onchange="handleChange()"></select> <br><br>
+    <h1 style="text-align: center;">FORM BUILDER - 01</h1> <br>
+    <select class="btn btn-secondary dropdown-toggle" id="allForms" onchange="handleChange()"  style="width: 200px; position: relative; left: 10px;"></select> <br><br>
     <form action="">
 
     </form>
-    <button type="button" style="display: none;" value="Contact Information" id="Contact Information"
+    <button type="button" style="display: none;" value="Contact Information" id="Contact Information" class="btn btn-primary"
         onclick="contactTableData()">Contact Data
         Display</button>
-    <button type="button" style="display: none;" value="Survey" id="Survey" onclick="surveyTableData()">Survey Data
+    <button type="button" style="display: none;" value="Survey" id="Survey" onclick="surveyTableData()" class="btn btn-primary">Survey Data
         Display</button>
-    <button type="button" style="display: none;" value="Registration" id="Registration"
+    <button type="button" style="display: none;" value="Registration" id="Registration" class="btn btn-primary"
         onclick="registrationTableData()">Registration Data
         Display</button>
-    <button type="button" style="display: none;" value="Feedback" id="Feedback" onclick="feedbackTableData()">feedback
+    <button type="button" style="display: none;" value="Feedback" id="Feedback" onclick="feedbackTableData()" class="btn btn-primary">feedback
         Data
         Display</button>
-    <button type="button" style="display: none;" value="Order" id="Order" onclick="orderTableData()">order Data
+    <button type="button" style="display: none;" value="Order" id="Order" onclick="orderTableData()" class="btn btn-primary">order Data
         Display</button>
 
     <script>
@@ -68,6 +73,7 @@
                 let option = document.createElement("option");
                 option.innerHTML = formObj.formName;
                 option.value = formObj.formName;
+                formObj.formName === "--select--" ? option.setAttribute("style","text-align:center") : option.setAttribute("style","text-align:start");
                 option.setAttribute("name", formObj.formName)
                 document.querySelector("select").appendChild(option);
             })
@@ -126,6 +132,7 @@
                         var myDiv2 = document.createElement("div");
                         inputField.setAttribute('id', data[a])
                         inputField.setAttribute(a, data[a]);
+                        inputField.setAttribute("class","form-control");
                         myDiv2.setAttribute("class", "first");
                         myDiv2.setAttribute("style", "grid-row:2");
                         myDiv2.appendChild(inputField);
@@ -138,6 +145,8 @@
             var myDiv3 = document.createElement("div");
             var myButton = document.createElement("button");
             myButton.setAttribute("type", "button");
+            myButton.setAttribute("class","btn btn-primary");
+            myButton.setAttribute("style","margin-top:15px")
             console.log(formName);
             myButton.setAttribute("onclick", "addDetails(" + formName + ")");
             myDiv3.appendChild(myButton).innerHTML = 'Submit';
@@ -186,7 +195,7 @@
                 commonServerCommunicationData("POST", data, formName);
             }
         }
-        dynamicButtonAccess = (btnDetails) =>{
+        dynamicButtonAccess = (btnDetails) => {
             var button = document.getElementById(btnDetails);
             let formName = {}
             formName.name = button.value
