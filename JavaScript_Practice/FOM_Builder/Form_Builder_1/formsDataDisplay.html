@@ -41,17 +41,19 @@
         let formName = JSON.parse(stringData);
         if (formName.name === "Contact Information") {
             method === "GET" ? url = "http://localhost:3000/formDetails1" : url = "http://localhost:3000/formDetails1/" + data.id;
+            document.querySelector("h1").innerHTML = formName.name + "Table Data Display";
         } else if (formName.name === "Survey") {
             method === "GET" ? url = "http://localhost:3000/formDetails2" : url = "http://localhost:3000/formDetails2/" + data.id;
-
+            document.querySelector("h1").innerHTML = formName.name + "Table Data Display";
         } else if (formName.name === "Registration") {
             method === "GET" ? url = "http://localhost:3000/formDetails3" : url = "http://localhost:3000/formDetails3/" + data.id;
-
+            document.querySelector("h1").innerHTML = formName.name + "Table Data Display";
         } else if (formName.name === "Feedback") {
             method === "GET" ? url = "http://localhost:3000/formDetails4" : url = "http://localhost:3000/formDetails4/" + data.id;
-
+            document.querySelector("h1").innerHTML = formName.name + "Table Data Display";
         } else if (formName.name === "Order") {
             method === "GET" ? url = "http://localhost:3000/formDetails5" : url = "http://localhost:3000/formDetails5/" + data.id;
+            document.querySelector("h1").innerHTML = formName.name + "Table Data Display";
         }
         fetch(url, {
             method: method,
