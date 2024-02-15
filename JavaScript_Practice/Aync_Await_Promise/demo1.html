@@ -14,22 +14,24 @@
         // using promise
         getData = () =>{
             return new Promise((resolve,reject)=>{
-                fetch("http://localhost:3000/formDetails3").then((response)=>response.json())
+                fetch("http://localhost:3000/questions").then((response)=>response.json())
                 .then((data)=>{
                     resolve(data);
                     // reject();
+                    arrayDetails = data;
                 })
             })
         }
 
         getData().then((data)=>{
-            console.log(data)
+            console.log(data);
+            console.log(arrayDetails);
         }).catch(()=>{
             console.log("Rejected")
         })
 
         // using normal fetch
-        fetch("http://localhost:3000/formDetails3",{
+        fetch("http://localhost:3000/questions",{
             method:"GET",
             headers :{'Content-Type':'application/json'},
             body : null
@@ -45,7 +47,7 @@
 
         // using async await
         getDataFromAPI = async () =>{
-            const result = await (await fetch("http://localhost:3000/formDetails3")).json(); 
+            const result = await (await fetch("http://localhost:3000/questions")).json(); 
             arrayDetails_async_await = result;
             displayTwo();
         }
