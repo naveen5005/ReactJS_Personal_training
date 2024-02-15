@@ -92,6 +92,7 @@
                         console.log(element)
                         generateFORM(form.fields, form.formName);
                         handleButtonEventActions(form.formName);
+                        ObjectIterate={};
                         form.fields.forEach((data) => {
                             for (a in data) {
                                 if (a === "type") {
@@ -102,6 +103,7 @@
                     }
                 })
             });
+            console.log(ObjectIterate);
             returnObj(ObjectIterate);
         }
         generateFORM = (fields, formName) => {
