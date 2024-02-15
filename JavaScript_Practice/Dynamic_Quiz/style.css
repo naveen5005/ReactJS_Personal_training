@@ -1,0 +1,57 @@
+body {
+    padding: 30px;
+}
+
+#main {
+    display: flex;
+    width: 1200px;
+    margin: auto;
+    column-gap: 50px;
+}
+
+#left,
+#right {
+    border: 1.5px solid gray;
+    /* height: 97vh; */
+    width: 45%;
+    padding: 20px;
+}
+
+.item {
+    background-color: lightslategray;
+    list-style: none;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+    cursor: pointer;
+}
+
+li::first-letter {
+    text-transform: capitalize;
+}
+
+.container {
+    margin: 30px;
+}
+
+.custom-input {
+    width: 86%;
+}
+
+.custom-label {
+    text-align: center;
+    border: 2px solid black;
+}
+
+.dropdown {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+label{
+    font-size: 1.2rem;
+}
