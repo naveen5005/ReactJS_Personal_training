@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            display: flex;
+            width: 1200px;
+            margin: auto;
+        }
+
+        #left,
+        #right {
+            width: 45%;
+            border: 1px solid black;
+            height: 100vh;
+        }
+
+        li::first-letter {
+            text-transform: uppercase;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            margin: 10px;
+            background: lightgray;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="left">
+            <ul></ul>
+        </div>
+        <div id="right">
+            <form action="">
+                <label for="">Test Name : </label> 
+                <input type="text" name="" id="">  <br>
+            </form>
+            <ul id="questions"></ul>
+
+            <button> Save the Test</button>
+        </div>
+    </div>
+    <script>
+        const left = document.getElementById("left");
+        let questions = [];
+        handleDragEelements = () => {
+            const items = document.querySelectorAll(".item");
+            const droppableArea = document.querySelector("#right");
+
+            // Enable draggable functionality for each item
+            items.forEach(function (item) {
+                item.addEventListener("dragstart", function (e) {
+                    e.dataTransfer.setData("text/plain", e.target.innerText);
+                });
+            });
+            droppableArea.addEventListener("dragover", function (e) {
+                e.preventDefault();
+            });
+            droppableArea.addEventListener("drop", function (e) {
+                e.preventDefault();
+                const data = e.dataTransfer.getData("text/plain");
+                const newItem = document.createElement("li");
+                newItem.classList.add("item");
+                newItem.textContent = data;
+                document.querySelector("#questions").appendChild(newItem);
+            });
+            console.log(items)
+        }
+        displayQuestions = () => {
+            if (questions.length > 0) {
+                questions.forEach((question) => {
+                    let li = document.createElement('li');
+                    li.appendChild(document.createTextNode(`${question.type}`));
+                    // li.setAttribute("class", "item")
+                    li.setAttribute("draggable", "true"); // Add draggable attribute
+                    li.classList.add("item")
+                    document.querySelector("ul").appendChild(li);
+                })
+            }
+            handleDragEelements()
+        }
+        getUsers = async () => {
+            const results = await (await fetch("http://localhost:3000/questions")).json();
+            questions = results;
+            displayQuestions()
+        };
+        getUsers();
+
+
+    </script>
+</body>
+
+</html>

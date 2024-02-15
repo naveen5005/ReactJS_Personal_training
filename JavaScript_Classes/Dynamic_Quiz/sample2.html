@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        // getAllQuestions = async () => {
+        //     const response = await (await fetch('http://localhost:3000/questions')).json();
+        //     console.log(response)
+        // }
+        // getAllQuestions()
+
+        var users = []
+        getUsers = () => {
+            return new Promise((resolve, reject) => {
+                fetch("http://localhost:3000/questions").then((response) => response.json()).then((data) => {
+                    // resolve(data)
+                    
+                })
+            })
+        }
+
+        getUsers()
+            .then((data) => {
+                console.log(data)
+            }).catch(() => {
+                console.log("Rejected")
+            })
+
+        // fetch("http://localhost:3000/questions").then((response)=> response.json()).then((data)=>{
+        //     console.log(data)
+        //     users = data;
+        //     console.log(users)
+        // })
+    </script>
+</body>
+
+</html>
