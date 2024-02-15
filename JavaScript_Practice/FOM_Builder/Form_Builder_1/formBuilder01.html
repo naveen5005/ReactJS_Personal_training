@@ -19,7 +19,7 @@
     <form action="">
 
     </form>
-    <button type="button" style="display: none;" value="Contact Information" id="Contact Information" class="btn btn-primary actionStyles"
+    <button type="button" style="display: none;" value="Contact" id="Contact" class="btn btn-primary actionStyles"
         onclick="contactTableData()">Contact Data
         Display</button>
     <button type="button" style="display: none;" value="Survey" id="Survey" onclick="surveyTableData()" class="btn btn-primary actionStyles">Survey Data
@@ -38,7 +38,7 @@
         let allForms = [];
         let ObjectIterate = {}
 
-        var Contact = document.getElementById("Contact Information");
+        var Contact = document.getElementById("Contact");
         var survey = document.getElementById("Survey");
         var registration = document.getElementById("Registration");
         var feedback = document.getElementById("Feedback");
@@ -79,6 +79,7 @@
             })
         }
         handleButtonEventActions = (value) => {
+            console.log(value)
             var survey = document.getElementById(value);
             survey.setAttribute("style", "display:block");
         }
@@ -91,6 +92,7 @@
                     if (element.selected) {
                         console.log(element)
                         generateFORM(form.fields, form.formName);
+                        console.log(form.formName);
                         handleButtonEventActions(form.formName);
                         ObjectIterate={};
                         form.fields.forEach((data) => {
@@ -150,7 +152,7 @@
             inputFieldDiv.appendChild(myDiv3);
         }
         commonServerCommunicationData = (method, data, formName) => {
-            if (formName === "Contact Information") {
+            if (formName === "Contact") {
                 url = "http://localhost:3000/formDetails1"
             }
             else if (formName === "Survey") {
@@ -172,7 +174,7 @@
             console.log(buttonData);
             let formName = buttonData.value;
             // console.log(formName);
-            if (formName === "Contact Information") {
+            if (formName === "Contact") {
                 var data = readOnlyDataFromFOM();
                 console.log(data);
                 commonServerCommunicationData("POST", data, formName);
@@ -203,7 +205,7 @@
             dynamicButtonAccess("Survey");
         }
         contactTableData = () => {
-            dynamicButtonAccess("Contact Information");
+            dynamicButtonAccess("Contact");
         }
         registrationTableData = () => {
             dynamicButtonAccess("Registration");

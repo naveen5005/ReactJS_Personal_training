@@ -5,7 +5,7 @@
       "id": "31c2"
     },
     {
-      "formName": "Contact Information",
+      "formName": "Contact",
       "fields": [
         {
           "type": "text",
@@ -152,7 +152,14 @@
       "textarea": "NA"
     }
   ],
-  "formDetails1": [],
+  "formDetails1": [
+    {
+      "id": "b30d",
+      "text": "Naveen Babu",
+      "email": "bellamnaveen314@gmail.com",
+      "tel": "9398457833"
+    }
+  ],
   "formDetails3": [
     {
       "id": "58ee",

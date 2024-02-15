@@ -49,7 +49,7 @@
     commonServerCommunication = (method, data) => {
         let stringData = localStorage.getItem("formName");
         let formName = JSON.parse(stringData);
-        if (formName.name === "Contact Information") {
+        if (formName.name === "Contact") {
             method === "GET" ? url = "http://localhost:3000/formDetails1" : url = "http://localhost:3000/formDetails1/" + data.id;
             document.querySelector("h1").innerHTML = formName.name + "Table Data Display";
         } else if (formName.name === "Survey") {
