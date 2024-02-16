@@ -50,7 +50,7 @@
                 const newItem = document.createElement("div");
                 var h4 = document.createElement("h4");
                 h4.innerHTML = "Question from Input type " + data + ": <br>";
-                h4.setAttribute("style","text-decoration:underline");
+                h4.setAttribute("style", "text-decoration:underline");
                 newItem.appendChild(h4);
                 // newItem.innerHTML = "Question from Input type " + data + ": <br>";
                 newItem.setAttribute("class", "form main container");
@@ -64,13 +64,13 @@
                                 var mylabel = document.createElement("label");
                                 mylabel.innerHTML = question[a] + ": <br>";
                                 var myInput = document.createElement("input");
-                                myInput.setAttribute("type", question[a]);
+                                myInput.setAttribute("type", "text");
                                 myInput.setAttribute("class", "form-control custom-input");
                                 myDiv.appendChild(mylabel);
                                 myDiv.appendChild(myInput);
                                 newItem.appendChild(myDiv);
-                            } 
-                            else{
+                            }
+                            else {
                                 if ((a == "options") && (inputType === "checkbox" || inputType === "radio")) {
                                     question[a].forEach((data) => {
                                         var myDivCheck = document.createElement("div");
@@ -85,7 +85,7 @@
                                             } else if (b === "value") {
                                                 var innerLabel = document.createElement("label");
                                                 innerLabel.innerHTML = data[b];
-                                                innerLabel.setAttribute("class", "form-check-label custom-label");
+                                                innerLabel.setAttribute("class", "form-check-label");
                                                 myDivCheck.appendChild(innerLabel);
                                             }
                                         }
@@ -101,6 +101,7 @@
                                         var option = document.createElement("option");
                                         var optDiv = document.createElement("div");
                                         for (c in data) {
+                                            console.log(data)
                                             if (c === "label") {
                                                 option.innerHTML = data[c];
                                                 option.value = data[c];
@@ -138,10 +139,14 @@
             handleDragEelements()
         }
         getDataFromAPI = async () => {
-            var results = await (await fetch("http://localhost:3000/questions")).json();
-            questions = results;
-            console.log(questions)
-            displayQuestions();
+            try {
+                var results = await (await fetch("http://localhost:3000/questions")).json();
+                questions = results;
+                console.log(questions)
+                displayQuestions();
+            } catch (error) {
+                console.log(error);
+            }
         }
         getDataFromAPI();
     </script>
