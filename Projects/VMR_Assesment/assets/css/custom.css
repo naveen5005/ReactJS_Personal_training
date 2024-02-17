@@ -1,0 +1,16 @@
+.option-wrapper {
+  width: 95%;
+  margin: 2%;
+}
+input {
+  width: 50%;
+}
+.card {
+    padding: 10px;
+}
+.option-wrapper input{
+    width: 100%;
+}
+.card p {
+    font-weight: bold;
+}

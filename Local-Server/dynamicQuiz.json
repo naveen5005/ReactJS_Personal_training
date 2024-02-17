@@ -1,4 +1,4 @@
-{  
+{
   "questions": [
     {
       "type": "text",
@@ -76,12 +76,20 @@
         {
           "type": "textarea",
           "Question": "What is the role of the \"meta\" tag in HTML?",
-          "answer": "The \"meta\" tag is used to provide metadata about an HTML document, such as the author, description, and keywords for search engines."
+          "options": [
+            {
+              "Option1": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
+            }
+          ]
         },
         {
           "type": "text",
           "Question": "How do you embed a video in HTML?",
-          "answer": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
+          "options": [
+            {
+              "Option1": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
+            }
+          ]
         },
         {
           "type": "checkbox",
@@ -182,5 +190,4 @@
       ]
     }
   ]
-     
 }
