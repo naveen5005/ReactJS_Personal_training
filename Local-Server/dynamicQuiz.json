@@ -1,44 +1,186 @@
-{
-    "questions": [
+{  
+  "questions": [
+    {
+      "type": "text",
+      "label": "Enter Your Question",
+      "correctAnswer": "Enter correct answer"
+    },
+    {
+      "type": "textarea",
+      "label": "Enter Your Question",
+      "correctAnswer": "Enter correct answer"
+    },
+    {
+      "type": "radio",
+      "label": "Enter Your Question",
+      "correctAnswer": "Enter correct answer",
+      "options": [
         {
-          "type": "text",
-          "label": "Enter Your Question",
-          "correctAnswer": "Enter correct answer"
+          "label": "Option 1",
+          "value": "option1"
         },
+        {
+          "label": "Option 2",
+          "value": "option2"
+        },
+        {
+          "label": "Option 3",
+          "value": "option3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "label": "Enter Your Question",
+      "correctAnswer": "Enter correct answer",
+      "options": [
+        {
+          "label": "Option 1",
+          "value": "option1"
+        },
+        {
+          "label": "Option 2",
+          "value": "option2"
+        },
+        {
+          "label": "Option 3",
+          "value": "option3"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "label": "Enter Your Question",
+      "correctAnswer": "Enter correct answer",
+      "options": [
+        {
+          "label": "Option 1",
+          "value": "option1"
+        },
+        {
+          "label": "Option 2",
+          "value": "option2"
+        },
+        {
+          "label": "Option 3",
+          "value": "option3"
+        }
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "id": "ff66",
+      "formName": "HTML_Interview_Questions",
+      "fields": [
         {
           "type": "textarea",
-          "label": "Enter Your Question",
-          "correctAnswer": "Enter correct answer"
+          "Question": "What is the role of the \"meta\" tag in HTML?",
+          "answer": "The \"meta\" tag is used to provide metadata about an HTML document, such as the author, description, and keywords for search engines."
         },
         {
-          "type": "radio",
-          "label": "Enter Your Question",
-          "correctAnswer": "Enter correct answer",
-          "options": [
-            { "label": "Option 1", "value": "option1" },
-            { "label": "Option 2", "value": "option2" },
-            { "label": "Option 3", "value": "option3" }
-          ]
+          "type": "text",
+          "Question": "How do you embed a video in HTML?",
+          "answer": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
         },
         {
           "type": "checkbox",
-          "label": "Enter Your Question",
-          "correctAnswer": "Enter correct answer",
+          "Question": "Identify the Semantic elements ?",
+          "answer": "all are correct",
           "options": [
-            { "label": "Option 1", "value": "option1" },
-            { "label": "Option 2", "value": "option2" },
-            { "label": "Option 3", "value": "option3" }
+            {
+              "Option1": "main",
+              "Option2": "mark",
+              "Option3": "time"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "Question": "div is a block level element ?",
+          "answer": "yes",
+          "options": [
+            {
+              "Option1": "yes",
+              "Option2": "no",
+              "Option3": "none of the above"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "Question": "How many sizes of headers are available in HTML by default?",
+          "answer": "6",
+          "options": [
+            {
+              "Option1": "6",
+              "Option2": "5",
+              "Option3": "7"
+            }
           ]
         },
         {
           "type": "select",
-          "label": "Enter Your Question",
-          "correctAnswer": "Enter correct answer",
+          "Question": "What is the smallest header in HTML by default?",
+          "answer": "h6",
           "options": [
-            { "label": "Option 1", "value": "option1" },
-            { "label": "Option 2", "value": "option2" },
-            { "label": "Option 3", "value": "option3" }
+            {
+              "Option1": "h1",
+              "Option2": "h6",
+              "Option3": "h5"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "Question": "What are the types of lists available in HTML?",
+          "answer": "Ordered, Unordered list",
+          "options": [
+            {
+              "Option1": "Ordered, Unordered list",
+              "Option2": "Bulleted, Numbered list",
+              "Option3": "Named, unnamed list"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "Question": "We enclose HTML tags within?",
+          "answer": "<>",
+          "options": [
+            {
+              "Option1": "{}",
+              "Option2": "!!",
+              "Option3": "<>"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "Question": "How to create an ordered list in HTML?",
+          "answer": "<ol>",
+          "options": [
+            {
+              "Option1": "<li>",
+              "Option2": "<ol>",
+              "Option3": "<ul>"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "Question": "Identify the Semantic elements ?",
+          "answer": "all are correct",
+          "options": [
+            {
+              "Option1": "main",
+              "Option2": "mark",
+              "Option3": "time"
+            }
           ]
         }
       ]
+    }
+  ]
+     
 }

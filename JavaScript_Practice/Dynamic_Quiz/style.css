@@ -34,7 +34,7 @@ li::first-letter {
     text-transform: capitalize;
 }
 
-.container {
+.mainContainer {
     margin: 30px;
 }
 
@@ -47,11 +47,20 @@ li::first-letter {
     border-radius: 5px;
 }
 
-label{
+label {
     font-size: 1.2rem;
 }
-.form-check{
+
+.form-check {
     display: flex;
     /* height: 100px; */
     align-items: center;
+}
+
+button {
+    margin-left: 8%;
+    width: 82%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    height: 100%;
 }

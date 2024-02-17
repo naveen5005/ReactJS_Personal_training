@@ -22,8 +22,14 @@
         </div>
         <div id="right">
             <h1 style="text-align: center;">Interview questions</h1>
+            <div class="mainContainer test-details-information">
+                <label for="">FormName:</label><br>
+                <input type="text" id="text-name-details">
+            </div>
             <form action="">
-
+                <!-- <label for="">FormName:</label><br>
+                <input type="text"id="text-name-details"> -->
+                <button type="button" onclick="returnObj()">Submit Details</button>
             </form>
         </div>
     </div>
@@ -45,7 +51,6 @@
                 e.preventDefault();
             });
             droppableArea.addEventListener("drop", function (e) {
-                // e.preventDefault();
                 const data = e.dataTransfer.getData("text/plain");
                 const newItem = document.createElement("div");
                 var h4 = document.createElement("h4");
@@ -53,74 +58,51 @@
                 h4.setAttribute("style", "text-decoration:underline");
                 newItem.appendChild(h4);
                 // newItem.innerHTML = "Question from Input type " + data + ": <br>";
-                newItem.setAttribute("class", "form main container");
-                questions.forEach((question) => {
+                newItem.setAttribute("class", "form mainContainer");
+                questions.forEach((question, i) => {
                     var inputType = data.charAt(0).toLowerCase() + data.slice(1);
+                    newItem.setAttribute("data-identifyType", inputType);
                     if (question.type === inputType) {
+                        // console.log(question)
                         for (a in question) {
-                            delete question.id;
-                            var myDiv = document.createElement("div");
-                            if (a !== "type" && a !== "options") {
-                                var mylabel = document.createElement("label");
-                                mylabel.innerHTML = question[a] + ": <br>";
+                            if (a == "label" || a == "correctAnswer") {
+                                var label = document.createElement("label");
+                                label.innerHTML = question[a] + " : <br>";
+                                label.setAttribute("style", "display:block");
+                                label.setAttribute("id", a);
                                 var myInput = document.createElement("input");
-                                myInput.setAttribute("type", "text");
-                                myInput.setAttribute("class", "form-control custom-input");
-                                myDiv.appendChild(mylabel);
-                                myDiv.appendChild(myInput);
-                                newItem.appendChild(myDiv);
+                                question.type === "textarea" ? myInput.setAttribute("type", inputType) : myInput.setAttribute("type", "text");
+                                myInput.setAttribute("id", a + "-" + inputType);
+                                myInput.setAttribute("style", "display:block");
+                                newItem.appendChild(label);
+                                newItem.appendChild(myInput);
                             }
-                            else {
-                                if ((a == "options") && (inputType === "checkbox" || inputType === "radio")) {
-                                    question[a].forEach((data) => {
-                                        var myDivCheck = document.createElement("div");
-                                        for (b in data) {
-                                            if (b === "label") {
-                                                var InnerInput = document.createElement("input");
-                                                InnerInput.setAttribute("type", inputType);
-                                                InnerInput.setAttribute("class", "form-check-input");
-                                                InnerInput.setAttribute("style", "margin-right:5px");
-                                                inputType === "radio" ? InnerInput.setAttribute("name", "status") : InnerInput.setAttribute("name", data[b]);
-                                                myDivCheck.appendChild(InnerInput);
-                                            } else if (b === "value") {
-                                                var innerLabel = document.createElement("label");
-                                                innerLabel.innerHTML = data[b];
-                                                innerLabel.setAttribute("class", "form-check-label");
-                                                myDivCheck.appendChild(innerLabel);
-                                            }
+                            else if ((inputType === "radio" || inputType === "checkbox" || inputType === "select") & a === "options") {
+                                question[a].forEach((data, i) => {
+                                    for (b in data) {
+                                        if (b === "label") {
+                                            var label = document.createElement("label");
+                                            label.innerHTML = data[b] + " : <br>";
+                                            label.setAttribute("style", "display:block");
+                                            label.setAttribute("id", a + i + "-" + "inputType");
+                                            newItem.appendChild(label);
                                         }
-                                        myDivCheck.setAttribute("class", "form-check");
-                                        myDiv.appendChild(myDivCheck);
-                                        newItem.appendChild(myDiv);
-                                    })
-                                }
-                                else if (a == "options" && inputType === "select") {
-                                    var select = document.createElement("select");
-                                    select.setAttribute("class", "dropdown");
-                                    question[a].forEach((data) => {
-                                        var option = document.createElement("option");
-                                        var optDiv = document.createElement("div");
-                                        for (c in data) {
-                                            console.log(data)
-                                            if (c === "label") {
-                                                option.innerHTML = data[c];
-                                                option.value = data[c];
-                                            }
-                                            option.setAttribute("class", "dropdown-item");
-                                            select.appendChild(option);
+                                        if (b === "value") {
+                                            var myInput = document.createElement("input");
+                                            myInput.setAttribute("type", "text");
+                                            myInput.setAttribute("name", inputType + "-" + a);
+                                            newItem.appendChild(myInput);
                                         }
-                                    })
-                                    myDiv.appendChild(select);
-                                    newItem.appendChild(myDiv);
-                                }
+                                    }
+                                })
                             }
-                            myDiv.setAttribute("style", "margin-bottom :20px")
                         }
                     }
                 })
-                document.querySelector("form").appendChild(newItem);
-                droppableArea.appendChild(document.querySelector("form"));
+                document.querySelector("form").prepend(newItem);
             });
+            droppableArea.appendChild(document.querySelector("form"));
+
         }
         displayQuestions = () => {
             try {
@@ -138,7 +120,99 @@
             }
             handleDragEelements()
         }
-        getDataFromAPI = async () => {
+
+        returnObj = () => {
+            var allInputs = document.querySelectorAll(".mainContainer");
+            var payload = {};
+            var fields = [];
+            var formName = document.getElementById("text-name-details");
+            // add all objects to the payload
+            allInputs.forEach((divContainer, index) => {
+                console.log(divContainer, index)
+                if (divContainer.dataset.identifytype === "text" || divContainer.dataset.identifytype === "textarea") {
+                    let text = {};
+                    text["type"] = divContainer.dataset.identifytype === "text" ? divContainer.dataset.identifytype : divContainer.dataset.identifytype;
+                    var allTags = divContainer.children;
+                    // console.log(allTags)
+                    for (i = 0; i < allTags.length; i++) {
+                        if (i !== 0 && i == 1) {
+                            // console.log(allTags[i].textContent) // gives question label value
+                            var questionInput = allTags[i].nextSibling;
+                            // console.log(questionInput.value); // gives question Input value
+                            text[allTags[i].textContent.substring(11, 19)] = questionInput.value; //question pair
+                            var answerLabel = questionInput.nextSibling;
+                            var answerInput = answerLabel.nextSibling;
+                            text[answerLabel.textContent.substring(14, 20)] = answerInput.value; // answer pair
+                        }
+                    }
+                    // var objectKey = 'object_' + index;
+                    // payload[objectKey] = text;
+                    // payload[""] = text
+                    fields.push(text);
+                    // console.log(text)
+                }
+                else if (divContainer.dataset.identifytype === "radio" || divContainer.dataset.identifytype === "checkbox" || divContainer.dataset.identifytype === "select") {
+                    let radio = {
+
+                    }
+                    // console.log(target)
+                    radio["type"] = divContainer.dataset.identifytype;
+                    var allTags = divContainer.children;
+                    // console.log(allTags)
+                    for (i = 0; i < allTags.length; i++) {
+                        // console.log(allTags[i]);
+                        if (i !== 0 && i == 1) {
+                            // console.log(allTags[i].textContent) // gives question label value
+                            var questionInput = allTags[i].nextSibling;
+                            // console.log(questionInput.value); // gives question Input value
+                            radio[allTags[i].textContent.substring(11, 19)] = questionInput.value; //question pair
+                            var answerLabel = questionInput.nextSibling;
+                            var answerInput = answerLabel.nextSibling;
+                            // console.log(answerLabel.textContent)
+                            radio[answerLabel.textContent.substring(14, 20)] = answerInput.value; // answer pair
+                            // implementing the array of options
+                            // option-1
+                            let optionsArray = [];
+                            const singleOption = {};
+                            var option1_Label = answerInput.nextSibling;
+                            var option1_Value = option1_Label.nextSibling;
+                            singleOption[option1_Label.textContent.substring(0, 6) + option1_Label.textContent.substring(7, 8)] = option1_Value.value;
+                            optionsArray.push(singleOption);
+
+                            // option-2
+                            var option2_Label = option1_Value.nextSibling;
+                            var option2_Value = option2_Label.nextSibling;
+                            singleOption[option2_Label.textContent.substring(0, 6) + option2_Label.textContent.substring(7, 8)] = option2_Value.value;
+                            // optionsArray.push(singleOption);
+
+                            // option-3
+                            var option3_Label = option2_Value.nextSibling;
+                            var option3_Value = option3_Label.nextSibling;
+                            singleOption[option3_Label.textContent.substring(0, 6) + option3_Label.textContent.substring(7, 8)] = option3_Value.value;
+                            // optionsArray.push(singleOption);
+
+                            radio["options"] = optionsArray;
+                        }
+                    }
+                    fields.push(radio);
+                    // console.log(radio)
+                }
+            })
+            // console.log(fields);
+            payload.formName = formName.value.replace(/\s/g, "_");;
+            payload.fields = fields;
+            // commonServerCommunicationForForms("POST",payload);
+            console.log(payload);
+            // window.location.href("formBuilderQuiz.html");
+        }
+        commonServerCommunicationForForms = async (method,payload) =>{
+            await fetch("http://localhost:3000/forms",{
+                method: method,
+                headers : {'Content-Type':'application/json'},
+                body: JSON.stringify(payload)
+            })
+        }
+        getQuestionsDataFromAPI = async () => {
             try {
                 var results = await (await fetch("http://localhost:3000/questions")).json();
                 questions = results;
@@ -148,7 +222,7 @@
                 console.log(error);
             }
         }
-        getDataFromAPI();
+        getQuestionsDataFromAPI();
     </script>
 </body>
 
