@@ -77,7 +77,7 @@
                                 newItem.appendChild(label);
                                 newItem.appendChild(myInput);
                             }
-                            else if ((inputType === "radio" || inputType === "checkbox" || inputType === "select") & a === "options") {
+                            else if ((inputType === "text" || inputType === "textarea" || inputType === "radio" || inputType === "checkbox" || inputType === "select") & a === "options") {
                                 question[a].forEach((data, i) => {
                                     for (b in data) {
                                         if (b === "label") {
@@ -129,25 +129,29 @@
             // add all objects to the payload
             allInputs.forEach((divContainer, index) => {
                 console.log(divContainer, index)
+                let optionsArray = [];
+                const singleOption = {};
                 if (divContainer.dataset.identifytype === "text" || divContainer.dataset.identifytype === "textarea") {
                     let text = {};
                     text["type"] = divContainer.dataset.identifytype === "text" ? divContainer.dataset.identifytype : divContainer.dataset.identifytype;
                     var allTags = divContainer.children;
-                    // console.log(allTags)
+                    console.log(allTags)
                     for (i = 0; i < allTags.length; i++) {
                         if (i !== 0 && i == 1) {
                             // console.log(allTags[i].textContent) // gives question label value
                             var questionInput = allTags[i].nextSibling;
                             // console.log(questionInput.value); // gives question Input value
                             text[allTags[i].textContent.substring(11, 19)] = questionInput.value; //question pair
-                            var answerLabel = questionInput.nextSibling;
-                            var answerInput = answerLabel.nextSibling;
-                            text[answerLabel.textContent.substring(14, 20)] = answerInput.value; // answer pair
+                            
+                            // implementing the array of options
+                            // option-1
+                            var option1_Label = questionInput.nextSibling;
+                            var option1_Value = option1_Label.nextSibling;
+                            singleOption[option1_Label.textContent.substring(0, 6) + option1_Label.textContent.substring(7, 8)] = option1_Value.value;
+                            optionsArray.push(singleOption);
+                            text["options"] = optionsArray;
                         }
                     }
-                    // var objectKey = 'object_' + index;
-                    // payload[objectKey] = text;
-                    // payload[""] = text
                     fields.push(text);
                     // console.log(text)
                 }
@@ -172,8 +176,6 @@
                             radio[answerLabel.textContent.substring(14, 20)] = answerInput.value; // answer pair
                             // implementing the array of options
                             // option-1
-                            let optionsArray = [];
-                            const singleOption = {};
                             var option1_Label = answerInput.nextSibling;
                             var option1_Value = option1_Label.nextSibling;
                             singleOption[option1_Label.textContent.substring(0, 6) + option1_Label.textContent.substring(7, 8)] = option1_Value.value;
@@ -205,10 +207,10 @@
             console.log(payload);
             // window.location.href("formBuilderQuiz.html");
         }
-        commonServerCommunicationForForms = async (method,payload) =>{
-            await fetch("http://localhost:3000/forms",{
+        commonServerCommunicationForForms = async (method, payload) => {
+            await fetch("http://localhost:3000/forms", {
                 method: method,
-                headers : {'Content-Type':'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
         }
