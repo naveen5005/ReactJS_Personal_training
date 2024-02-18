@@ -84,6 +84,7 @@
       "formName": "HTML_Interview_Questions",
       "fields": [
         {
+          "id": "ff67",
           "type": "textarea",
           "Question": "What is the role of the \"meta\" tag in HTML?",
           "options": [
@@ -93,6 +94,7 @@
           ]
         },
         {
+          "id": "ff68",
           "type": "text",
           "Question": "How do you embed a video in HTML?",
           "options": [
@@ -102,6 +104,7 @@
           ]
         },
         {
+          "id": "ff69",
           "type": "checkbox",
           "Question": "Identify the Semantic elements ?",
           "answer": "all are correct",
@@ -114,6 +117,7 @@
           ]
         },
         {
+          "id": "ff70",
           "type": "radio",
           "Question": "div is a block level element ?",
           "answer": "yes",
@@ -126,6 +130,7 @@
           ]
         },
         {
+          "id": "ff71",
           "type": "radio",
           "Question": "How many sizes of headers are available in HTML by default?",
           "answer": "6",
@@ -138,6 +143,7 @@
           ]
         },
         {
+          "id": "ff72",
           "type": "select",
           "Question": "What is the smallest header in HTML by default?",
           "answer": "h6",
@@ -150,6 +156,7 @@
           ]
         },
         {
+          "id": "ff73",
           "type": "checkbox",
           "Question": "What are the types of lists available in HTML?",
           "answer": "Ordered, Unordered list",
@@ -162,6 +169,7 @@
           ]
         },
         {
+          "id": "ff74",
           "type": "select",
           "Question": "We enclose HTML tags within?",
           "answer": "<>",
@@ -174,6 +182,7 @@
           ]
         },
         {
+          "id": "ff75",
           "type": "checkbox",
           "Question": "How to create an ordered list in HTML?",
           "answer": "<ol>",
@@ -186,6 +195,7 @@
           ]
         },
         {
+          "id": "ff76",
           "type": "checkbox",
           "Question": "Identify the Semantic elements ?",
           "answer": "all are correct",
@@ -194,6 +204,396 @@
               "Option1": "main",
               "Option2": "mark",
               "Option3": "time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a546",
+      "formName": "CSS_Interview_Questions",
+      "fields": [
+        {
+          "id": "ff70",
+          "type": "radio",
+          "Question": "CSS full form?",
+          "answer": "Cascading Style Sheet",
+          "options": [
+            {
+              "Option1": "Coloured Style Sheet",
+              "Option2": "Cascading Style Sheet",
+              "Option3": "Color and Style Sheet"
+            }
+          ]
+        },
+        {
+          "id": "ff71",
+          "type": "text",
+          "Question": "Which HTML tag is used to declare internal CSS?",
+          "options": [
+            {
+              "Option1": "style"
+            }
+          ]
+        },
+        {
+          "id": "ff72",
+          "type": "checkbox",
+          "Question": "What type of CSS is the following code snippet?  <h1 style=\"color:blue;\">A Blue Heading</h1>",
+          "answer": "Inline",
+          "options": [
+            {
+              "Option1": "External",
+              "Option2": "Internal",
+              "Option3": "Inline"
+            }
+          ]
+        },
+        {
+          "id": "ff73",
+          "type": "select",
+          "Question": "In the below code snippet, in what order will the margins be added?  p {   margin: 25px 50px 75px 100px; }",
+          "answer": "Top, Right, Bottom, Left",
+          "options": [
+            {
+              "Option1": " Right, Bottom, Left, Top",
+              "Option2": "Bottom, Right, Left, Top",
+              "Option3": "Top, Right, Bottom, Left"
+            }
+          ]
+        },
+        {
+          "id": "ff74",
+          "type": "radio",
+          "Question": "Can negative values be allowed in padding property?",
+          "answer": "No",
+          "options": [
+            {
+              "Option1": "yes",
+              "Option2": "no",
+              "Option3": "depends on property"
+            }
+          ]
+        },
+        {
+          "id": "ff75",
+          "type": "radio",
+          "Question": "The CSS property used to specify the transparency of an element is?",
+          "answer": "opacity",
+          "options": [
+            {
+              "Option1": "visibility",
+              "Option2": "opacity",
+              "Option3": "filter"
+            }
+          ]
+        },
+        {
+          "id": "ff76",
+          "type": "checkbox",
+          "Question": " How can we specify the spacing between each letter in a text in CSS?",
+          "answer": "letter-spacing",
+          "options": [
+            {
+              "Option1": "aplha-spacing",
+              "Option2": "character-spacing",
+              "Option3": "letter-spacing"
+            }
+          ]
+        },
+        {
+          "id": "ff77",
+          "type": "radio",
+          "Question": "Which of the following is the correct way to select all h1 headers in a div element?",
+          "answer": "div h1",
+          "options": [
+            {
+              "Option1": "div+h1",
+              "Option2": "div-h1",
+              "Option3": "div h1"
+            }
+          ]
+        },
+        {
+          "id": "ff78",
+          "type": "select",
+          "Question": "We can make rounded borders around elements using which CSS element?",
+          "answer": "border-radius",
+          "options": [
+            {
+              "Option1": "border-radius",
+              "Option2": "border-round",
+              "Option3": "border-collapse"
+            }
+          ]
+        },
+        {
+          "id": "ff79",
+          "type": "text",
+          "Question": "How can we set the maximum width of the elements content box using CSS?",
+          "options": [
+            {
+              "Option1": "max-width"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61ba",
+      "formName": "JavaScript_Interview_Questions",
+      "fields": [
+        {
+          "id": "ff80",
+          "type": "checkbox",
+          "Question": "Javascript is an _______ language?",
+          "answer": "Object-Oriented",
+          "options": [
+            {
+              "Option1": "Object-Based",
+              "Option2": "Object-Oriented",
+              "Option3": "Procedural"
+            }
+          ]
+        },
+        {
+          "id": "ff81",
+          "type": "radio",
+          "Question": "Which of the following keywords is used to define a variable in Javascript?",
+          "answer": "both",
+          "options": [
+            {
+              "Option1": "var",
+              "Option2": "let",
+              "Option3": "both "
+            }
+          ]
+        },
+        {
+          "id": "ff82",
+          "type": "text",
+          "Question": " How can a datatype be declared to be a constant type?",
+          "options": [
+            {
+              "Option1": "const"
+            }
+          ]
+        },
+        {
+          "id": "ff83",
+          "type": "checkbox",
+          "Question": "What will be the output of the following code snippet?  <script type=\"text/javascript\"> a = 5 + \"9\"; document.write(a); </script>",
+          "answer": "59",
+          "options": [
+            {
+              "Option1": "39",
+              "Option2": "59",
+              "Option3": "compilation error"
+            }
+          ]
+        },
+        {
+          "id": "ff84",
+          "type": "select",
+          "Question": " What will be the output of the following code snippet?  <script type=\"text/javascript\" language=\"javascript\">    var a = \"Scaler\"; var result = a.substring(2, 4); document.write(result);    </script>",
+          "answer": "al",
+          "options": [
+            {
+              "Option1": "al",
+              "Option2": "ale",
+              "Option3": "aler"
+            }
+          ]
+        },
+        {
+          "id": "ff85",
+          "type": "radio",
+          "Question": "What keyword is used to check whether a given property is valid or not?",
+          "answer": "in",
+          "options": [
+            {
+              "Option1": "is in",
+              "Option2": "in",
+              "Option3": "of"
+            }
+          ]
+        },
+        {
+          "id": "ff86",
+          "type": "textarea",
+          "Question": "What will be the output of the following code snippet?  (function(){  setTimeout(()=> console.log(1),2000);  console.log(2);  setTimeout(()=> console.log(3),0);  console.log(4); })();",
+          "options": [
+            {
+              "Option1": "2 4 3 1"
+            }
+          ]
+        },
+        {
+          "id": "ff87",
+          "type": "checkbox",
+          "Question": "What will be the output of the following code snippet?  (function(a){  return (function(){    console.log(a);    a = 6;  })() })(21);",
+          "answer": "21",
+          "options": [
+            {
+              "Option1": "NaN",
+              "Option2": "6",
+              "Option3": "21"
+            }
+          ]
+        },
+        {
+          "id": "ff88",
+          "type": "radio",
+          "Question": "What will be the output of the following code snippet?  function solve(arr, rotations){  if(rotations == 0) return arr;  for(let i = 0; i < rotations; i++){    let element = arr.pop();    arr.unshift(element);  }  return arr; } // solve([44, 1, 22, 111], 5);",
+          "answer": "[111,44,1,22]",
+          "options": [
+            {
+              "Option1": "[111,1,44,22]",
+              "Option2": "[111,44,1,22]",
+              "Option3": "[1,44,22,111]"
+            }
+          ]
+        },
+        {
+          "id": "ff89",
+          "type": "select",
+          "Question": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+          "answer": "Object",
+          "options": [
+            {
+              "Option1": "Undefined",
+              "Option2": "Object",
+              "Option3": "NaN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1bfe",
+      "formName": "ReactJS_Interview_Questions",
+      "fields": [
+        {
+          "id": "ff90",
+          "type": "text",
+          "Question": "Which of the following is used in React.js to increase performance?",
+          "options": [
+            {
+              "Option1": "Virtual DOM"
+            }
+          ]
+        },
+        {
+          "id": "ff91",
+          "type": "checkbox",
+          "Question": "What is ReactJS?",
+          "answer": "user interface framework",
+          "options": [
+            {
+              "Option1": "user interface framework",
+              "Option2": "server side framework",
+              "Option3": "both are not correct"
+            }
+          ]
+        },
+        {
+          "id": "ff92",
+          "type": "textarea",
+          "Question": "In which language is React.js written?",
+          "options": [
+            {
+              "Option1": "javascript"
+            }
+          ]
+        },
+        {
+          "id": "ff93",
+          "type": "checkbox",
+          "Question": "What is Babel?",
+          "answer": "javascript compiler",
+          "options": [
+            {
+              "Option1": "javascript interpreter",
+              "Option2": "javascript compiler",
+              "Option3": "javascript transpiler"
+            }
+          ]
+        },
+        {
+          "id": "ff94",
+          "type": "select",
+          "Question": "Identify the command used to create a react app.",
+          "answer": "npm install -g create react app",
+          "options": [
+            {
+              "Option1": "install -g create react app",
+              "Option2": "npm install create react app",
+              "Option3": "npm install -g create react app"
+            }
+          ]
+        },
+        {
+          "id": "ff95",
+          "type": "checkbox",
+          "Question": "Which of the following port is the default where webpack-dev-server runs?",
+          "answer": "3000",
+          "options": [
+            {
+              "Option1": "3000",
+              "Option2": "3500",
+              "Option3": "3030"
+            }
+          ]
+        },
+        {
+          "id": "ff96",
+          "type": "select",
+          "Question": "How many elements can a valid react component return?",
+          "answer": "1",
+          "options": [
+            {
+              "Option1": "1",
+              "Option2": "3",
+              "Option3": "2"
+            }
+          ]
+        },
+        {
+          "id": "ff97",
+          "type": "radio",
+          "Question": "What are arbitrary inputs of components in react also known as?",
+          "answer": "view",
+          "options": [
+            {
+              "Option1": "view",
+              "Option2": "model",
+              "Option3": "controller"
+            }
+          ]
+        },
+        {
+          "id": "ff98",
+          "type": "checkbox",
+          "Question": "What are arbitrary inputs of components in react also known as?",
+          "answer": "props",
+          "options": [
+            {
+              "Option1": "elements",
+              "Option2": "props",
+              "Option3": "keys"
+            }
+          ]
+        },
+        {
+          "id": "ff99",
+          "type": "radio",
+          "Question": "Using which of the following command can prevent default behaviour at in react?",
+          "answer": "preventDefault()",
+          "options": [
+            {
+              "Option1": "avoildDefault()",
+              "Option2": "preventDefault()",
+              "Option3": "revokeDefault()"
             }
           ]
         }

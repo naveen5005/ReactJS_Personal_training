@@ -133,6 +133,7 @@
                 const singleOption = {};
                 if (divContainer.dataset.identifytype === "text" || divContainer.dataset.identifytype === "textarea") {
                     let text = {};
+                    text["id"] = Math.random().toString(36).substr(2,4)
                     text["type"] = divContainer.dataset.identifytype === "text" ? divContainer.dataset.identifytype : divContainer.dataset.identifytype;
                     var allTags = divContainer.children;
                     console.log(allTags)
@@ -160,6 +161,7 @@
 
                     }
                     // console.log(target)
+                    radio["id"] = Math.random().toString(36).substr(2,4);
                     radio["type"] = divContainer.dataset.identifytype;
                     var allTags = divContainer.children;
                     // console.log(allTags)

@@ -2,8 +2,9 @@ let allAnchorElements = document.getElementsByClassName("collapsed");
 
 for (let index = 0; index < allAnchorElements.length; index++) {
   const element = allAnchorElements[index];
-  element.addEventListener("click", function (e) {
+  element.addEventListener("click", function (e,) {
     e.preventDefault(); // Will Stop the Default Behavour (Navigation)
+    index !== 0 ? handleFormDisplay(index - 1) : handleFormDisplay(index); // we can change the behaviour later
     const clickedText = e.target.innerHTML;
     document.querySelector("#subjectName").innerHTML =
       clickedText + " Questions";
@@ -19,6 +20,10 @@ function navigateToUser() {
 }
 createHtmlElement = (elementName) => {
   const element = document.createElement(elementName);
+  // elementName === "input" ? element.setAttribute("id", "id" + Math.round(Math.random() * 100)) : null;
+  elementName === "input" ? element.setAttribute("id", "text") : null;
+  elementName === "input" ? element.setAttribute("type", "text") : null;
+
   return element;
 };
 const addContentToElement = (element, elementName, text) => {
@@ -82,16 +87,25 @@ displayQuestions = () => {
     "Submit"
   );
   document.querySelector(".col-lg-9").appendChild(formElement);
-  questions[0].fields.forEach((question) => {
-    handleQuestionDisplay(question);
-  });
+  handleFormDisplay = (i) => {
+    document.querySelector("form").innerHTML = "";
+    questions[i].fields.forEach((question) => {
+      handleQuestionDisplay(question);
+    });
+  }
   formButtonElement.classList.add("btn", "btn-success");
   formElement.appendChild(formButtonElement);
 };
 
 let questions = [];
-getAllQuestions = async () => {
-  questions = await (await fetch("http://localhost:3000/forms")).json();
+getAllQuestions = async (method) => {
+  method === "GET" ? url = "http://localhost:3000/forms" : url = "http://localhost:3000/forms/" + id;
+  questions = await (await fetch(url, {
+    method: method,
+    headers: { 'Content-Type': 'application/json' },
+    body: method === "GET" ? null : JSON.stringify(payload)
+  })).json();
   displayQuestions();
 };
-getAllQuestions();
+
+getAllQuestions("GET");
