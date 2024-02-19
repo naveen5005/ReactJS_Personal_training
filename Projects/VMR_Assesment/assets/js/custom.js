@@ -6,6 +6,7 @@ for (let index = 0; index < allAnchorElements.length; index++) {
     e.preventDefault(); // Will Stop the Default Behavour (Navigation)
     index !== 0 ? handleFormDisplay(index - 1) : handleFormDisplay(index); // we can change the behaviour later
     const clickedText = e.target.innerHTML;
+    // sessionStorage.setItem("dynamicQuizText",JSON.stringify(clickedText));
     document.querySelector("#subjectName").innerHTML =
       clickedText + " Questions";
   });
@@ -25,6 +26,7 @@ createHtmlElement = (elementName) => {
 const addContentToElement = (element, elementName, text, idValue) => {
   if (elementName !== "input") {
     element.innerHTML = text;
+    element.setAttribute("type", "button");
   } else if (elementName === "input") {
     element.value = text;
     element.setAttribute("id", idValue);
@@ -36,7 +38,7 @@ const addContentToElement = (element, elementName, text, idValue) => {
 };
 
 handleQuestionDisplay = (question) => {
-  console.log(question);
+  // console.log(question);
   const wrapperElement = createHtmlElement("div");
   wrapperElement.classList.add("card");
   const questionTypeElement = addContentToElement(
@@ -94,11 +96,15 @@ handleQuestionDisplay = (question) => {
       wrapperElement.appendChild(optionsWrapper);
     });
   });
-  question.isEdit = true;
-  question.isEdit ? dynamicButtons("EDIT", wrapperElement, editQuestionFunctionality, question) : dynamicButtons("UPDATE", wrapperElement, updateQuestionFunctionality, question);
+  dynamicButtons("EDIT", wrapperElement, editQuestionFunctionality, question);
+  dynamicButtons("UPDATE", wrapperElement, updateQuestionFunctionality, question);
 
-  // dynamicButtons("EDIT", wrapperElement, editQuestionFunctionality, question);
-  // dynamicButtons("UPDATE", wrapperElement, updateQuestionFunctionality, question);
+  const formButtonElement = addContentToElement(
+    createHtmlElement("button"),
+    "submit",
+    "Submit"
+  );
+
   document.querySelector("form").appendChild(wrapperElement);
 };
 dynamicButtons = (text, target, event, question) => {
@@ -109,6 +115,8 @@ dynamicButtons = (text, target, event, question) => {
   )
   buttonElement.setAttribute("type", "button");
   buttonElement.setAttribute("class", "btn btn-secondary");
+  buttonElement.setAttribute("id", text);
+  text === "UPDATE" ? buttonElement.setAttribute("style", "display:none") : buttonElement.setAttribute("style", "display:block");
   buttonElement.addEventListener("click", function () {
     event(question);
   })
@@ -117,7 +125,7 @@ dynamicButtons = (text, target, event, question) => {
 };
 
 function editQuestionFunctionality(question) {
-  question.isEdit = false;
+  console.log(question)
   for (a in question) {
     if (a.includes("question")) {
       const questionInput = document.getElementById(a);
@@ -133,31 +141,35 @@ function editQuestionFunctionality(question) {
       })
     }
   }
+  document.getElementById("UPDATE").setAttribute("style", "display:block");
+  document.getElementById("EDIT").setAttribute("style", "display:none");
   return question
 }
 
 function updateQuestionFunctionality(question) {
   var updatedQuestion = editQuestionFunctionality(question)
   console.log(updatedQuestion)
-  // getAllQuestions("PUT",updatedQuestion)
+  // getAllQuestions("PUT",updatedQuestion);
+  document.getElementById("UPDATE").setAttribute("style", "display:none");
+  document.getElementById("EDIT").setAttribute("style", "display:block");
 }
 
 
 displayQuestions = () => {
   const formElement = createHtmlElement("form");
-  const formButtonElement = addContentToElement(
-    createHtmlElement("button"),
-    "submit",
-    "Submit"
-  );
+  // const formButtonElement = addContentToElement(
+  //   createHtmlElement("button"),
+  //   "submit",
+  //   "Submit"
+  // );
   handleFormDisplay = (i) => {
     document.querySelector("form").innerHTML = "";
     questions[i].fields.forEach((question) => {
       handleQuestionDisplay(question);
     });
   }
-  formButtonElement.classList.add("btn", "btn-success");
-  formElement.appendChild(formButtonElement);
+  // formButtonElement.classList.add("btn", "btn-success");
+  // formElement.appendChild(formButtonElement);
   document.querySelector(".col-lg-9").appendChild(formElement);
 
 };
@@ -172,5 +184,5 @@ getAllQuestions = async (method, payload) => {
   })).json();
   displayQuestions();
 };
-
 getAllQuestions("GET");
+
