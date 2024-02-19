@@ -142,13 +142,13 @@
                             // console.log(allTags[i].textContent) // gives question label value
                             var questionInput = allTags[i].nextSibling;
                             // console.log(questionInput.value); // gives question Input value
-                            text[allTags[i].textContent.substring(11, 19)] = questionInput.value; //question pair
+                            text[Math.random().toString(36).substring(2,7)] = questionInput.value; //question pair
                             
                             // implementing the array of options
                             // option-1
                             var option1_Label = questionInput.nextSibling;
                             var option1_Value = option1_Label.nextSibling;
-                            singleOption[option1_Label.textContent.substring(0, 6) + option1_Label.textContent.substring(7, 8)] = option1_Value.value;
+                            singleOption[Math.random().toString(36).substring(2,7)] = option1_Value.value;
                             optionsArray.push(singleOption);
                             text["options"] = optionsArray;
                         }
@@ -171,28 +171,28 @@
                             // console.log(allTags[i].textContent) // gives question label value
                             var questionInput = allTags[i].nextSibling;
                             // console.log(questionInput.value); // gives question Input value
-                            radio[allTags[i].textContent.substring(11, 19)] = questionInput.value; //question pair
+                            radio["question-"+Math.random().toString(36).substring(2,7)] = questionInput.value; //question pair
                             var answerLabel = questionInput.nextSibling;
                             var answerInput = answerLabel.nextSibling;
                             // console.log(answerLabel.textContent)
-                            radio[answerLabel.textContent.substring(14, 20)] = answerInput.value; // answer pair
+                            radio["anwser-"+Math.random().toString(36).substring(2,7)] = answerInput.value; // answer pair
                             // implementing the array of options
                             // option-1
                             var option1_Label = answerInput.nextSibling;
                             var option1_Value = option1_Label.nextSibling;
-                            singleOption[option1_Label.textContent.substring(0, 6) + option1_Label.textContent.substring(7, 8)] = option1_Value.value;
+                            singleOption["Option1-"+Math.random().toString(36).substring(2,7)] = option1_Value.value;
                             optionsArray.push(singleOption);
 
                             // option-2
                             var option2_Label = option1_Value.nextSibling;
                             var option2_Value = option2_Label.nextSibling;
-                            singleOption[option2_Label.textContent.substring(0, 6) + option2_Label.textContent.substring(7, 8)] = option2_Value.value;
+                            singleOption["Option2-"+Math.random().toString(36).substring(2,7)] = option2_Value.value;
                             // optionsArray.push(singleOption);
 
                             // option-3
                             var option3_Label = option2_Value.nextSibling;
                             var option3_Value = option3_Label.nextSibling;
-                            singleOption[option3_Label.textContent.substring(0, 6) + option3_Label.textContent.substring(7, 8)] = option3_Value.value;
+                            singleOption["Option3-"+Math.random().toString(36).substring(2,7)] = option3_Value.value;
                             // optionsArray.push(singleOption);
 
                             radio["options"] = optionsArray;
@@ -205,7 +205,7 @@
             // console.log(fields);
             payload.formName = formName.value.replace(/\s/g, "_");;
             payload.fields = fields;
-            // commonServerCommunicationForForms("POST",payload);
+            commonServerCommunicationForForms("POST",payload);
             console.log(payload);
             // window.location.href("formBuilderQuiz.html");
         }
