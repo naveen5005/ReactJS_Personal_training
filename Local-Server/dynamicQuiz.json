@@ -2,7 +2,7 @@
   "questions": [
     {
       "type": "text",
-      "label": "Enter Your Question",
+      "label": "Enter Your question",
       "options": [
         {
           "label": "Option 1",
@@ -12,7 +12,7 @@
     },
     {
       "type": "textarea",
-      "label": "Enter Your Question",
+      "label": "Enter Your question",
       "options": [
         {
           "label": "Option 1",
@@ -22,7 +22,7 @@
     },
     {
       "type": "radio",
-      "label": "Enter Your Question",
+      "label": "Enter Your question",
       "correctAnswer": "Enter correct answer",
       "options": [
         {
@@ -41,7 +41,7 @@
     },
     {
       "type": "checkbox",
-      "label": "Enter Your Question",
+      "label": "Enter Your question",
       "correctAnswer": "Enter correct answer",
       "options": [
         {
@@ -60,7 +60,7 @@
     },
     {
       "type": "select",
-      "label": "Enter Your Question",
+      "label": "Enter Your question",
       "correctAnswer": "Enter correct answer",
       "options": [
         {
@@ -81,129 +81,129 @@
   "forms": [
     {
       "id": "ff66",
-      "formName": "HTML_Interview_Questions",
+      "formName": "HTML_Interview_questions",
       "fields": [
         {
           "id": "ff67",
           "type": "textarea",
-          "Question": "What is the role of the \"meta\" tag in HTML?",
+          "question-an1001": "What is the role of the \"meta\" tag in HTML?",
           "options": [
             {
-              "Option1": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
+              "Option1-an1002": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
             }
           ]
         },
         {
           "id": "ff68",
           "type": "text",
-          "Question": "How do you embed a video in HTML?",
+          "question-an1003": "How do you embed a video in HTML?",
           "options": [
             {
-              "Option1": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
+              "Option1-an1004": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
             }
           ]
         },
         {
           "id": "ff69",
           "type": "checkbox",
-          "Question": "Identify the Semantic elements ?",
-          "answer": "all are correct",
+          "question-an1005": "Identify the Semantic elements ?",
+          "answer-an1006": "all are correct",
           "options": [
             {
-              "Option1": "main",
-              "Option2": "mark",
-              "Option3": "time"
+              "Option1-an1006": "main",
+              "Option2-an1007": "mark",
+              "Option3-an1008": "time"
             }
           ]
         },
         {
           "id": "ff70",
           "type": "radio",
-          "Question": "div is a block level element ?",
-          "answer": "yes",
+          "question-an1009": "div is a block level element ?",
+          "answer-an1010": "yes",
           "options": [
             {
-              "Option1": "yes",
-              "Option2": "no",
-              "Option3": "none of the above"
+              "Option1-an1011": "yes",
+              "Option2-an1012": "no",
+              "Option3-an1013": "none of the above"
             }
           ]
         },
         {
           "id": "ff71",
           "type": "radio",
-          "Question": "How many sizes of headers are available in HTML by default?",
-          "answer": "6",
+          "question-an1014": "How many sizes of headers are available in HTML by default?",
+          "answer-an1015": "6",
           "options": [
             {
-              "Option1": "6",
-              "Option2": "5",
-              "Option3": "7"
+              "Option1-an1016": "6",
+              "Option2-an1017": "5",
+              "Option3-an1018": "7"
             }
           ]
         },
         {
           "id": "ff72",
           "type": "select",
-          "Question": "What is the smallest header in HTML by default?",
-          "answer": "h6",
+          "question-an1019": "What is the smallest header in HTML by default?",
+          "answer-an1020": "h6",
           "options": [
             {
-              "Option1": "h1",
-              "Option2": "h6",
-              "Option3": "h5"
+              "Option1-an1021": "h1",
+              "Option2-an1022": "h6",
+              "Option3-an1023": "h5"
             }
           ]
         },
         {
           "id": "ff73",
           "type": "checkbox",
-          "Question": "What are the types of lists available in HTML?",
-          "answer": "Ordered, Unordered list",
+          "question-an1024": "What are the types of lists available in HTML?",
+          "answer-an1025": "Ordered, Unordered list",
           "options": [
             {
-              "Option1": "Ordered, Unordered list",
-              "Option2": "Bulleted, Numbered list",
-              "Option3": "Named, unnamed list"
+              "Option1-an1026": "Ordered, Unordered list",
+              "Option2-an1027": "Bulleted, Numbered list",
+              "Option3-an1028": "Named, unnamed list"
             }
           ]
         },
         {
           "id": "ff74",
           "type": "select",
-          "Question": "We enclose HTML tags within?",
-          "answer": "<>",
+          "question-an1029": "We enclose HTML tags within?",
+          "answer-an1030": "<>",
           "options": [
             {
-              "Option1": "{}",
-              "Option2": "!!",
-              "Option3": "<>"
+              "Option1-an1031": "{}",
+              "Option2-an1032": "!!",
+              "Option3-an1033": "<>"
             }
           ]
         },
         {
           "id": "ff75",
           "type": "checkbox",
-          "Question": "How to create an ordered list in HTML?",
-          "answer": "<ol>",
+          "question-an1034": "How to create an ordered list in HTML?",
+          "answer-an1035": "<ol>",
           "options": [
             {
-              "Option1": "<li>",
-              "Option2": "<ol>",
-              "Option3": "<ul>"
+              "Option1-an1036": "<li>",
+              "Option2-an1037": "<ol>",
+              "Option3-an1038": "<ul>"
             }
           ]
         },
         {
           "id": "ff76",
           "type": "checkbox",
-          "Question": "Identify the Semantic elements ?",
-          "answer": "all are correct",
+          "question-an1039": "Identify the Semantic elements ?",
+          "answer-an1040": "all are correct",
           "options": [
             {
-              "Option1": "main",
-              "Option2": "mark",
-              "Option3": "time"
+              "Option1-an1041": "main",
+              "Option2-an1042": "mark",
+              "Option3-an1043": "time"
             }
           ]
         }
@@ -211,129 +211,129 @@
     },
     {
       "id": "a546",
-      "formName": "CSS_Interview_Questions",
+      "formName": "CSS_Interview_questions",
       "fields": [
         {
           "id": "ff70",
           "type": "radio",
-          "Question": "CSS full form?",
-          "answer": "Cascading Style Sheet",
+          "question-an1044": "CSS full form?",
+          "answer-an1045": "Cascading Style Sheet",
           "options": [
             {
-              "Option1": "Coloured Style Sheet",
-              "Option2": "Cascading Style Sheet",
-              "Option3": "Color and Style Sheet"
+              "Option1-an1046": "Coloured Style Sheet",
+              "Option2-an1047": "Cascading Style Sheet",
+              "Option3-an1048": "Color and Style Sheet"
             }
           ]
         },
         {
           "id": "ff71",
           "type": "text",
-          "Question": "Which HTML tag is used to declare internal CSS?",
+          "question-an1049": "Which HTML tag is used to declare internal CSS?",
           "options": [
             {
-              "Option1": "style"
+              "Option1-an1050": "style"
             }
           ]
         },
         {
           "id": "ff72",
           "type": "checkbox",
-          "Question": "What type of CSS is the following code snippet?  <h1 style=\"color:blue;\">A Blue Heading</h1>",
-          "answer": "Inline",
+          "question-an1051": "What type of CSS is the following code snippet?  <h1 style=\"color:blue;\">A Blue Heading</h1>",
+          "answer-an1052": "Inline",
           "options": [
             {
-              "Option1": "External",
-              "Option2": "Internal",
-              "Option3": "Inline"
+              "Option1-an1053": "External",
+              "Option2-an1054": "Internal",
+              "Option3-an1055": "Inline"
             }
           ]
         },
         {
           "id": "ff73",
           "type": "select",
-          "Question": "In the below code snippet, in what order will the margins be added?  p {   margin: 25px 50px 75px 100px; }",
-          "answer": "Top, Right, Bottom, Left",
+          "question-an1056": "In the below code snippet, in what order will the margins be added?  p {   margin: 25px 50px 75px 100px; }",
+          "answer-an1057": "Top, Right, Bottom, Left",
           "options": [
             {
-              "Option1": " Right, Bottom, Left, Top",
-              "Option2": "Bottom, Right, Left, Top",
-              "Option3": "Top, Right, Bottom, Left"
+              "Option1-an1058": " Right, Bottom, Left, Top",
+              "Option2-an1059": "Bottom, Right, Left, Top",
+              "Option3-an1060": "Top, Right, Bottom, Left"
             }
           ]
         },
         {
           "id": "ff74",
           "type": "radio",
-          "Question": "Can negative values be allowed in padding property?",
-          "answer": "No",
+          "question-an1061": "Can negative values be allowed in padding property?",
+          "answer-an1062": "No",
           "options": [
             {
-              "Option1": "yes",
-              "Option2": "no",
-              "Option3": "depends on property"
+              "Option1-an1063": "yes",
+              "Option2-an1064": "no",
+              "Option3-an1065": "depends on property"
             }
           ]
         },
         {
           "id": "ff75",
           "type": "radio",
-          "Question": "The CSS property used to specify the transparency of an element is?",
-          "answer": "opacity",
+          "question-an1066": "The CSS property used to specify the transparency of an element is?",
+          "answer-an1067": "opacity",
           "options": [
             {
-              "Option1": "visibility",
-              "Option2": "opacity",
-              "Option3": "filter"
+              "Option1-an1068": "visibility",
+              "Option2-an1069": "opacity",
+              "Option3-an1070": "filter"
             }
           ]
         },
         {
           "id": "ff76",
           "type": "checkbox",
-          "Question": " How can we specify the spacing between each letter in a text in CSS?",
-          "answer": "letter-spacing",
+          "question-an1071": " How can we specify the spacing between each letter in a text in CSS?",
+          "answer-an1072": "letter-spacing",
           "options": [
             {
-              "Option1": "aplha-spacing",
-              "Option2": "character-spacing",
-              "Option3": "letter-spacing"
+              "Option1-an1073": "aplha-spacing",
+              "Option2-an1074": "character-spacing",
+              "Option3-an1075": "letter-spacing"
             }
           ]
         },
         {
           "id": "ff77",
           "type": "radio",
-          "Question": "Which of the following is the correct way to select all h1 headers in a div element?",
-          "answer": "div h1",
+          "question-an1076": "Which of the following is the correct way to select all h1 headers in a div element?",
+          "answeran1077": "div h1",
           "options": [
             {
-              "Option1": "div+h1",
-              "Option2": "div-h1",
-              "Option3": "div h1"
+              "Option1-an1078": "div+h1",
+              "Option2-an1079": "div-h1",
+              "Option3-an1080": "div h1"
             }
           ]
         },
         {
           "id": "ff78",
           "type": "select",
-          "Question": "We can make rounded borders around elements using which CSS element?",
-          "answer": "border-radius",
+          "question-an1081": "We can make rounded borders around elements using which CSS element?",
+          "answer-an1082": "border-radius",
           "options": [
             {
-              "Option1": "border-radius",
-              "Option2": "border-round",
-              "Option3": "border-collapse"
+              "Option1-an1082": "border-radius",
+              "Option2-an1083": "border-round",
+              "Option3-an1084": "border-collapse"
             }
           ]
         },
         {
           "id": "ff79",
           "type": "text",
-          "Question": "How can we set the maximum width of the elements content box using CSS?",
+          "question-an1085": "How can we set the maximum width of the elements content box using CSS?",
           "options": [
             {
-              "Option1": "max-width"
+              "Option1-an1086": "max-width"
             }
           ]
         }
@@ -341,129 +341,129 @@
     },
     {
       "id": "61ba",
-      "formName": "JavaScript_Interview_Questions",
+      "formName": "JavaScript_Interview_questions",
       "fields": [
         {
           "id": "ff80",
           "type": "checkbox",
-          "Question": "Javascript is an _______ language?",
-          "answer": "Object-Oriented",
+          "question-an1087": "Javascript is an _______ language?",
+          "answer-an1088": "Object-Oriented",
           "options": [
             {
-              "Option1": "Object-Based",
-              "Option2": "Object-Oriented",
-              "Option3": "Procedural"
+              "Option1-an1089": "Object-Based",
+              "Option2-an1090": "Object-Oriented",
+              "Option3-an1091": "Procedural"
             }
           ]
         },
         {
           "id": "ff81",
           "type": "radio",
-          "Question": "Which of the following keywords is used to define a variable in Javascript?",
-          "answer": "both",
+          "question-an1092": "Which of the following keywords is used to define a variable in Javascript?",
+          "answer-an1093": "both",
           "options": [
             {
-              "Option1": "var",
-              "Option2": "let",
-              "Option3": "both "
+              "Option1-an1094": "var",
+              "Option2-an1095": "let",
+              "Option3-an1096": "both "
             }
           ]
         },
         {
           "id": "ff82",
           "type": "text",
-          "Question": " How can a datatype be declared to be a constant type?",
+          "question-an1097": " How can a datatype be declared to be a constant type?",
           "options": [
             {
-              "Option1": "const"
+              "Option1-an1098": "const"
             }
           ]
         },
         {
           "id": "ff83",
           "type": "checkbox",
-          "Question": "What will be the output of the following code snippet?  <script type=\"text/javascript\"> a = 5 + \"9\"; document.write(a); </script>",
-          "answer": "59",
+          "question-an1098": "What will be the output of the following code snippet?  <script type=\"text/javascript\"> a = 5 + \"9\"; document.write(a); </script>",
+          "answer-an1099": "59",
           "options": [
             {
-              "Option1": "39",
-              "Option2": "59",
-              "Option3": "compilation error"
+              "Option1-an1100": "39",
+              "Option2-an1101": "59",
+              "Option3-an1102": "compilation error"
             }
           ]
         },
         {
           "id": "ff84",
           "type": "select",
-          "Question": " What will be the output of the following code snippet?  <script type=\"text/javascript\" language=\"javascript\">    var a = \"Scaler\"; var result = a.substring(2, 4); document.write(result);    </script>",
-          "answer": "al",
+          "question-an1103": " What will be the output of the following code snippet?  <script type=\"text/javascript\" language=\"javascript\">    var a = \"Scaler\"; var result = a.substring(2, 4); document.write(result);    </script>",
+          "answer-an1104": "al",
           "options": [
             {
-              "Option1": "al",
-              "Option2": "ale",
-              "Option3": "aler"
+              "Option1-an1105": "al",
+              "Option2-an1106": "ale",
+              "Option3-an1107": "aler"
             }
           ]
         },
         {
           "id": "ff85",
           "type": "radio",
-          "Question": "What keyword is used to check whether a given property is valid or not?",
-          "answer": "in",
+          "question-an1108": "What keyword is used to check whether a given property is valid or not?",
+          "answer-an1109": "in",
           "options": [
             {
-              "Option1": "is in",
-              "Option2": "in",
-              "Option3": "of"
+              "Option1-an1109": "is in",
+              "Option2-an1110": "in",
+              "Option3-an1111": "of"
             }
           ]
         },
         {
           "id": "ff86",
           "type": "textarea",
-          "Question": "What will be the output of the following code snippet?  (function(){  setTimeout(()=> console.log(1),2000);  console.log(2);  setTimeout(()=> console.log(3),0);  console.log(4); })();",
+          "question-an1112": "What will be the output of the following code snippet?  (function(){  setTimeout(()=> console.log(1),2000);  console.log(2);  setTimeout(()=> console.log(3),0);  console.log(4); })();",
           "options": [
             {
-              "Option1": "2 4 3 1"
+              "Option1-an1113": "2 4 3 1"
             }
           ]
         },
         {
           "id": "ff87",
           "type": "checkbox",
-          "Question": "What will be the output of the following code snippet?  (function(a){  return (function(){    console.log(a);    a = 6;  })() })(21);",
-          "answer": "21",
+          "question-an1114": "What will be the output of the following code snippet?  (function(a){  return (function(){    console.log(a);    a = 6;  })() })(21);",
+          "answer-an1115": "21",
           "options": [
             {
-              "Option1": "NaN",
-              "Option2": "6",
-              "Option3": "21"
+              "Option1-an1116": "NaN",
+              "Option2-an1117": "6",
+              "Option3-an1118": "21"
             }
           ]
         },
         {
           "id": "ff88",
           "type": "radio",
-          "Question": "What will be the output of the following code snippet?  function solve(arr, rotations){  if(rotations == 0) return arr;  for(let i = 0; i < rotations; i++){    let element = arr.pop();    arr.unshift(element);  }  return arr; } // solve([44, 1, 22, 111], 5);",
-          "answer": "[111,44,1,22]",
+          "question-an1119": "What will be the output of the following code snippet?  function solve(arr, rotations){  if(rotations == 0) return arr;  for(let i = 0; i < rotations; i++){    let element = arr.pop();    arr.unshift(element);  }  return arr; } // solve([44, 1, 22, 111], 5);",
+          "answer-an1120": "[111,44,1,22]",
           "options": [
             {
-              "Option1": "[111,1,44,22]",
-              "Option2": "[111,44,1,22]",
-              "Option3": "[1,44,22,111]"
+              "Option1-an1121": "[111,1,44,22]",
+              "Option2-an1122": "[111,44,1,22]",
+              "Option3-an1123": "[1,44,22,111]"
             }
           ]
         },
         {
           "id": "ff89",
           "type": "select",
-          "Question": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
-          "answer": "Object",
+          "question-an1124": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+          "answeran1125": "Object",
           "options": [
             {
-              "Option1": "Undefined",
-              "Option2": "Object",
-              "Option3": "NaN"
+              "Option1-an1126": "Undefined",
+              "Option2-an1127": "Object",
+              "Option3-an1128": "NaN"
             }
           ]
         }
@@ -471,129 +471,148 @@
     },
     {
       "id": "1bfe",
-      "formName": "ReactJS_Interview_Questions",
+      "formName": "ReactJS_Interview_questions",
       "fields": [
         {
           "id": "ff90",
           "type": "text",
-          "Question": "Which of the following is used in React.js to increase performance?",
+          "question-an1129": "Which of the following is used in React.js to increase performance?",
           "options": [
             {
-              "Option1": "Virtual DOM"
+              "Option1-an1131": "Virtual DOM"
             }
           ]
         },
         {
           "id": "ff91",
           "type": "checkbox",
-          "Question": "What is ReactJS?",
-          "answer": "user interface framework",
+          "question-an1132": "What is ReactJS?",
+          "answer-an1133": "user interface framework",
           "options": [
             {
-              "Option1": "user interface framework",
-              "Option2": "server side framework",
-              "Option3": "both are not correct"
+              "Option1-an1134": "user interface framework",
+              "Option2-an1135": "server side framework",
+              "Option3-an1136": "both are not correct"
             }
           ]
         },
         {
           "id": "ff92",
           "type": "textarea",
-          "Question": "In which language is React.js written?",
+          "question-an1137": "In which language is React.js written?",
           "options": [
             {
-              "Option1": "javascript"
+              "Option1-an1138": "javascript"
             }
           ]
         },
         {
           "id": "ff93",
           "type": "checkbox",
-          "Question": "What is Babel?",
-          "answer": "javascript compiler",
+          "question-an1139": "What is Babel?",
+          "answer-an1140": "javascript compiler",
           "options": [
             {
-              "Option1": "javascript interpreter",
-              "Option2": "javascript compiler",
-              "Option3": "javascript transpiler"
+              "Option1-an1141": "javascript interpreter",
+              "Option2-an1142": "javascript compiler",
+              "Option3-an1143": "javascript transpiler"
             }
           ]
         },
         {
           "id": "ff94",
           "type": "select",
-          "Question": "Identify the command used to create a react app.",
-          "answer": "npm install -g create react app",
+          "question-an1144": "Identify the command used to create a react app.",
+          "answer-an1145": "npm install -g create react app",
           "options": [
             {
-              "Option1": "install -g create react app",
-              "Option2": "npm install create react app",
-              "Option3": "npm install -g create react app"
+              "Option1-an1146": "install -g create react app",
+              "Option2-an1147": "npm install create react app",
+              "Option3-an1148": "npm install -g create react app"
             }
           ]
         },
         {
           "id": "ff95",
           "type": "checkbox",
-          "Question": "Which of the following port is the default where webpack-dev-server runs?",
-          "answer": "3000",
+          "question-an1149": "Which of the following port is the default where webpack-dev-server runs?",
+          "answer-an1150": "3000",
           "options": [
             {
-              "Option1": "3000",
-              "Option2": "3500",
-              "Option3": "3030"
+              "Option1-an1151": "3000",
+              "Option2-an1152": "3500",
+              "Option3-an1153": "3030"
             }
           ]
         },
         {
           "id": "ff96",
           "type": "select",
-          "Question": "How many elements can a valid react component return?",
-          "answer": "1",
+          "question-an1154": "How many elements can a valid react component return?",
+          "answer-an1155": "1",
           "options": [
             {
-              "Option1": "1",
-              "Option2": "3",
-              "Option3": "2"
+              "Option1-an1156": "1",
+              "Option2-an1157": "3",
+              "Option3-an1158": "2"
             }
           ]
         },
         {
           "id": "ff97",
           "type": "radio",
-          "Question": "What are arbitrary inputs of components in react also known as?",
-          "answer": "view",
+          "question-an1159": "What are arbitrary inputs of components in react also known as?",
+          "answer-an1160": "view",
           "options": [
             {
-              "Option1": "view",
-              "Option2": "model",
-              "Option3": "controller"
+              "Option1-an1161": "view",
+              "Option2-an1162": "model",
+              "Option3-an1163": "controller"
             }
           ]
         },
         {
           "id": "ff98",
           "type": "checkbox",
-          "Question": "What are arbitrary inputs of components in react also known as?",
-          "answer": "props",
+          "question-an1164": "What are arbitrary inputs of components in react also known as?",
+          "answer-an1165": "props",
           "options": [
             {
-              "Option1": "elements",
-              "Option2": "props",
-              "Option3": "keys"
+              "Option1-an1166": "elements",
+              "Option2-an1167": "props",
+              "Option3-an1168": "keys"
             }
           ]
         },
         {
           "id": "ff99",
           "type": "radio",
-          "Question": "Using which of the following command can prevent default behaviour at in react?",
-          "answer": "preventDefault()",
+          "question-an1169": "Using which of the following command can prevent default behaviour at in react?",
+          "answer-an1170": "preventDefault()",
           "options": [
             {
-              "Option1": "avoildDefault()",
-              "Option2": "preventDefault()",
-              "Option3": "revokeDefault()"
+              "Option1-an1171": "avoildDefault()",
+              "Option2-an1172": "preventDefault()",
+              "Option3-an1173": "revokeDefault()"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15d9",
+      "formName": "Sample",
+      "fields": [
+        {
+          "id": "wz1k",
+          "type": "radio",
+          "question-an9fg": "is Div block level element?",
+          "anwser-2j00c": "Yes",
+          "options": [
+            {
+              "Option1-j2jsx": "No",
+              "Option2-6eb6z": "Yes",
+              "Option3-cd8vt": "Both"
             }
           ]
         }

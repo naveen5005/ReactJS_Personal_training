@@ -20,22 +20,23 @@ function navigateToUser() {
 }
 createHtmlElement = (elementName) => {
   const element = document.createElement(elementName);
-  // elementName === "input" ? element.setAttribute("id", "id" + Math.round(Math.random() * 100)) : null;
-  elementName === "input" ? element.setAttribute("id", "text") : null;
-  elementName === "input" ? element.setAttribute("type", "text") : null;
-
   return element;
 };
-const addContentToElement = (element, elementName, text) => {
+const addContentToElement = (element, elementName, text, idValue) => {
   if (elementName !== "input") {
     element.innerHTML = text;
   } else if (elementName === "input") {
     element.value = text;
+    element.setAttribute("id", idValue);
+    element.setAttribute("type", "text");
+    element.setAttribute("readonly", "");
+    element.classList.add("form-control");
   }
   return element;
 };
 
 handleQuestionDisplay = (question) => {
+  console.log(question);
   const wrapperElement = createHtmlElement("div");
   wrapperElement.classList.add("card");
   const questionTypeElement = addContentToElement(
@@ -52,32 +53,95 @@ handleQuestionDisplay = (question) => {
   const questionInputElement = addContentToElement(
     createHtmlElement("input"),
     "input",
-    question.Question
+    Object.values(question)[2],
+    Object.keys(question)[2]
   );
+  const answerlabelElement = addContentToElement(
+    createHtmlElement("label"),
+    "label",
+    "Answer : "
+  )
+  const answerInputElement = addContentToElement(
+    createHtmlElement("input"),
+    "input",
+    Object.values(question.options[0])[0],
+    Object.keys(question.options[0])[0]
+  )
   wrapperElement.appendChild(questionlabelElement);
   wrapperElement.appendChild(questionInputElement);
+  wrapperElement.appendChild(answerlabelElement);
+  wrapperElement.appendChild(answerInputElement);
   wrapperElement.prepend(questionTypeElement);
+
   question.options.forEach((option) => {
+    // console.log(option);
     Object.keys(option).forEach((opt) => {
       const optionsWrapper = createHtmlElement("div");
       optionsWrapper.classList.add("option-wrapper");
       const optionLabelElement = addContentToElement(
         createHtmlElement("label"),
         "label",
-        opt
+        opt.substring(0, 7) + " : "
       );
       const optionInputElement = addContentToElement(
         createHtmlElement("input"),
         "input",
-        option[opt]
+        option[opt],
+        opt
       );
       optionsWrapper.appendChild(optionLabelElement);
       optionsWrapper.appendChild(optionInputElement);
       wrapperElement.appendChild(optionsWrapper);
     });
   });
+  question.isEdit = true;
+  question.isEdit ? dynamicButtons("EDIT", wrapperElement, editQuestionFunctionality, question) : dynamicButtons("UPDATE", wrapperElement, updateQuestionFunctionality, question);
+
+  // dynamicButtons("EDIT", wrapperElement, editQuestionFunctionality, question);
+  // dynamicButtons("UPDATE", wrapperElement, updateQuestionFunctionality, question);
   document.querySelector("form").appendChild(wrapperElement);
 };
+dynamicButtons = (text, target, event, question) => {
+  const buttonElement = addContentToElement(
+    createHtmlElement("button"),
+    "button",
+    text
+  )
+  buttonElement.setAttribute("type", "button");
+  buttonElement.setAttribute("class", "btn btn-secondary");
+  buttonElement.addEventListener("click", function () {
+    event(question);
+  })
+  target.appendChild(buttonElement);
+
+};
+
+function editQuestionFunctionality(question) {
+  question.isEdit = false;
+  for (a in question) {
+    if (a.includes("question")) {
+      const questionInput = document.getElementById(a);
+      questionInput.removeAttribute("readonly");
+      question[a] = questionInput.value;
+    } else if (a === "options") {
+      question[a].forEach((option) => {
+        for (b in option) {
+          const optionInput = document.getElementById(b);
+          optionInput.removeAttribute("readonly");
+          option[b] = optionInput.value;
+        }
+      })
+    }
+  }
+  return question
+}
+
+function updateQuestionFunctionality(question) {
+  var updatedQuestion = editQuestionFunctionality(question)
+  console.log(updatedQuestion)
+  // getAllQuestions("PUT",updatedQuestion)
+}
+
 
 displayQuestions = () => {
   const formElement = createHtmlElement("form");
@@ -86,7 +150,6 @@ displayQuestions = () => {
     "submit",
     "Submit"
   );
-  document.querySelector(".col-lg-9").appendChild(formElement);
   handleFormDisplay = (i) => {
     document.querySelector("form").innerHTML = "";
     questions[i].fields.forEach((question) => {
@@ -95,11 +158,13 @@ displayQuestions = () => {
   }
   formButtonElement.classList.add("btn", "btn-success");
   formElement.appendChild(formButtonElement);
+  document.querySelector(".col-lg-9").appendChild(formElement);
+
 };
 
 let questions = [];
-getAllQuestions = async (method) => {
-  method === "GET" ? url = "http://localhost:3000/forms" : url = "http://localhost:3000/forms/" + id;
+getAllQuestions = async (method, payload) => {
+  method === "GET" ? url = "http://localhost:3000/forms" : url = "http://localhost:3000/forms/" + payload.id;
   questions = await (await fetch(url, {
     method: method,
     headers: { 'Content-Type': 'application/json' },
