@@ -114,6 +114,7 @@
                     addPayload[a] = document.getElementById(a).value;
                 } else if (a == "status") {
                     let allRadioButtons = document.getElementsByName(a);
+                    console.log(allRadioButtons)
                     allRadioButtons.forEach((element) => {
                         if (element.checked) {
                             addPayload[a] = element.value;

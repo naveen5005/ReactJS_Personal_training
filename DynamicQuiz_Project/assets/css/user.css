@@ -1,0 +1,22 @@
+.card{
+    padding: 20px;
+}
+.card p {
+    font-weight: bold;
+}
+.pagetitle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown{
+    width: 30%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.option-wrapper{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
