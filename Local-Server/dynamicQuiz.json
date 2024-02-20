@@ -86,7 +86,7 @@
         {
           "id": "ff67",
           "type": "textarea",
-          "question-an1001": "What is the role of the \"meta\" tag in HTML?",
+          "question-an1001": "What is the role of the \"meta\" tag in HTML? Explain in detail ....",
           "options": [
             {
               "Option1-an1002": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
