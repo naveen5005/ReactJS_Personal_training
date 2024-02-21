@@ -34,11 +34,11 @@ const addContentToElement = (element, elementName, text, idValue) => {
     element.setAttribute("type", "text");
     element.setAttribute("readonly", "");
     element.classList.add("form-control");
-  } else if(elementName == "button"){
-    element.innerHTML = text
-  }else if(elementName == "span"){
+  } else if (elementName == "button") {
     element.innerHTML = text;
-    element.setAttribute("id",idValue);
+  } else if (elementName == "span") {
+    element.innerHTML = text;
+    element.setAttribute("id", idValue);
   }
   return element;
 };
@@ -135,11 +135,9 @@ dynamicButtons = (text, target, event, question) => {
     event(question);
   });
   target.appendChild(buttonElement);
-
 };
 
-function editQuestionFunctionality(question) {
-  console.log(question);
+function modifyInputFields(question) {
   for (a in question) {
     if (a.includes("question")) {
       var newQuestionElement = addContentToElement(
@@ -147,32 +145,42 @@ function editQuestionFunctionality(question) {
         "input",
         question[a],
         a
-      )
-      var oldQuestionElement =document.getElementById(a);
-      oldQuestionElement.parentNode.replaceChild(newQuestionElement,oldQuestionElement);
+      );
+      var oldQuestionElement = document.getElementById(a);
+      oldQuestionElement.parentNode.replaceChild(
+        newQuestionElement,
+        oldQuestionElement
+      );
+    }
 
-      var questionInput = document.getElementById(a);
-      questionInput.removeAttribute("readonly");
-      question[a] = questionInput.value;
-    } else if (a === "options") {
-      question[a].forEach((option) => {
-        for (b in option) {
-          const optionInput = document.getElementById(b);
-          optionInput.removeAttribute("readonly");
-          option[b] = optionInput.value;
-        }
-      });
+    // else if (a === "options") {
+    //   question[a].forEach((option) => {
+    //     for (b in option) {
+    //       const optionInput = document.getElementById(b);
+    //       optionInput.removeAttribute("readonly");
+    //       option[b] = optionInput.value;
+    //     }
+    //   });
+    // }
+  }
+}
+function readAndReturnData(question) {
+  for(a in question){
+    if(a.includes("question")){
+      console.log(question[a])
     }
   }
-
+}
+function editQuestionFunctionality(question) {
+  // 1. Remove Read Only Attribute and Make it as Input field
+  modifyInputFields(question);
+  //
   document.getElementById("UPDATE").setAttribute("style", "display:block");
   document.getElementById("EDIT").setAttribute("style", "display:none");
-  return question;
 }
 
 function updateQuestionFunctionality(question) {
-  var updatedQuestion = editQuestionFunctionality(question);
-  console.log(updatedQuestion);
+  var updatedQuestion = readAndReturnData(question); // Closures
   const questionObjToUpdate = questions.find(
     (question) => question.formName.indexOf(clickedText) > -1
   );
