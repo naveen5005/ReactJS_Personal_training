@@ -25,15 +25,20 @@ createHtmlElement = (elementName) => {
   return element;
 };
 const addContentToElement = (element, elementName, text, idValue) => {
-  if (elementName !== "input") {
+  if (elementName == "p" || elementName == "label") {
     element.innerHTML = text;
-    element.setAttribute("type", "button");
+    // element.setAttribute("type", "button");
   } else if (elementName === "input") {
     element.value = text;
     element.setAttribute("id", idValue);
     element.setAttribute("type", "text");
     element.setAttribute("readonly", "");
     element.classList.add("form-control");
+  } else if(elementName == "button"){
+    element.innerHTML = text
+  }else if(elementName == "span"){
+    element.innerHTML = text;
+    element.setAttribute("id",idValue);
   }
   return element;
 };
@@ -54,8 +59,8 @@ handleQuestionDisplay = (question) => {
     "Question : "
   );
   const questionInputElement = addContentToElement(
-    createHtmlElement("input"),
-    "input",
+    createHtmlElement("span"),
+    "span",
     Object.values(question)[2],
     Object.keys(question)[2]
   );
@@ -137,7 +142,16 @@ function editQuestionFunctionality(question) {
   console.log(question);
   for (a in question) {
     if (a.includes("question")) {
-      const questionInput = document.getElementById(a);
+      var newQuestionElement = addContentToElement(
+        createHtmlElement("input"),
+        "input",
+        question[a],
+        a
+      )
+      var oldQuestionElement =document.getElementById(a);
+      oldQuestionElement.parentNode.replaceChild(newQuestionElement,oldQuestionElement);
+
+      var questionInput = document.getElementById(a);
       questionInput.removeAttribute("readonly");
       question[a] = questionInput.value;
     } else if (a === "options") {
@@ -158,15 +172,18 @@ function editQuestionFunctionality(question) {
 
 function updateQuestionFunctionality(question) {
   var updatedQuestion = editQuestionFunctionality(question);
+  console.log(updatedQuestion);
   const questionObjToUpdate = questions.find(
     (question) => question.formName.indexOf(clickedText) > -1
   );
+  console.log(questionObjToUpdate);
   questionObjToUpdate.fields.forEach((field) => {
     if (field.id === updatedQuestion.id) {
       field = updatedQuestion;
     }
   });
-  getAllQuestions("PUT", questionObjToUpdate);
+  console.log(questionObjToUpdate);
+  // getAllQuestions("PUT", questionObjToUpdate);
   document.getElementById("UPDATE").setAttribute("style", "display:none");
   document.getElementById("EDIT").setAttribute("style", "display:block");
 }
