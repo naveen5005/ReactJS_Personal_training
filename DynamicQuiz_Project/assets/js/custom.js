@@ -5,7 +5,7 @@ for (let index = 0; index < allAnchorElements.length; index++) {
   element.addEventListener("click", function (e) {
     e.preventDefault(); // Will Stop the Default Behavour (Navigation)
     index !== 0 ? handleFormDisplay(index - 1) : handleFormDisplay(index); // we can change the behaviour later
-    clickedText = e.target.innerHTML;
+    clickedText = e.target.innerText;
     console.log(clickedText);
     // sessionStorage.setItem("dynamicQuizText",JSON.stringify(clickedText));
     document.querySelector("#subjectName").innerHTML =
