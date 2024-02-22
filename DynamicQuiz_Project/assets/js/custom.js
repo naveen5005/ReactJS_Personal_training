@@ -32,7 +32,7 @@ const addContentToElement = (element, elementName, text, idValue) => {
     element.value = text;
     element.setAttribute("id", idValue);
     element.setAttribute("type", "text");
-    element.setAttribute("readonly", "");
+    // element.setAttribute("readonly", "");
     element.classList.add("form-control");
   } else if (elementName == "button") {
     element.innerHTML = text;
@@ -70,10 +70,10 @@ handleQuestionDisplay = (question) => {
     "Answer : "
   );
   const answerInputElement = addContentToElement(
-    createHtmlElement("input"),
-    "input",
-    Object.values(question.options[0])[0],
-    Object.keys(question.options[0])[0]
+    createHtmlElement("span"),
+    "span",
+    Object.values(question)[3],
+    Object.keys(question)[3]
   );
   wrapperElement.appendChild(questionlabelElement);
   wrapperElement.appendChild(questionInputElement);
@@ -92,8 +92,8 @@ handleQuestionDisplay = (question) => {
         opt.substring(0, 7) + " : "
       );
       const optionInputElement = addContentToElement(
-        createHtmlElement("input"),
-        "input",
+        createHtmlElement("span"),
+        "span",
         option[opt],
         opt
       );
@@ -127,7 +127,7 @@ dynamicButtons = (text, target, event, question) => {
   );
   buttonElement.setAttribute("type", "button");
   buttonElement.setAttribute("class", "btn btn-secondary");
-  buttonElement.setAttribute("id", text);
+  buttonElement.setAttribute("id", question.id + "-" + text);
   text === "UPDATE"
     ? buttonElement.setAttribute("style", "display:none")
     : buttonElement.setAttribute("style", "display:block");
@@ -137,12 +137,13 @@ dynamicButtons = (text, target, event, question) => {
   target.appendChild(buttonElement);
 };
 
-function modifyInputFields(question) {
+function modifyInputFields(question,tag) {
+  // console.log(question);
   for (a in question) {
-    if (a.includes("question")) {
+    if (a.includes("question") || a.includes("answer")) {
       var newQuestionElement = addContentToElement(
-        createHtmlElement("input"),
-        "input",
+        createHtmlElement(tag),
+        tag,
         question[a],
         a
       );
@@ -152,35 +153,51 @@ function modifyInputFields(question) {
         oldQuestionElement
       );
     }
+    else if (a === "options") {
+      question[a].forEach((option) => {
+        for (b in option) {
+          var newOptionElement = addContentToElement(
+            createHtmlElement(tag),
+            tag,
+            option[b],
+            b
+          )
 
-    // else if (a === "options") {
-    //   question[a].forEach((option) => {
-    //     for (b in option) {
-    //       const optionInput = document.getElementById(b);
-    //       optionInput.removeAttribute("readonly");
-    //       option[b] = optionInput.value;
-    //     }
-    //   });
-    // }
-  }
-}
-function readAndReturnData(question) {
-  for(a in question){
-    if(a.includes("question")){
-      console.log(question[a])
+          var oldOptionElement = document.getElementById(b);
+          oldOptionElement.parentNode.replaceChild(
+            newOptionElement,
+            oldOptionElement
+          );
+        }
+      });
     }
   }
 }
+function readAndReturnData(question) {
+  for (a in question) {
+    if (a.includes("question") || a.includes("answer")) {
+      question[a] = document.getElementById(a).value;
+    }else if(a === "options"){
+      question[a].forEach((opt)=>{
+        for(b in opt){
+          opt[b] = document.getElementById(b).value;
+        }
+      })
+    }
+  }
+  return question;
+}
 function editQuestionFunctionality(question) {
   // 1. Remove Read Only Attribute and Make it as Input field
-  modifyInputFields(question);
+  modifyInputFields(question,"input");
   //
-  document.getElementById("UPDATE").setAttribute("style", "display:block");
-  document.getElementById("EDIT").setAttribute("style", "display:none");
+  document.getElementById(question.id + "-UPDATE").setAttribute("style", "display:block");
+  document.getElementById(question.id + "-EDIT").setAttribute("style", "display:none");
 }
 
 function updateQuestionFunctionality(question) {
   var updatedQuestion = readAndReturnData(question); // Closures
+  // console.log(updatedQuestion);
   const questionObjToUpdate = questions.find(
     (question) => question.formName.indexOf(clickedText) > -1
   );
@@ -190,10 +207,11 @@ function updateQuestionFunctionality(question) {
       field = updatedQuestion;
     }
   });
-  console.log(questionObjToUpdate);
-  // getAllQuestions("PUT", questionObjToUpdate);
-  document.getElementById("UPDATE").setAttribute("style", "display:none");
-  document.getElementById("EDIT").setAttribute("style", "display:block");
+  // console.log(questionObjToUpdate);
+  getAllQuestions("PUT", questionObjToUpdate);
+  document.getElementById(question.id+"-UPDATE").setAttribute("style", "display:none");
+  document.getElementById(question.id+"-EDIT").setAttribute("style", "display:block");
+  modifyInputFields(question,"span")
 }
 
 displayQuestions = () => {

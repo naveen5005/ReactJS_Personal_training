@@ -92,6 +92,7 @@
           "id": "ff67",
           "type": "textarea",
           "question-an1001": "What is the role of the \"meta\" tag in HTML? ",
+          "answer-bn1010": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes.",
           "options": [
             {
               "Option1-an1002": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
@@ -102,6 +103,7 @@
           "id": "ff68",
           "type": "text",
           "question-an1003": "How do you embed a video in HTML?",
+          "answer-bn1011": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes.",
           "options": [
             {
               "Option1-an1004": "Videos can be embedded in HTML using the \"video\" tag, which allows developers to specify the source file, dimensions, and other attributes."
@@ -111,7 +113,7 @@
         {
           "id": "ff69",
           "type": "checkbox",
-          "question-an1005": "Identify the Semantic elements ?",
+          "question-an1005": "Identify the Semantic elements ? ",
           "answer-an1006": "all are correct",
           "options": [
             {
@@ -235,6 +237,7 @@
           "id": "ff71",
           "type": "text",
           "question-an1049": "Which HTML tag is used to declare internal CSS?",
+          "answer-bn1012": "style",
           "options": [
             {
               "Option1-an1050": "style"
@@ -336,6 +339,7 @@
           "id": "ff79",
           "type": "text",
           "question-an1085": "How can we set the maximum width of the elements content box using CSS?",
+          "answer-bn1013": "max-width",
           "options": [
             {
               "Option1-an1086": "max-width"
@@ -378,6 +382,7 @@
           "id": "ff82",
           "type": "text",
           "question-an1097": " How can a datatype be declared to be a constant type?",
+          "answer-bn1014": "const",
           "options": [
             {
               "Option1-an1098": "const"
@@ -427,6 +432,7 @@
           "id": "ff86",
           "type": "textarea",
           "question-an1112": "What will be the output of the following code snippet?  (function(){  setTimeout(()=> console.log(1),2000);  console.log(2);  setTimeout(()=> console.log(3),0);  console.log(4); })();",
+          "answer-bn1015": "2 4 3 1",
           "options": [
             {
               "Option1-an1113": "2 4 3 1"
@@ -482,6 +488,7 @@
           "id": "ff90",
           "type": "text",
           "question-an1129": "Which of the following is used in React.js to increase performance?",
+          "answer-bn1016": "Virtual DOM",
           "options": [
             {
               "Option1-an1131": "Virtual DOM"
@@ -505,6 +512,7 @@
           "id": "ff92",
           "type": "textarea",
           "question-an1137": "In which language is React.js written?",
+          "answer-bn1017": "javascript",
           "options": [
             {
               "Option1-an1138": "javascript"
@@ -612,7 +620,7 @@
           "id": "wz1k",
           "type": "radio",
           "question-an9fg": "is Div block level element? choose one option to select ?",
-          "anwser-2j00c": "Yes",
+          "answer-2j00c": "Yes",
           "options": [
             {
               "Option1-j2jsx": "No",
