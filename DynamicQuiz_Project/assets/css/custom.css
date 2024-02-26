@@ -57,5 +57,5 @@ p {
   text-align: center;
   font-size: x-large;
   font-style: italic;
-  /* text-decoration: underline wavy; */
+  text-shadow: 5px 5px 9px darkgray;
 }
