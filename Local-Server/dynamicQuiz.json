@@ -114,7 +114,7 @@
           "id": "ff69",
           "type": "checkbox",
           "question-an1005": "Identify the Semantic elements ? ",
-          "answer-an1006": "all are correct",
+          "answer-an1006": "main,mark,time",
           "options": [
             {
               "Option1-an1006": "main",
@@ -205,7 +205,7 @@
           "id": "ff76",
           "type": "checkbox",
           "question-an1039": "Identify the Semantic elements ?",
-          "answer-an1040": "all are correct",
+          "answer-an1040": "main,mark,time",
           "options": [
             {
               "Option1-an1041": "main",
@@ -221,7 +221,7 @@
       "formName": "CSS_Interview_questions",
       "fields": [
         {
-          "id": "ff70",
+          "id": "ff77",
           "type": "radio",
           "question-an1044": "CSS full form?",
           "answer-an1045": "Cascading Style Sheet",
@@ -234,7 +234,7 @@
           ]
         },
         {
-          "id": "ff71",
+          "id": "ff78",
           "type": "text",
           "question-an1049": "Which HTML tag is used to declare internal CSS?",
           "answer-bn1012": "style",
@@ -245,7 +245,7 @@
           ]
         },
         {
-          "id": "ff72",
+          "id": "ff79",
           "type": "checkbox",
           "question-an1051": "What type of CSS is the following code snippet?  <h1 style=\"color:blue;\">A Blue Heading</h1>",
           "answer-an1052": "Inline",
@@ -258,7 +258,7 @@
           ]
         },
         {
-          "id": "ff73",
+          "id": "ff80",
           "type": "select",
           "question-an1056": "In the below code snippet, in what order will the margins be added?  p {   margin: 25px 50px 75px 100px; }",
           "answer-an1057": "Top, Right, Bottom, Left",
@@ -271,7 +271,7 @@
           ]
         },
         {
-          "id": "ff74",
+          "id": "ff81",
           "type": "radio",
           "question-an1061": "Can negative values be allowed in padding property?",
           "answer-an1062": "No",
@@ -284,7 +284,7 @@
           ]
         },
         {
-          "id": "ff75",
+          "id": "ff82",
           "type": "radio",
           "question-an1066": "The CSS property used to specify the transparency of an element is?",
           "answer-an1067": "opacity",
@@ -297,7 +297,7 @@
           ]
         },
         {
-          "id": "ff76",
+          "id": "ff83",
           "type": "checkbox",
           "question-an1071": " How can we specify the spacing between each letter in a text in CSS?",
           "answer-an1072": "letter-spacing",
@@ -310,7 +310,7 @@
           ]
         },
         {
-          "id": "ff77",
+          "id": "ff84",
           "type": "radio",
           "question-an1076": "Which of the following is the correct way to select all h1 headers in a div element?",
           "answeran1077": "div h1",
@@ -323,7 +323,7 @@
           ]
         },
         {
-          "id": "ff78",
+          "id": "ff85",
           "type": "select",
           "question-an1081": "We can make rounded borders around elements using which CSS element?",
           "answer-an1082": "border-radius",
@@ -336,7 +336,7 @@
           ]
         },
         {
-          "id": "ff79",
+          "id": "ff86",
           "type": "text",
           "question-an1085": "How can we set the maximum width of the elements content box using CSS?",
           "answer-bn1013": "max-width",
@@ -353,7 +353,7 @@
       "formName": "JavaScript_Interview_questions",
       "fields": [
         {
-          "id": "ff80",
+          "id": "ff87",
           "type": "checkbox",
           "question-an1087": "Javascript is an _______ language?",
           "answer-an1088": "Object-Oriented",
@@ -366,7 +366,7 @@
           ]
         },
         {
-          "id": "ff81",
+          "id": "ff88",
           "type": "radio",
           "question-an1092": "Which of the following keywords is used to define a variable in Javascript?",
           "answer-an1093": "both",
@@ -379,7 +379,7 @@
           ]
         },
         {
-          "id": "ff82",
+          "id": "ff89",
           "type": "text",
           "question-an1097": " How can a datatype be declared to be a constant type?",
           "answer-bn1014": "const",
@@ -390,7 +390,7 @@
           ]
         },
         {
-          "id": "ff83",
+          "id": "ff90",
           "type": "checkbox",
           "question-an1098": "What will be the output of the following code snippet?  <script type=\"text/javascript\"> a = 5 + \"9\"; document.write(a); </script>",
           "answer-an1099": "59",
@@ -403,7 +403,7 @@
           ]
         },
         {
-          "id": "ff84",
+          "id": "ff91",
           "type": "select",
           "question-an1103": " What will be the output of the following code snippet?  <script type=\"text/javascript\" language=\"javascript\">    var a = \"Scaler\"; var result = a.substring(2, 4); document.write(result);    </script>",
           "answer-an1104": "al",
@@ -416,7 +416,7 @@
           ]
         },
         {
-          "id": "ff85",
+          "id": "ff92",
           "type": "radio",
           "question-an1108": "What keyword is used to check whether a given property is valid or not?",
           "answer-an1109": "in",
@@ -429,7 +429,7 @@
           ]
         },
         {
-          "id": "ff86",
+          "id": "ff93",
           "type": "textarea",
           "question-an1112": "What will be the output of the following code snippet?  (function(){  setTimeout(()=> console.log(1),2000);  console.log(2);  setTimeout(()=> console.log(3),0);  console.log(4); })();",
           "answer-bn1015": "2 4 3 1",
@@ -440,7 +440,7 @@
           ]
         },
         {
-          "id": "ff87",
+          "id": "ff94",
           "type": "checkbox",
           "question-an1114": "What will be the output of the following code snippet?  (function(a){  return (function(){    console.log(a);    a = 6;  })() })(21);",
           "answer-an1115": "21",
@@ -453,7 +453,7 @@
           ]
         },
         {
-          "id": "ff88",
+          "id": "ff95",
           "type": "radio",
           "question-an1119": "What will be the output of the following code snippet?  function solve(arr, rotations){  if(rotations == 0) return arr;  for(let i = 0; i < rotations; i++){    let element = arr.pop();    arr.unshift(element);  }  return arr; } // solve([44, 1, 22, 111], 5);",
           "answer-an1120": "[111,44,1,22]",
@@ -466,7 +466,7 @@
           ]
         },
         {
-          "id": "ff89",
+          "id": "ff96",
           "type": "select",
           "question-an1124": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
           "answeran1125": "Object",
@@ -485,7 +485,7 @@
       "formName": "ReactJS_Interview_questions",
       "fields": [
         {
-          "id": "ff90",
+          "id": "ff97",
           "type": "text",
           "question-an1129": "Which of the following is used in React.js to increase performance?",
           "answer-bn1016": "Virtual DOM",
@@ -496,7 +496,7 @@
           ]
         },
         {
-          "id": "ff91",
+          "id": "ff98",
           "type": "checkbox",
           "question-an1132": "What is ReactJS?",
           "answer-an1133": "user interface framework",
@@ -509,7 +509,7 @@
           ]
         },
         {
-          "id": "ff92",
+          "id": "ff99",
           "type": "textarea",
           "question-an1137": "In which language is React.js written?",
           "answer-bn1017": "javascript",
@@ -520,7 +520,7 @@
           ]
         },
         {
-          "id": "ff93",
+          "id": "ff100",
           "type": "checkbox",
           "question-an1139": "What is Babel?",
           "answer-an1140": "javascript compiler",
@@ -533,7 +533,7 @@
           ]
         },
         {
-          "id": "ff94",
+          "id": "ff101",
           "type": "select",
           "question-an1144": "Identify the command used to create a react app.",
           "answer-an1145": "npm install -g create react app",
@@ -546,7 +546,7 @@
           ]
         },
         {
-          "id": "ff95",
+          "id": "ff102",
           "type": "checkbox",
           "question-an1149": "Which of the following port is the default where webpack-dev-server runs?",
           "answer-an1150": "3000",
@@ -559,7 +559,7 @@
           ]
         },
         {
-          "id": "ff96",
+          "id": "ff103",
           "type": "select",
           "question-an1154": "How many elements can a valid react component return?",
           "answer-an1155": "1",
@@ -572,7 +572,7 @@
           ]
         },
         {
-          "id": "ff97",
+          "id": "ff104",
           "type": "radio",
           "question-an1159": "What are arbitrary inputs of components in react also known as?",
           "answer-an1160": "view",
@@ -585,7 +585,7 @@
           ]
         },
         {
-          "id": "ff98",
+          "id": "ff105",
           "type": "checkbox",
           "question-an1164": "What are arbitrary inputs of components in react also known as?",
           "answer-an1165": "props",
@@ -598,7 +598,7 @@
           ]
         },
         {
-          "id": "ff99",
+          "id": "ff106",
           "type": "radio",
           "question-an1169": "Using which of the following command can prevent default behaviour at in react?",
           "answer-an1170": "preventDefault()",
@@ -617,15 +617,15 @@
       "formName": "Sample_Check_Inerview_Questions",
       "fields": [
         {
-          "id": "wz1k",
+          "id": "ff107",
           "type": "radio",
           "question-an9fg": "is Div block level element? choose one option to select ?",
-          "answer-2j00c": "Yes",
+          "answer-2j00c": "yes",
           "options": [
             {
-              "Option1-j2jsx": "No",
-              "Option2-6eb6z": "Yes",
-              "Option3-cd8vt": "Both"
+              "Option1-j2jsx": "no",
+              "Option2-6eb6z": "yes",
+              "Option3-cd8vt": "both"
             }
           ]
         }

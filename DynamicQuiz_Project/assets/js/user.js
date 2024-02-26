@@ -9,10 +9,11 @@ for (let index = 0; index < allAnchorElements.length; index++) {
         e.preventDefault();
         index !== 0 ? handleFormDisplay(index - 1) : handleFormDisplay(index);
         clickedText = e.target.innerHTML;
+        // console.log(clickedText)
         document.querySelector("#subjectName").innerHTML = clickedText + " Questions"
         const SubmitTest = document.querySelector("#submittest");
-        SubmitTest.setAttribute("style","display:block");
-        SubmitTest.addEventListener("click",()=>{
+        SubmitTest.setAttribute("style", "display:block");
+        SubmitTest.addEventListener("click", () => {
             submitTest();
         })
     })
@@ -24,30 +25,30 @@ createHTMLElement = (eleName) => {
     return element;
 }
 addContentToElement = (element, elementName, text, type, idValue) => {
-    if (elementName !== "input" && elementName !=="select" && elementName !=="option") {
+    if (elementName !== "input" && elementName !== "select" && elementName !== "option") {
         element.innerHTML = text;
-        element === "p" ? element.setAttribute("id",idValue) : null;
+        element === "p" ? element.setAttribute("id", idValue) : null;
     } else if (elementName === "input" && (type == "text" || type == "textarea")) {
         element.innerHTML = text;
-        element.setAttribute("type",type);
+        element.setAttribute("type", type);
         element.classList.add("form-control")
         element.id = idValue
-    } else if(elementName === "input" && type == "radio"){
+    } else if (elementName === "input" && type == "radio") {
         element.innerHTML = text;
-        element.setAttribute("type",type);
+        element.setAttribute("type", type);
         element.classList.add("form-check-input")
-        element.setAttribute("name","status")
-        element.value =text;
-    } else if(elementName === "input" && type == "checkbox"){
+        element.setAttribute("name", "status-" + idValue)
+        element.value = text;
+    } else if (elementName === "input" && type == "checkbox") {
         element.innerHTML = text;
-        element.setAttribute("type",type);
+        element.setAttribute("type", type);
         element.classList.add("form-check-input");
         element.value = text;
-        element.setAttribute("name",type+"-result")
-    } else if(elementName === "select"){
+        element.setAttribute("name", type + "-result-" + idValue)
+    } else if (elementName === "select") {
         element.innerHTML = text;
         element.classList.add("dropdown");
-    } else if(elementName === "option"){
+    } else if (elementName === "option") {
         element.innerHTML = text;
         element.classList.add("dropdown-item");
         element.value = text;
@@ -76,10 +77,10 @@ handleQuestionDisplay = (question, i) => {
     wrapperElement.appendChild(questionInputElement);
 
     question.options.forEach((option) => {
-        if(question.type !== "select" && question.type !=="text" && question.type !=="textarea"){
+        if (question.type !== "select" && question.type !== "text" && question.type !== "textarea") {
             Object.keys(option).forEach((opt) => {
                 const optionsWrapper = createHTMLElement("div");
-                optionsWrapper.classList.add("option-wrapper");
+                optionsWrapper.classList.add("option-wrapper-" + question.id);
                 const optionLabelElement = addContentToElement(
                     createHTMLElement("label"),
                     "label",
@@ -91,7 +92,7 @@ handleQuestionDisplay = (question, i) => {
                     "input",
                     option[opt],
                     question.type,
-                    // Object.keys(opt)
+                    question.id
                 )
                 const optionLabelElementForValue = addContentToElement(
                     createHTMLElement("label"),
@@ -102,17 +103,17 @@ handleQuestionDisplay = (question, i) => {
                 optionsWrapper.appendChild(optionInputElement);
                 optionsWrapper.appendChild(optionLabelElementForValue);
                 wrapperElement.appendChild(optionsWrapper);
-    
+
             })
-        }else if(question.type === "select"){
-            question.options.forEach((option)=>{
+        } else if (question.type === "select") {
+            question.options.forEach((option) => {
                 const optionSelectWrapper = createHTMLElement("div");
                 const optionSelectElement = addContentToElement(
                     createHTMLElement("select"),
                     "select",
                     "",
                 )
-                for(a in option){
+                for (a in option) {
                     const optionSelectDropdown = addContentToElement(
                         createHTMLElement("option"),
                         "option",
@@ -124,10 +125,10 @@ handleQuestionDisplay = (question, i) => {
                 optionSelectWrapper.appendChild(optionSelectElement);
                 wrapperElement.appendChild(optionSelectWrapper);
             })
-        }else if( question.type === "text" || question.type === "textarea"){
-            question.options.forEach((option)=>{
+        } else if (question.type === "text" || question.type === "textarea") {
+            question.options.forEach((option) => {
                 const optionTextWrapper = createHTMLElement("div");
-                for(a in option){
+                for (a in option) {
                     const optionTextInput = addContentToElement(
                         createHTMLElement("input"),
                         "input",
@@ -150,7 +151,7 @@ handleQuestionDisplay = (question, i) => {
 
 displayQuestions = () => {
     // const formElement = document.createElement("form");
-    handleFormDisplay = (i) =>{
+    handleFormDisplay = (i) => {
         document.querySelector("form").innerHTML = "";
         questions[i].fields.forEach((question, i) => {
             handleQuestionDisplay(question, i);
@@ -166,27 +167,66 @@ getDataFromAPI = async () => {
 }
 getDataFromAPI()
 
-submitTest = () =>{
+submitTest = () => {
     readDataFromFOM();
 }
-readDataFromFOM = () =>{
+readDataFromFOM = () => {
     console.log(questions);
     const resultObject = questions.find(
         (question) => question.formName.indexOf(clickedText)
     );
-    resultObject.fields.forEach((question)=>{
-        if(question.type == "text" || question.type === "textarea"){
-            question.options.forEach((option)=>{
-                // console.log(option)
-                for(a in option){
+    console.log(resultObject);
+    resultObject.fields.forEach((question) => {
+        if (question.type == "text" || question.type === "textarea") {
+            question.options.forEach((option) => {
+                for (a in option) {
                     option[a] = document.getElementById(a).value;
                 }
             })
         }
-        if(question.type === "radio"){
-           const allOptions = document.getElementsByName("status");
-            console.log(allOptions);
+        else if (question.type === "radio") {
+            const allOptions = document.getElementsByName("status-" + question.id);
+            allOptions.forEach((element) => {
+                // Find the answer key dynamically
+                let answerKey;
+                for (const key in question) {
+                    if (key.startsWith('answer-')) {
+                        answerKey = key;
+                        break;
+                    }
+                }
+                if (element.checked) {
+                    if (element.value === question[answerKey]) {
+                        element.parentElement.setAttribute("style", "background:green");
+                    } else {
+                        element.parentElement.setAttribute("style", "background:red");
+                    }
+                }
+            })
+        }
+        else if (question.type === "checkbox") {
+            const allCheckboxes = document.getElementsByName("checkbox-result-" + question.id);
+            allCheckboxes.forEach((element) => {
+                console.log(element.checked)
+                // Find the answer key dynamically
+                let answerKey;
+                for (const key in question) {
+                    if (key.startsWith('answer-')) {
+                        answerKey = key;
+                        break;
+                    }
+                }
+                question[answerKey].split(",").forEach((anwser, i) => {
+                    if (element.checked) {
+                        if (element.value === anwser) {
+                            element.parentElement.setAttribute("style", "background:green");
+                        } else {
+                            element.parentElement.setAttribute("style", "background:red");
+                        }
+                    }
+                })
+            })
         }
     })
-    // console.log(resultObject);
+    console.log(resultObject);
 }
