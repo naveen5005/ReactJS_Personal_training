@@ -43,11 +43,19 @@ input {
   font-weight: bolder; */
 }
 
-span{
-  margin-left: 10px 
+span {
+  margin-left: 10px
 }
-label{
+
+label {
   font-style: italic;
   text-decoration: underline;
   font-weight: 800;
+}
+
+p {
+  text-align: center;
+  font-size: x-large;
+  font-style: italic;
+  /* text-decoration: underline wavy; */
 }
