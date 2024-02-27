@@ -8,7 +8,7 @@ for (let index = 0; index < allAnchorElements.length; index++) {
     element.addEventListener("click", (e) => {
         e.preventDefault();
         index !== 0 ? handleFormDisplay(index - 1) : handleFormDisplay(index);
-        clickedText = e.target.innerHTML;
+        clickedText = e.target.innerText;
         // console.log(clickedText)
         document.querySelector("#subjectName").innerHTML = clickedText + " Questions"
         const SubmitTest = document.querySelector("#submittest");
@@ -50,7 +50,7 @@ addContentToElement = (element, elementName, text, type, idValue) => {
         element.classList.add("dropdown");
     } else if (elementName === "option") {
         element.innerHTML = text;
-        element.classList.add("dropdown-item");
+        element.classList.add("dropdown-item-" + idValue);
         element.value = text;
     }
     return element;
@@ -80,7 +80,7 @@ handleQuestionDisplay = (question, i) => {
         if (question.type !== "select" && question.type !== "text" && question.type !== "textarea") {
             Object.keys(option).forEach((opt) => {
                 const optionsWrapper = createHTMLElement("div");
-                optionsWrapper.classList.add("option-wrapper-" + question.id);
+                optionsWrapper.classList.add("option-wrapper");
                 const optionLabelElement = addContentToElement(
                     createHTMLElement("label"),
                     "label",
@@ -112,12 +112,15 @@ handleQuestionDisplay = (question, i) => {
                     createHTMLElement("select"),
                     "select",
                     "",
+
                 )
                 for (a in option) {
                     const optionSelectDropdown = addContentToElement(
                         createHTMLElement("option"),
                         "option",
                         option[a],
+                        "",
+                        question.id
                     )
 
                     optionSelectElement.appendChild(optionSelectDropdown);
@@ -168,12 +171,12 @@ getDataFromAPI = async () => {
 getDataFromAPI()
 
 submitTest = () => {
-    readDataFromFOM();
+    readDataFromFOMAndValidate();
 }
-readDataFromFOM = () => {
+readDataFromFOMAndValidate = () => {
     console.log(questions);
     const resultObject = questions.find(
-        (question) => question.formName.indexOf(clickedText)
+        (question) => question.formName.indexOf(clickedText) > -1
     );
     console.log(resultObject);
     resultObject.fields.forEach((question) => {
@@ -186,46 +189,71 @@ readDataFromFOM = () => {
         }
         else if (question.type === "radio") {
             const allOptions = document.getElementsByName("status-" + question.id);
-            allOptions.forEach((element) => {
-                // Find the answer key dynamically
-                let answerKey;
-                for (const key in question) {
-                    if (key.startsWith('answer-')) {
-                        answerKey = key;
-                        break;
-                    }
+            // Find the answer key dynamically
+            let answerKey;
+            for (const key in question) {
+                if (key.startsWith('answer-')) {
+                    answerKey = key;
+                    break;
                 }
+            }
+            allOptions.forEach((element, i) => {
                 if (element.checked) {
-                    if (element.value === question[answerKey]) {
-                        element.parentElement.setAttribute("style", "background:green");
-                    } else {
-                        element.parentElement.setAttribute("style", "background:red");
-                    }
+                    element.value === question[answerKey] ? element.parentElement.setAttribute("style", "background:MediumSeaGreen")
+                        : element.parentElement.setAttribute("style", "background:red");
+                } else {
+                    element.value === question[answerKey] ? element.parentElement.setAttribute("style", "background:MediumSeaGreen")
+                        : element.parentElement.setAttribute("style", "background:red");
                 }
             })
         }
         else if (question.type === "checkbox") {
             const allCheckboxes = document.getElementsByName("checkbox-result-" + question.id);
-            allCheckboxes.forEach((element) => {
-                console.log(element.checked)
-                // Find the answer key dynamically
-                let answerKey;
-                for (const key in question) {
-                    if (key.startsWith('answer-')) {
-                        answerKey = key;
-                        break;
+            // Find the answer key dynamically
+            let answerKey;
+            for (const key in question) {
+                if (key.startsWith('answer-')) {
+                    answerKey = key;
+                    break;
+                }
+            }
+            // Split correct answers
+            const correctAnswers = question[answerKey].split(",");
+
+            allCheckboxes.forEach((checkbox) => {
+                // Check if the checkbox value is one of the correct answers
+                if (checkbox.checked) {
+                    if (correctAnswers.includes(checkbox.value)) {
+                        checkbox.parentElement.style.background = "MediumSeaGreen";
+                    } else {
+                        checkbox.parentElement.style.background = "red";
+                    }
+                } else {
+                    if (correctAnswers.includes(checkbox.value)) {
+                        checkbox.parentElement.style.background = "MediumSeaGreen";
+                    } else {
+                        checkbox.parentElement.style.background = "red";
                     }
                 }
-                question[answerKey].split(",").forEach((anwser, i) => {
-                    if (element.checked) {
-                        if (element.value === anwser) {
-                            element.parentElement.setAttribute("style", "background:green");
-                        } else {
-                            element.parentElement.setAttribute("style", "background:red");
-                        }
-                    }
-                })
-            })
+
+            });
+        }
+        else if (question.type === "select") {
+            const allSelectItems = document.getElementsByClassName("dropdown-item-" + question.id);
+            let answerKey;
+            for (const key in question) {
+                if (key.startsWith('answer-')) {
+                    answerKey = key;
+                    break;
+                }
+            }
+            for (i = 0; i <= allSelectItems.length - 1; i++) {
+                if (allSelectItems[i].selected) {
+                    allSelectItems[i].value === question[answerKey] ? allSelectItems[i].parentElement.setAttribute("style", "background:MediumSeaGreen")
+                        : allSelectItems[i].parentElement.setAttribute("style", "background:red");
+                }
+
+            }
         }
     })
     console.log(resultObject);

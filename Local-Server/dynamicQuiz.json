@@ -166,12 +166,12 @@
           "id": "ff73",
           "type": "checkbox",
           "question-an1024": "What are the types of lists available in HTML?",
-          "answer-an1025": "Ordered, Unordered list",
+          "answer-an1025": "Ordered,Unordered list",
           "options": [
             {
-              "Option1-an1026": "Ordered, Unordered list",
-              "Option2-an1027": "Bulleted, Numbered list",
-              "Option3-an1028": "Named, unnamed list"
+              "Option1-an1026": "Ordered,Unordered list",
+              "Option2-an1027": "Bulleted,Numbered list",
+              "Option3-an1028": "Named,unnamed list"
             }
           ]
         },
@@ -350,7 +350,7 @@
     },
     {
       "id": "61ba",
-      "formName": "JavaScript_Interview_questions",
+      "formName": "Javascript_Interview_questions",
       "fields": [
         {
           "id": "ff87",

@@ -103,12 +103,7 @@ handleQuestionDisplay = (question) => {
     });
   });
   dynamicButtons("EDIT", wrapperElement, editQuestionFunctionality, question);
-  dynamicButtons(
-    "UPDATE",
-    wrapperElement,
-    updateQuestionFunctionality,
-    question
-  );
+  dynamicButtons("UPDATE", wrapperElement, updateQuestionFunctionality, question);
 
   const formButtonElement = addContentToElement(
     createHtmlElement("button"),
@@ -188,7 +183,7 @@ function readAndReturnData(question) {
   return question;
 }
 function editQuestionFunctionality(question) {
-  // 1. Remove Read Only Attribute and Make it as Input field
+  // 1. Make it as Input field
   modifyInputFields(question,"input");
   //
   document.getElementById(question.id + "-UPDATE").setAttribute("style", "display:block");
