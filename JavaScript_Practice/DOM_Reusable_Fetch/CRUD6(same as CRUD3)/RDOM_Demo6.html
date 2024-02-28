@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReUsable DOM CRUD03 using Fetch</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="id">ID : </label>
+        <input type="text" name="id" id="id" disabled readonly> <br>
+
+        <label for="university">University : </label>
+        <input type="text" name="university" id="university"> <br>
+
+        <label for="institute">Institute : </label>
+        <input type="text" name="institute" id="institute"> <br>
+
+        <label for="branch">Branch : </label>
+        <select name="branch" id="branch">
+            <option value="--select--">--select--</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">ECE</option>
+            <option value="CSE">CSE</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+        </select> <br>
+        
+        <label for="degree">Degree : </label>
+        <select name="degree" id="degree">
+            <option value="--select--">--select--</option>
+            <option value="BTECH">BTECH</option>
+            <option value="MASTERS">MASTERS</option>
+            <option value="DEGREE">DEGREE</option>
+        </select> <br>
+
+        <input type="radio" name="status" value="Persuing">
+        <label for="status">Persuing</label>
+        <input type="radio" name="status" value="Completed">
+        <label for="status">Completed</label> <br>
+
+        <label for="areasOfInterest">Areas Of Interest : </label> <br>
+        <input type="checkbox" name="areasOfInterest" value="HTML">
+        <label for="">HTML</label> <br>
+        <input type="checkbox" name="areasOfInterest" value="CSS">
+        <label for="">CSS</label> <br>
+        <input type="checkbox" name="areasOfInterest" value="JS">
+        <label for="">JS</label> <br>
+        <input type="checkbox" name="areasOfInterest" value="REACTJS">
+        <label for="">REACTJS</label> <br>
+        <input type="checkbox" name="areasOfInterest" value="BOOTSTRAP">
+        <label for="">BOOTSTRAP</label> <br> <br>
+
+        <label for="category">CATEGORY : </label>
+        <input type="text" name="category" id="category"> <br>
+
+        <label for="image">IMAGE : </label>
+        <input type="text" name="image" id="image"> <br>
+
+        <label for="joiningDate">JOINING DATE : </label>
+        <input type="date" name="joiningDate" id="joiningDate"> <br>
+
+        <button type="button" id="addUniveristy" onclick="addUniversityDetails()" style="display: block;">ADD
+            DETAILS</button>
+        <button type="button" id="updateUniversity" onclick="updateUniversityDetails()" style="display: none;">UPDATE
+            DETAILS</button>
+
+
+    </form> <br>
+    <table border="2" style="border-collapse: collapse;">
+        <thead>
+            <!-- <tr>
+                <th>ID</th>
+                <th>UNIVERISTY</th>
+                <th>INSTITUTE</th>
+                <th>BRANCH</th>
+                <th>DEGREE</th>
+                <th>PERSUING STATUS</th>
+                <th>AREAS OF INTEREST</th>
+                <th>CATEGORY</th>
+                <th>IMAGE</th>
+                <th>JOINING DATE</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr> -->
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="RDOM_Demo6.js"></script>
+</body>
+
+</html>
