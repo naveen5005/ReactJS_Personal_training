@@ -56,14 +56,26 @@
     },
     {
       "id": "tin17dd2r7h",
-      "title": "clothes",
-      "price": "450",
+      "title": "boys clothes",
+      "price": "4508",
       "description": "round necked tshirt",
       "category": "men's clothing",
       "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
       "rating": {
-        "rate": "8.5",
-        "count": "800"
+        "rate": "10",
+        "count": "1200"
+      }
+    },
+    {
+      "id": "jhempl7nbyn",
+      "title": "Puma Men Dynamite Slip-onSneaker",
+      "price": "1500",
+      "description": "Model Name:-Dynamite Slip-on",
+      "category": "men's shoes",
+      "image": "https://m.media-amazon.com/images/I/61I98QluU6L._SY695_.jpg",
+      "rating": {
+        "rate": "10",
+        "count": "700"
       }
     }
   ],
