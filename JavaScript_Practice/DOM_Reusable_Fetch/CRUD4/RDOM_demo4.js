@@ -35,115 +35,108 @@ function readDataFromFOM() {
     }
     return data;
 }
-commonServerCommunication = (method, data) => {
-    var payload = readDataFromFOM();
-    method === "GET" || method === "POST" ? url = "http://localhost:3000/demo4" : url = "http://localhost:3000/demo4/" +  data.player_id;
-    fetch(url, {
-        method: method,
-        headers: { 'Content-Type': 'application/json' },
-        body: method === "POST" || method ==="PUT" ? JSON.stringify(payload) : null,
-    }).then((response) => {
-        if (!response.ok) {
-            throw new Error("Response is not ok...!!");
-        }
-        return response.json();
-    }).then((players) => {
-        displayPlayers(players)
-    })
-}
-getDataFromAPI = () => {
-    commonServerCommunication("GET");
-}
-getDataFromAPI();
-addPlayer = () => {
-    commonServerCommunication("POST");
-}
-createDynamicBtns = (text, event, data, target) => {
-    var Td = document.createElement("td");
-    var Button = document.createElement("button");
-    Button.innerHTML = text;
-    Button.addEventListener("click", function () {
-        event(data);
-    })
-    Td.appendChild(Button);
-    target.appendChild(Td);
-}
-createDynamicTh = (text,target) =>{
+
+createDynamicTh = (text, target) => {
     var Th = document.createElement("th");
-    Th.innerHTML = text;
-    Th.setAttribute("rowspan" ,"2");
+    Th.innerHTML = text,
+        Th.setAttribute("rowspan", "2");
     target.appendChild(Th);
 }
-commonDiplayDataTable = (cell,obj,target)=>{
+createDynamicButtons = (text, target, event, obj) => {
+    var myBtnTd = document.createElement("td");
+    var myBtn = document.createElement("button");
+    myBtn.innerHTML = text;
+    myBtn.setAttribute("type", "button");
+    myBtn.addEventListener("click", function () {
+        event(obj);
+    })
+    myBtnTd.appendChild(myBtn);
+    target.appendChild(myBtnTd);
+}
+commonPlayersDataDisplay = (cell, target, obj) => {
     var myTr = document.createElement("tr");
-        for (a in obj) {
-            if (a !== "batting_stats" && a !== "bowling_stats") {
-                var myTd = document.createElement(cell);
-                myTd.innerHTML = cell === "th" ? a : obj[a];
-                cell === "th" ? myTd.setAttribute("rowspan","2") : myTd.setAttribute("rowspan","0")
-                myTr.appendChild(myTd);
-                var myInnerTr = document.createElement("tr");
+    var myInnerTr = document.createElement("tr");
+    for (a in obj) {
+        if (a !== "batting_stats" && a !== "bowling_stats") {
+            var myTh = document.createElement(cell);
+            myTh.innerHTML = cell === "th" ? a : obj[a];
+            cell === "th" ? myTh.setAttribute("rowspan", "2") : null;
+            myTr.appendChild(myTh);
+        } else if (a === "batting_stats" || a === "bowling_stats") {
+            if (cell === "th") {
+                var myTh = document.createElement(cell);
+                myTh.innerHTML = a;
+                myTh.setAttribute("colspan", a === "bowling_stats" ? "3" : "4");
+                for (b in obj[a]) {
+                    var myInnerTh = document.createElement(cell);
+                    myInnerTh.innerHTML = b;
+                    myInnerTr.appendChild(myInnerTh);
+                }
+                myTr.appendChild(myTh);
             } else {
-                var myTd = document.createElement(cell);
-                myTd.innerHTML = cell === "th" ? a : obj[a];
-                a === "batting_stats" ? myTd.setAttribute("colspan","4") : myTd.setAttribute("colspan","3")
-                myTr.appendChild(myTd);
-                if(cell == "td"){
-                    for (b in obj[a]) {
-                        var myInnerTD = document.createElement(cell);
-                        myInnerTD.innerHTML = cell === "th" ? a : obj[a][b];
-                        myTr.appendChild(myInnerTD);
-                    }
-                }else{
-                    for (b in obj[a]) {
-                        var myInnerTD = document.createElement(cell);
-                        myInnerTD.innerHTML = cell === "th" ? b : obj[a][b];
-                        myInnerTr.appendChild(myInnerTD);
-                        document.querySelector(target).appendChild(myInnerTr);
-                    }
+                for (b in obj[a]) {
+                    var myInnerTh = document.createElement(cell);
+                    myInnerTh.innerHTML = obj[a][b];
+                    myTr.appendChild(myInnerTh);
                 }
             }
-
-        }if(cell === "th"){
-            createDynamicTh("EDIT",myTr);
-            createDynamicTh("DELETE",myTr);
-        }else{
-            createDynamicBtns("Edit", editPlayer, obj, myTr);
-            createDynamicBtns("Delete", deletePlayer, obj, myTr);
-    
         }
-
+    }
+    if (cell === "th") {
+        createDynamicTh("EDIT", myTr);
+        createDynamicTh("DELETE", myTr);
         document.querySelector(target).appendChild(myTr);
+        document.querySelector(target).appendChild(myInnerTr);
+    } else {
+        createDynamicButtons("Edit", myTr, editPlayer, obj);
+        createDynamicButtons("Delete", myTr, deletPlayer, obj);
+        document.querySelector(target).appendChild(myTr);
+    }
+
 }
-commonDiplayDataTable("th",returnObj(),"thead")
-displayPlayers = (players) => {
-    players.forEach((data) => {
-        commonDiplayDataTable("td",data,"tbody")
+let results = [];
+displayPlayers = () => {
+    commonPlayersDataDisplay("th", "thead", results[0]);
+    results.forEach((player) => {
+        commonPlayersDataDisplay("td", "tbody", player);
     })
 }
-let addStats = document.getElementById("addStats");
-let updateStats = document.getElementById("updateStats");
-let updateData= null;
-editPlayer = (data) => {
-    updateData = data;
-    for (a in data) {
-        if (a !== "bowling_stats" && a !== "batting_stats") {
-            document.getElementById(a).value = data[a];
+commonServerCommunication = async (method, payload) => {
+    method === "GET" || method === "POST" ? url = "http://localhost:3000/demo4" : url = "http://localhost:3000/demo4/" + payload.player_id;
+    results = await (await fetch(url, {
+        method: method,
+        headers: { 'Content-Type': 'application/json' },
+        body: method ==="PUT" || method ==="POST" ? JSON.stringify(payload) : null
+    })).json();
+    displayPlayers();
+}
+commonServerCommunication("GET");
+const addToggle = document.getElementById("addStats");
+const updateToggle = document.getElementById("updateStats");
+editPlayer = (player) => {
+    for (a in player) {
+        if (a !== "batting_stats" && a !== "bowling_stats") {
+            document.getElementById(a).value = player[a];
         } else {
-            for (b in data[a]) {
-                document.getElementById(b).value = data[a][b];
+            for (b in player[a]) {
+                document.getElementById(b).value = player[a][b];
             }
         }
-
-        addStats.setAttribute("style","display:none");
-        updateStats.setAttribute("style","display:block");
     }
+    addToggle.setAttribute("style", "display:none");
+    updateToggle.setAttribute("style", "display:block");
 }
-updatePlayer = () =>{
-    commonServerCommunication("PUT",updateData);
-    addStats.setAttribute("style","display:block");
-    updateStats.setAttribute("style","display:none");
+deletPlayer = (player) => {
+    commonServerCommunication("DELETE", player);
 }
-deletePlayer = (data) => {
-    commonServerCommunication("DELETE", data);
+updatePlayer = () => {
+    var data = readDataFromFOM();
+    commonServerCommunication("PUT",data);
+    addToggle.setAttribute("style", "display:block");
+    updateToggle.setAttribute("style", "display:none");
+}
+
+addPlayer = () =>{
+    var data = readDataFromFOM();
+    commonServerCommunication("POST",data);
 }
