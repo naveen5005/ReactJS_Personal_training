@@ -1,0 +1,51 @@
+*{
+    font-weight: 500;
+    /* margin: 0;
+    padding: 0; */
+}
+h3,p{
+    margin: 0;
+    padding-bottom: 10px;
+}
+.mainConatiner{
+    border: 2px solid rgb(157, 194, 157);
+    width: max-content;
+    padding: 30px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+#task{
+    background-color: rgb(157, 194, 157);
+    padding: 6px;
+    width: 94%;
+    border-radius: 5px;
+    border: none;
+}
+.addTasksForm{
+    display: flex;
+    gap: 2px;
+}
+.material-symbols-outlined{
+    background: rgb(157, 194, 157);
+    border: none;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+h3,h2{
+    font-weight: bold;
+}
+h2{
+    text-align: center;
+}
+.wrapper-task-details{
+    background-color: rgb(157, 194, 157);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.edit_delete_wrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
