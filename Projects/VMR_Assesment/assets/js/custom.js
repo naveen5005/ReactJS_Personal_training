@@ -204,3 +204,4 @@ getAllQuestions = async (method, payload) => {
   displayQuestions();
 };
 getAllQuestions("GET");
+
