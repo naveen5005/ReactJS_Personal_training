@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import ClassCRUD01 from './components/ClassCRUD01';
 import FuncCRUD01 from './components/FuncCRUD01';
 import ClassCRUD02 from './components/ClassCRUD02';
+import FuncCRUD02 from './components/FuncCRUD02';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     {/* <App /> */}
     {/* <ClassCRUD01/> */}
     {/* <FuncCRUD01/> */}
-    <ClassCRUD02/>
+    {/* <ClassCRUD02/> */}
+    <FuncCRUD02/>
   </React.StrictMode>
 );
 
