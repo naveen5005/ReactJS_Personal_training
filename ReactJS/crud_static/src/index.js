@@ -5,13 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ClassCRUD01 from './components/ClassCRUD01';
 import FuncCRUD01 from './components/FuncCRUD01';
+import ClassCRUD02 from './components/ClassCRUD02';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <ClassCRUD01/> */}
-    <FuncCRUD01/>
+    {/* <FuncCRUD01/> */}
+    <ClassCRUD02/>
   </React.StrictMode>
 );
 
