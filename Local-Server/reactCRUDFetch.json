@@ -11,32 +11,24 @@
       "id": 1
     },
     {
-      "fname": "mahesh",
-      "gender": "male",
+      "fname": "maheshwari",
+      "gender": "female",
       "areasOfInterest": [
         "HTML",
-        "JS",
         "REACTJS"
       ],
-      "state": "TS",
+      "state": "AP",
       "id": 3
     },
     {
-      "fname": "",
-      "gender": "",
+      "fname": "pallav",
+      "gender": "male",
       "areasOfInterest": [
         "CSS",
-        "JS"
+        "REACTJS"
       ],
-      "state": "",
-      "id": 4
-    },
-    {
-      "fname": "Kumar",
-      "gender": "male",
-      "areasOfInterest": [],
-      "state": "AP",
-      "id": 5
+      "state": "TS",
+      "id": 6
     }
   ]
 }

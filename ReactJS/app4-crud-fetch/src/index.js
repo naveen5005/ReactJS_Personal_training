@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ClassCompFetch01 from './Components/ClassCompFetch01';
+import FunctCompFetch01 from './Components/FunctCompFetch01';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <ClassCompFetch01/>
+    {/* <ClassCompFetch01/> */}
+    <FunctCompFetch01/>
   </React.StrictMode>
 );
 
