@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import ClickCounter_Func from './Components/ClickCounter_Func';
 import HoverCounter_Func from './Components/HoverCounter_Func';
 import Reusable_Func from './Components/Reusable_Func';
+import ClickCounter_Class from './Components/Class/ClickCounter_Class';
+import Reusable_Class from './Components/Class/Reusable_Class';
+import HoverCounter_Class from './Components/Class/HoverCounter_Class';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -33,6 +36,23 @@ root.render(
         />
       )
     }} />
+
+    {/* <ClickCounter_Class/> */}
+    <Reusable_Class render={(counter, incrementCounter, decrementCounter, resetCounter) =>
+      <ClickCounter_Class
+        counter={counter}
+        incrementCounter={incrementCounter}
+        decrementCounter={decrementCounter}
+        resetCounter={resetCounter}
+      />} />
+
+
+    <Reusable_Class render={(counter, incrementCounter, decrementCounter, resetCounter) => <HoverCounter_Class
+      counter={counter}
+      incrementCounter={incrementCounter}
+      decrementCounter={decrementCounter}
+      resetCounter={resetCounter}
+    />} />
   </React.StrictMode>
 );
 
