@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "fname": "Naveen Babu Bellam",
+      "gender": "",
+      "areasOfInterest": [],
+      "state": "TS",
+      "id": 1
+    },
+    {
+      "fname": "syam",
+      "gender": "male",
+      "areasOfInterest": [
+        "HTML",
+        "CSS",
+        "REACTJS",
+        "BOOTSTRAP"
+      ],
+      "state": "AP",
+      "id": 2
+    },
+    {
+      "fname": "",
+      "gender": "male",
+      "areasOfInterest": [],
+      "state": "",
+      "id": 3
+    },
+    {
+      "fname": "dummy",
+      "gender": "other",
+      "areasOfInterest": [
+        "JS"
+      ],
+      "state": "KA",
+      "id": 4
+    },
+    {
+      "fname": "mahesh kumar",
+      "gender": "male",
+      "areasOfInterest": [
+        "CSS"
+      ],
+      "state": "KA",
+      "id": 5
+    }
+  ],
+  "persons": [
+    {
+      "fname": "naveen",
+      "id": 1
+    }
+  ]
+}
