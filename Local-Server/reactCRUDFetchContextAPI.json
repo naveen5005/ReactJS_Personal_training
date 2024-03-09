@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "fname": "syam kumar",
+      "id": 2
+    },
+    {
+      "fname": "mahesh",
+      "id": 4
+    },
+    {
+      "fname": "kiran",
+      "id": 5
+    },
+    {
+      "fname": "kiran",
+      "id": 6
+    }
+  ]
+}
