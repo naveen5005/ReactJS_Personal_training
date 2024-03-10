@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Context } from './Context'
 import UserClassComp from './UserClassComp'
+import UserFuncComp from './UserFuncComp';
 
 export default class Resable extends Component {
 
@@ -19,6 +20,7 @@ export default class Resable extends Component {
             <div>
                 <Context.Provider value={{ commonServerCommunication }}>
                     <UserClassComp />
+                    <UserFuncComp/>
                 </Context.Provider>
             </div>
         )
