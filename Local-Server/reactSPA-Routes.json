@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "fname": "maheshwari",
+      "gender": "female",
+      "areasOfInterest": [
+        "HTML",
+        "REACTJS"
+      ],
+      "state": "AP",
+      "id": 3
+    },
+    {
+      "fname": "pallav",
+      "gender": "male",
+      "areasOfInterest": [
+        "CSS",
+        "REACTJS"
+      ],
+      "state": "TS",
+      "id": 6
+    }
+  ]
+}
