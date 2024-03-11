@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "fname": "Naveen Babu Bellam",
+      "email": "bellam.naveen@gmail.com",
+      "id": 1
+    },
+    {
+      "fname": "sneha",
+      "email": "sneha@gmail.com",
+      "id": 2
+    },
+    {
+      "fname": "venky Kumar MMr",
+      "email": "venky@gmail.com",
+      "id": 3
+    },
+    {
+      "fname": "mahesh babu",
+      "email": "abc@gmail.com",
+      "id": 5
+    },
+    {
+      "fname": "Naveen Babu Bellam",
+      "email": "naveen@codingthesmartway.com",
+      "id": 6
+    }
+  ]
+}
