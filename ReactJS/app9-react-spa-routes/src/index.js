@@ -12,6 +12,7 @@ import Contacts from './Components/Contacts';
 import Users from './Components/Users';
 import UserDetail from './Components/UserDetail';
 import UserDetailsForm from './Components/UserDetailsForm';
+import Footer from './Components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +31,7 @@ root.render(
         <Route path='/users/:id/:id' element={<UserDetailsForm/>}/>
         <Route path='*' element={<PageNotFound />} />
       </Routes>
+      <Footer/>
     </Router>
   </React.StrictMode>
 );
