@@ -19,6 +19,25 @@
       ],
       "state": "TS",
       "id": 6
+    },
+    {
+      "fname": "salman",
+      "gender": "male",
+      "areasOfInterest": [
+        "HTML",
+        "REACTJS"
+      ],
+      "state": "AP",
+      "id": 7
+    },
+    {
+      "fname": "sneha",
+      "gender": "female",
+      "areasOfInterest": [
+        "REACTJS"
+      ],
+      "state": "TS",
+      "id": 8
     }
   ]
 }
