@@ -33,7 +33,7 @@ const UserDetailsForm = () => {
 
     useEffect(() => {
         commonServerCommunication("GET", params);
-    }, []);
+    }, [params.id]);
 
     const commonServerCommunication = async (method, params) => {
         console.log(params)
@@ -44,7 +44,7 @@ const UserDetailsForm = () => {
             url: url,
             headers: { 'Content-Type': 'application/json' },
         })
-        if(method === "get"){
+        if(method === "GET"){
             SetUser(response.data)
         }
     }
