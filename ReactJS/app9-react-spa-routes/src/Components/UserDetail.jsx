@@ -39,7 +39,7 @@ const UserDetail = () => {
                             </thead>
                             <tbody>
                                 <tr >
-                                    <td style={{ border: '2px solid black' }}><Link to={`${user.id}`}>{user.fname}</Link></td>
+                                    <td style={{ border: '2px solid black' }}><Link to={`/userDetail/${user.id}`}>{user.fname}</Link></td>
                                     <td style={{ border: '2px solid black' }}>{user.gender}</td>
                                     <td style={{ border: '2px solid black' }}>{user.areasOfInterest.join(",")}</td>
                                     <td style={{ border: '2px solid black' }}>{user.state}</td>

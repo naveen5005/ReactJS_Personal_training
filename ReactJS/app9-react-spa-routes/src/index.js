@@ -28,7 +28,7 @@ root.render(
           {/* <Route path=':id' element={<UserDetail />} /> */}
         </Route>
         <Route path='/users/:id' element={<UserDetail/>}/>
-        <Route path='/users/:id/:id' element={<UserDetailsForm/>}/>
+        <Route path='/userDetail/:id' element={<UserDetailsForm/>}/>
         <Route path='*' element={<PageNotFound />} />
       </Routes>
       <Footer/>
