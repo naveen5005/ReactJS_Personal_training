@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "fname": "Naveen Babu Bellam",
+      "gender": "male",
+      "areasOfInterest": [
+        "CSS",
+        "HTML"
+      ],
+      "favNames": [
+        "Virginia Andrews",
+        "Bradley Wilkerson"
+      ],
+      "id": 1
+    },
+    {
+      "fname": "kavya sri",
+      "gender": "female",
+      "areasOfInterest": [
+        "JS"
+      ],
+      "favNames": [
+        "Miriam Wagner"
+      ],
+      "id": 2
+    },
+    {
+      "fname": "venky Kumar MMr",
+      "gender": "male",
+      "areasOfInterest": [
+        "CSS",
+        "HTML",
+        "JS",
+        "REACTJS"
+      ],
+      "favNames": [
+        "Carlos Abbott",
+        "Miriam Wagner",
+        "Bradley Wilkerson",
+        "Virginia Andrews"
+      ],
+      "id": 3
+    },
+    {
+      "fname": "sneha",
+      "gender": "",
+      "areasOfInterest": [
+        "JS"
+      ],
+      "favNames": [
+        "Oliver Hansen"
+      ],
+      "id": 4
+    },
+    {
+      "fname": "",
+      "gender": "",
+      "areasOfInterest": [],
+      "favNames": [],
+      "id": 5
+    },
+    {
+      "fname": "",
+      "gender": "",
+      "areasOfInterest": [],
+      "favNames": [
+        "April Tucker"
+      ],
+      "id": 6
+    }
+  ]
+}
