@@ -1,0 +1,14 @@
+{
+    "users" :[
+        {
+            "id" : 1,
+            "uname" : "naveen@gmail.com",
+            "pwd" : "123"
+        },
+        {
+            "id" : 1,
+            "uname" : "kiran@gmail.com",
+            "pwd" : "123"
+        }
+    ]
+}

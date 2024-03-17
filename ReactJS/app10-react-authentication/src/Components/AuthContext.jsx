@@ -1,20 +1,20 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import Axios from 'axios';
 
 export const Context = createContext();
 const AuthContext = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loggedInUser, setLoggedInUser] = useState(null);
     const [allUsers, setAllUsers] = useState([
-        {
-            uname: "naveen@gmail.com",
-            pwd: "123"
-        },
-        {
-            uname: "kiran@gmail.com",
-            pwd: "123"
-        }
+        // {
+        //     uname: "naveen@gmail.com",
+        //     pwd: "123"
+        // },
+        // {
+        //     uname: "kiran@gmail.com",
+        //     pwd: "123"
+        // }
     ])
     const navigate = useNavigate();
 
@@ -41,6 +41,11 @@ const AuthContext = ({ children }) => {
         setIsLoggedIn(false);
         navigate("/login");
     }
+    useEffect(()=>{
+        Axios.get("http://localhost:3001/users").then((res)=>{
+            setAllUsers(res.data);
+        })
+    },[])
     return (
         <div>
             <Context.Provider value={{ isLoggedIn, handleLogin, handleLogout, loggedInUser }}>
