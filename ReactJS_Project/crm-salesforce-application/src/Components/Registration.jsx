@@ -16,13 +16,8 @@ const Registration = () => {
     const handleChange = (e) => {
         const newUser = { ...registrationUser };
         newUser[e.target.name] = e.target.value;
+        e.target.name === 'confirmPwd' && e.target.value !== registrationUser.pwd ? setPasswordMatchError('Password do not match') : setPasswordMatchError('')
         setRegistrationUser(newUser);
-        // Check if password and confirm password match
-        if (e.target.name === 'confirmPwd' && e.target.value !== registrationUser.pwd) {
-            setPasswordMatchError('Passwords do not match');
-        } else {
-            setPasswordMatchError('');
-        }
     }
     const handleRegisterUser = () => {
         console.log(registrationUser)
