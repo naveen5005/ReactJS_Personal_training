@@ -1,0 +1,17 @@
+.registration{
+    border: 2px solid lightgray;
+    width: 400px;
+    margin: auto;
+    padding: 40px 0px;
+    border-radius: 10px;
+    text-align: center;
+}
+.MuiFormControl-root{
+    gap: 10px;
+}
+#demo-radio-buttons-group-label{
+    text-align: start;
+}
+.textField{
+    width: 320px;
+}
