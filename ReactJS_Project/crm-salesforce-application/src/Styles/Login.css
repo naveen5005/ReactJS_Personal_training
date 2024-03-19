@@ -1,0 +1,54 @@
+.mainContainer-login-form{
+    border: 2px solid lightgray;
+    width: max-content;
+    padding: 40px;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+.login-form-welcome-message{
+    margin-bottom: 20px;
+}
+.login-form{
+    margin-left: 50px;
+}
+.legalTextRow{
+    margin: 20px 1px 0px 70px;
+}
+.link{
+    text-decoration: none;
+}
+.link-button{
+    color: white;
+}
+.divider-break{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-account{
+    margin-left: 562px;
+    margin-top: 9px;
+}
+
+.footer-section{
+    background-color: rgba(242, 238, 238, 0.571);
+    margin-top: 30px;
+    height: 180px;
+}
+.legal-links{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.legal-links .link{
+    margin-left: 20px;
+}
+.footer-details{
+    display: flex;
+    justify-content: center;
+    margin-top: 21px;
+    margin-left: 15px;
+}
