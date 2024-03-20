@@ -27,8 +27,10 @@ const Registration = () => {
 
     }
     return (
-        <div style={{ marginTop: '50px' }}>
-            <h2 style={{ textAlign: 'center' }}>Welcome to the Registration page</h2>
+        <div style={{ marginTop: '30px' }}>
+            <Typography variant='h4' style={{ textAlign: 'center',paddingBottom:'20px' }}>
+                Welcome to the Registration page
+            </Typography>
             <div className='registration'>
                 {
                     registrationSuccess && <Typography variant='h5' style={{ color: 'green', marginBottom: '20px' }}>Registration Successful!!!</Typography>
@@ -53,7 +55,7 @@ const Registration = () => {
                     <Button variant='contained' onClick={handleRegisterUser}>Add User</Button>
 
                     <div className='SignIn'>
-                        Already have an Account? <Link style={{textDecoration:'none',color:'darkblue'}} to={'/login'}>SignIn</Link>
+                        Already have an Account? <Link style={{ textDecoration: 'none', color: 'darkblue' }} to={'/login'}>SignIn</Link>
                     </div>
 
 
