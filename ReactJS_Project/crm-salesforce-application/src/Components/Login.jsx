@@ -56,7 +56,7 @@ const Login = () => {
             </div>
             <div className="divider-break">
                 <Divider style={{ flexGrow: 1, margin: '0 10px' }} />
-                <Typography variant='subtitle1' style={{color:'gray'}}>New to the Application ?</Typography>
+                <Typography variant='subtitle1' style={{ color: 'gray' }}>New to the Application ?</Typography>
                 <Divider style={{ flexGrow: 1, margin: '0 10px' }} />
             </div>
             <div className="create-account">
@@ -72,7 +72,7 @@ const Login = () => {
                     <Link className='link'>Help</Link>
                 </div>
                 <div className='footer-details'>
-                    <Typography variant='body2' style={{color:'gray'}}>© 1996-2024, *******.com, Inc. or its affiliates</Typography>
+                    <Typography variant='body2' style={{ color: 'gray' }}>© 1996-2024, *******.com, Inc. or its affiliates</Typography>
                 </div>
             </div>
         </div>
