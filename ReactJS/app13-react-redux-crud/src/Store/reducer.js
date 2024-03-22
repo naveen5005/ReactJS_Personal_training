@@ -17,7 +17,14 @@ export const rootReducer = (state = initialState,action) => {
             }
         case "UPDATE_USERS":
             return{
-                users:state.users.map((usr,i)=> i === action.payload.index && action.payload)
+                users:state.users.map((usr,i)=> 
+                {
+                    if(i === action.payload.index){
+                        return action.payload
+                    }
+                    return usr;
+                }
+                )
             }
         case "ADD_PRODUCTS":
             return{
@@ -33,7 +40,14 @@ export const rootReducer = (state = initialState,action) => {
             console.log(action)
             return{
                 ...state,
-                products : state.products.map((prod,i)=> i === action.payload.index && action.payload)
+                products : state.products.map((prod,i)=> 
+                {
+                    if(i === action.payload.index){
+                        return action.payload
+                    }
+                    return prod;
+                }
+                )
             }
         default:
            return state;
