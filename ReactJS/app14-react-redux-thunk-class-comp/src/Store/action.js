@@ -9,7 +9,7 @@ const handlegetUsersAsyncAction = (dispatch) => {
     });
   };
 
-export const handleGetUserAsyncFunc = (dispatch) => {
+export const handleGetUserAsyncFunc = () => {
     return (dispatch) => {
         handlegetUsersAsyncAction(dispatch);
     }
