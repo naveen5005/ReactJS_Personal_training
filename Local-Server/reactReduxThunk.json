@@ -10,5 +10,22 @@
       "password": "xcvhjk",
       "id": 2
     }
+  ],
+  "products": [
+    {
+      "prodName": "naveen@gmail.com",
+      "prodDes": "q34",
+      "id": 1
+    },
+    {
+      "prodName": "ASD",
+      "prodDes": "xcvhjk",
+      "id": 2
+    },
+    {
+      "prodName": "tshirt",
+      "prodDes": "fghjkl",
+      "id": 3
+    }
   ]
 }
