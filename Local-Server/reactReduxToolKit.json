@@ -31,7 +31,7 @@
       "id": 7
     }
   ],
-  "persons" :[
+  "persons": [
     {
       "fname": "Naveen Babu Bellam",
       "gender": "",
@@ -40,41 +40,25 @@
       "id": 1
     },
     {
-      "fname": "syam",
-      "gender": "male",
+      "fname": "kavya sri",
+      "gender": "female",
       "areasOfInterest": [
-        "HTML",
-        "CSS",
         "REACTJS",
-        "BOOTSTRAP"
+        "JS"
       ],
       "state": "AP",
-      "id": 2
-    },
-    {
-      "fname": "",
-      "gender": "male",
-      "areasOfInterest": [],
-      "state": "",
       "id": 3
     },
     {
-      "fname": "dummy",
-      "gender": "other",
+      "fname": "Naveen Babu Bellam",
+      "gender": "",
       "areasOfInterest": [
-        "JS"
+        "JS",
+        "REACTJS",
+        "BOOTSTARP"
       ],
-      "state": "KA",
+      "state": "TS",
       "id": 4
-    },
-    {
-      "fname": "mahesh kumar",
-      "gender": "male",
-      "areasOfInterest": [
-        "CSS"
-      ],
-      "state": "KA",
-      "id": 5
     }
   ]
 }
