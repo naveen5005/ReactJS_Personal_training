@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fname": "naveen",
+      "lname": "Kumar"
+    },
+    {
+      "id": 2,
+      "fname": "syam",
+      "lname": "Kumar"
+    },
+    {
+      "id": 4,
+      "fname": "venky",
+      "lname": "Kumar"
+    },
+    {
+      "id": 5,
+      "fname": "suman",
+      "lname": "Kumar"
+    },
+    {
+      "id": 6,
+      "fname": "naveen",
+      "lname": "kumar"
+    },
+    {
+      "fname": "mahesh",
+      "lname": "babu",
+      "id": 7
+    }
+  ]
+}
