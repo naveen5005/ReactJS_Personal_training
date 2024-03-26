@@ -1,4 +1,6 @@
-import {createStore} from 'redux'
-import { reducer } from './reducer'
+import {configureStore} from '@reduxjs/toolkit'
+import studentSlice from './studentSlice'
 
-export const store = createStore(reducer);
+export const store = configureStore({
+    reducer : studentSlice
+})
