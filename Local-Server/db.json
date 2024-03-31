@@ -105,22 +105,6 @@
         "overs_bowled": "9",
         "economy_rate": "9"
       }
-    },
-    {
-      "id": "l4d7pyg556",
-      "player_name": "Naveen Babu Bellam",
-      "team": "",
-      "batting_stats": {
-        "runs": "",
-        "centuries": "",
-        "half_centuries": "",
-        "average": ""
-      },
-      "bowling_stats": {
-        "wickets": "-12",
-        "overs_bowled": "",
-        "economy_rate": ""
-      }
     }
   ]
 }
