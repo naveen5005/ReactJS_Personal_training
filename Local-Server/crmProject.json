@@ -1,3 +1,54 @@
 {
-    "studentRegistration" :[]
+  "studentRegistration": [
+    {
+      "fname": "Naveen Babu",
+      "lname": "Bellam",
+      "email": "bellamnaveen314@gmail.com",
+      "pwd": "12345",
+      "confirmPwd": "12345",
+      "contactNumber": "9398457833",
+      "gender": "male",
+      "id": 1
+    },
+    {
+      "fname": "Kavya",
+      "lname": "Sri",
+      "email": "kavya123@gmail.com",
+      "pwd": "12345",
+      "confirmPwd": "12345",
+      "contactNumber": "8886577458",
+      "gender": "female",
+      "id": 2
+    },
+    {
+      "fname": "Ratna",
+      "lname": "Kiran",
+      "email": "kiran@gmail.com",
+      "pwd": "12345",
+      "confirmPwd": "12345",
+      "contactNumber": "9490369295",
+      "gender": "male",
+      "id": 3
+    },
+    {
+      "fname": "Mahesh",
+      "lname": "kumar",
+      "email": "mahesh@gmail.com",
+      "pwd": "12345",
+      "confirmPwd": "12345",
+      "contactNumber": "9187356789",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "fname": "Divya",
+      "lname": "Sri",
+      "email": "divya@gmail.com",
+      "pwd": "12345",
+      "confirmPwd": "12345",
+      "contactNumber": "7845782645",
+      "gender": "female",
+      "id": 5
+    }
+  ]
 }
