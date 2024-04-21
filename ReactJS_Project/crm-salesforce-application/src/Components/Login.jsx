@@ -69,7 +69,7 @@ const Login = () => {
                     <Link className='link'>Help</Link>
                 </div>
                 <div className='footer-details'>
-                    <Typography variant='body2' style={{ color: 'gray' }}>© 1996-2024, *******.com, Inc. or its affiliates</Typography>
+                    <Typography variant='body2' style={{ color: 'gray' }}>© 1996-2024, learningAcademy.com, Inc. or its affiliates</Typography>
                 </div>
             </div>
         </div>
