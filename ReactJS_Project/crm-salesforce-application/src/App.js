@@ -13,9 +13,7 @@ function App() {
       <AuthContext>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ProtectedRoute>
-            <Home />
-          </ProtectedRoute>} />
+          <Route path='/' element={<Home/>} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
         </Routes>

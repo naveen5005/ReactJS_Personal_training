@@ -40,7 +40,7 @@ const Login = () => {
 
                         <Fab variant="extended" style={{ background: '#1976d2' }} onClick={()=>handleLogin(loginUser,setUserNameError,setPasswordError)}>
                             <NavigationIcon sx={{ mr: 1, color: 'white' }} />
-                            <Link className='link link-button' to={"/"}>Login</Link>
+                            <Link className='link link-button'>Login</Link>
                         </Fab>
                     </FormControl>
                 </div>
