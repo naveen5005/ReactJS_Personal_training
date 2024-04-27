@@ -6,3 +6,46 @@
     color: white;
     text-decoration: none;
 }
+.shopping-cart{
+    position: relative;
+    left: -12px;
+    cursor: pointer;
+}
+
+.shopping-cart-span {
+    position: absolute; 
+    top: -8px; 
+    right: -8px;
+    color: black;
+    background-color: white;
+    padding: 2px 5px;
+    border-radius: 50%; 
+    font-size: 10px;
+    cursor: pointer;
+  }
+  .headerInputContainer{
+    display: flex;
+    flex-grow: 1;
+    max-width: 700px;
+  }
+  .headerInput {
+    flex-grow: 1; /* Allow the input to grow and occupy available space */
+    width: 100%; /* Ensure the input takes up the entire space */
+    padding: 8px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Add border for clarity */
+    border-radius: 4px; /* Add border radius for a nicer look */
+    outline: none;
+    font-size: medium;
+    padding-left: 20px;
+  }
+  .search-icon{
+    position: relative;
+    left: -25px;
+    color: black;
+    top: 6px;
+    cursor: pointer;
+  }
+  .shopping-cart-span{
+    font-size: 0.8rem;
+    font-weight: bolder;
+  }

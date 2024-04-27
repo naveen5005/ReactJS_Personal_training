@@ -7,6 +7,7 @@ import ProtectedRoute from './Authentication/ProtectedRoute';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import { AuthContext } from './Authentication/AuthContext';
+import Cart from './Components/Cart';
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path='/' element={<Home/>} />
+          <Route path='/cart' element ={<Cart/>}/>
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
         </Routes>

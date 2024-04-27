@@ -1,0 +1,17 @@
+.productItem{
+    background-color: white;
+    padding: 22px;
+    margin: 10px;
+    width: 400px;
+    
+}
+.topProductItem{
+    display: flex;
+    gap: 40px;
+    height: 270px;
+}
+
+.productItemButtons{
+    display: flex;
+    justify-content: space-between;
+}

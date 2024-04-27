@@ -2,14 +2,19 @@ import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Too
 import React, { useContext } from 'react'
 import CastForEducationSharpIcon from '@mui/icons-material/CastForEducationSharp';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/NavBar.css'
 import { Context } from '../Authentication/AuthContext';
-
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
     const { handleLogOut } = useContext(Context);
-
+    const navigate = useNavigate();
+    const cart = useSelector((state)=>{
+        return state.cart.cart;
+    });
     const pages = [
         { name: 'Home', link: '/' },
         { name: 'Courses', link: '/courses' },
@@ -18,12 +23,12 @@ const NavBar = () => {
         { name: 'Contact Us', link: '/contact-us' },
         { name: 'About Us', link: '/about-us' }
     ];
-    
+
     const settings = [
         { name: 'Profile', link: '/profile' },
         { name: 'Account', link: '/account' },
         { name: 'Dashboard', link: '/dashboard' },
-        { 
+        {
             name: 'Logout',
             link: '/login',
             onClick: handleLogOut // Add onClick function for Logout
@@ -48,6 +53,9 @@ const NavBar = () => {
         setAnchorElUser(null);
     };
 
+    const handleCartNavigation = () => {
+        navigate("/cart")
+    }
     return (
         <div className='navbarContainer'>
             <AppBar position="static">
@@ -129,7 +137,7 @@ const NavBar = () => {
                         >
                             LEARNING ACADEMY
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
                                 <Button
                                     key={page.name}
@@ -141,6 +149,17 @@ const NavBar = () => {
                             ))}
                         </Box>
 
+                        {/* Search Bar */}
+                        <div className='headerInputContainer'>
+                            <input className='headerInput' type="text" placeholder='search items or products' />
+                            <SearchOutlinedIcon className='search-icon'/>
+                        </div>
+
+                        {/* Shopping Cart */}
+                        <div className='shopping-cart' onClick={handleCartNavigation}>
+                            <ShoppingCartOutlinedIcon/>
+                            <span className='shopping-cart-span'>{cart.length}</span>
+                        </div>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -165,7 +184,7 @@ const NavBar = () => {
                             >
                                 {settings.map((setting) => (
                                     <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center" onClick = {setting.onClick}>
+                                        <Typography textAlign="center" onClick={setting.onClick}>
                                             <Link to={setting.link} className='nav-item-toggle'>{setting.name}</Link>
                                         </Typography>
                                     </MenuItem>

@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import axios from "axios";
+import axios, { all } from "axios";
 
 const initialState = {
-    students : []
+    students : [],
+    products :[]
 }
 
 export const handleCreateStudentRegAsync = createAsyncThunk("students/handleCreateStudentRegAsync",(studentRegDetail)=>{
@@ -13,6 +14,12 @@ export const handleGetStudentDetailsAsync = createAsyncThunk("students/handleGet
         return res.data
     });
     return studentDetails;
+})
+export const handleGetAllProductsAsync = createAsyncThunk("products/handleGetAllProductsAsync",()=>{
+    const allProducts =axios.get("https://fakestoreapi.com/products").then((res)=>{
+        return res.data;
+    });
+    return allProducts;
 })
 export const studentSlice = createSlice({
     name : "studentsRegistration",
@@ -29,6 +36,12 @@ export const studentSlice = createSlice({
         });
         builder.addCase(handleGetStudentDetailsAsync.rejected,()=>{
             throw Error("GET Student API got failed...!!!");
+        });
+        builder.addCase(handleGetAllProductsAsync.fulfilled,(state,action)=>{
+            state.products = action.payload;
+        });
+        builder.addCase(handleGetAllProductsAsync.rejected,()=>{
+            throw Error("GET Products API got failed...!!!");
         })
     }
 })
