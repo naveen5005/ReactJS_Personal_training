@@ -7,11 +7,13 @@ export const Context = createContext();
 
 export const AuthContext = ({ children }) => {
     const [isLogin, setIsLogin] = useState(null);
+
     const dispatch = useDispatch();
     const users = useSelector((state)=>{
         return state.students;
     });
     const navigate = useNavigate();
+
 
     const handleLogin = (user, setUserNameError,setPasswordError) => {
         const { uname, pwd } = user;
@@ -46,7 +48,7 @@ export const AuthContext = ({ children }) => {
 
     return (
         <div>
-            <Context.Provider value={{ isLogin, handleLogin, handleLogOut }}>
+            <Context.Provider value={{ isLogin, handleLogin, handleLogOut}}>
                 {children}
             </Context.Provider>
         </div>

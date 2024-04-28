@@ -43,7 +43,16 @@ export const studentSlice = createSlice({
         builder.addCase(handleGetAllProductsAsync.rejected,()=>{
             throw Error("GET Products API got failed...!!!");
         })
-    }
-})
+    },
+    reducers : {
+        handleSearch : (state,action) => {
+            state.products = state.products.filter((item) => item.category.includes(action.payload));
+        },
+        clearSearch : (state,action) =>{
+            state.products =[];
+        }
+    },
+});
 
+export const {handleSearch,clearSearch} = studentSlice.actions;
 export default studentSlice.reducer;

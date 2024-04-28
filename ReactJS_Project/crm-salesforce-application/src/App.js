@@ -8,6 +8,7 @@ import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import { AuthContext } from './Authentication/AuthContext';
 import Cart from './Components/Cart';
+import Checkout from './Components/Checkout';
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
           <Route path='/cart' element ={<Cart/>}/>
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/checkout' element={<Checkout/>}/>
         </Routes>
       </AuthContext>
     </Router>

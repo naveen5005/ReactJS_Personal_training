@@ -1,0 +1,23 @@
+.cart-LocationContainer,
+.cart-discountContainer,
+.cart-chargesContainer,
+.cart-deliveryChargesContainer,
+.cart-totalCharges{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.cart-chargesContainer,
+.cart-deliveryChargesContainer,
+.cart-totalCharges{
+    justify-content: space-between;
+}
+
+.cart-placeOrder-Container{
+    padding: 23px;
+}
+.cart-placeOrder-button{
+    width: 100%;
+}

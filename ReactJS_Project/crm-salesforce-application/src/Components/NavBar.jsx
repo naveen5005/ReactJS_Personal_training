@@ -1,20 +1,27 @@
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material'
-import React, { useContext } from 'react'
-import CastForEducationSharpIcon from '@mui/icons-material/CastForEducationSharp';
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useContext, useState } from 'react'
+import StoreIcon from '@mui/icons-material/Store';import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/NavBar.css'
 import { Context } from '../Authentication/AuthContext';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearSearch, handleGetAllProductsAsync, handleSearch } from '../Store/studentSlice';
 
 const NavBar = () => {
+    const [inputText,setInputText] = useState("");
+
     const { handleLogOut } = useContext(Context);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const cart = useSelector((state)=>{
         return state.cart.cart;
     });
+    const allProducts = useSelector((state)=>{
+        return state.students.products;
+    })
     const pages = [
         { name: 'Home', link: '/' },
         { name: 'Courses', link: '/courses' },
@@ -55,13 +62,21 @@ const NavBar = () => {
 
     const handleCartNavigation = () => {
         navigate("/cart")
+    };    
+    const handleChange = (itemValue) =>{
+        setInputText(itemValue);
+        if(itemValue.trim() === ""){
+            dispatch(clearSearch());
+            dispatch(handleGetAllProductsAsync());
+        }
     }
+    console.log(allProducts)
     return (
         <div className='navbarContainer'>
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <CastForEducationSharpIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <StoreIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Typography
                             variant="h6"
                             noWrap
@@ -77,7 +92,7 @@ const NavBar = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            LEARNING ACADEMY
+                            ECOMMERCE
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -118,7 +133,7 @@ const NavBar = () => {
                                 ))}
                             </Menu>
                         </Box>
-                        <CastForEducationSharpIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                        <StoreIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                         <Typography
                             variant="h5"
                             noWrap
@@ -135,7 +150,7 @@ const NavBar = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            LEARNING ACADEMY
+                            ECOMMERCE
                         </Typography>
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
@@ -151,8 +166,8 @@ const NavBar = () => {
 
                         {/* Search Bar */}
                         <div className='headerInputContainer'>
-                            <input className='headerInput' type="text" placeholder='search items or products' />
-                            <SearchOutlinedIcon className='search-icon'/>
+                            <input className='headerInput' type="text" placeholder='search items or products' onChange={(e)=>handleChange(e.target.value)}/>
+                            <SearchOutlinedIcon className='search-icon' onClick={()=>dispatch(handleSearch(inputText))}/> {/** onClick={()=>dispatch(handleSearch(inputSearch))} */}
                         </div>
 
                         {/* Shopping Cart */}
