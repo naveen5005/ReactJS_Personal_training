@@ -82,7 +82,7 @@ const Cart = () => {
 
     console.log(cart);
     return (
-        <Box sx={{ height: 400, width: '70%' }} style={{ paddingTop: '50px', display: 'flex', flexGap: '100px',flexDirection:'row-reverse' }}>
+        <Box sx={{ height: 400, width: '70%' }} style={{ paddingTop: '50px', margin:'auto' }}>
             <div className="checkout-button">
                 <Button variant='contained' onClick={()=>handleCheckout(cart)}>Checkout</Button>
             </div>
