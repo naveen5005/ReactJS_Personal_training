@@ -1,19 +1,20 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { handleGetStudentDetailsAsync } from '../Store/studentSlice';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Context = createContext();
 
 export const AuthContext = ({ children }) => {
     const [isLogin, setIsLogin] = useState(null);
+    const [currentPath,setCurrentPath] = useState("");
 
     const dispatch = useDispatch();
     const users = useSelector((state)=>{
-        return state.students;
+        return state.students.students;
     });
     const navigate = useNavigate();
-
+    const location = useLocation();
 
     const handleLogin = (user, setUserNameError,setPasswordError) => {
         const { uname, pwd } = user;
@@ -34,7 +35,7 @@ export const AuthContext = ({ children }) => {
             navigate("/")
         } else {
             setUserNameError('Invalid username');
-            setPasswordError('Invalid username');
+            setPasswordError('Invalid password');
         }
     };
 
@@ -48,7 +49,7 @@ export const AuthContext = ({ children }) => {
 
     return (
         <div>
-            <Context.Provider value={{ isLogin, handleLogin, handleLogOut}}>
+            <Context.Provider value={{ isLogin, handleLogin, handleLogOut,setCurrentPath}}>
                 {children}
             </Context.Provider>
         </div>

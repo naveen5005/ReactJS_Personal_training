@@ -1,0 +1,25 @@
+h2{
+    padding-left: 370px;
+    text-decoration: underline;
+}
+.orderContainer{
+    padding-left: 270px;
+}
+.orderList{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+.orderInformation{
+    width: 500px;
+}
+.orderButtons {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+  }
+.button{
+    width: 172px;
+    margin-bottom: 100px; 
+}

@@ -9,6 +9,7 @@ import Home from './Components/Home';
 import { AuthContext } from './Authentication/AuthContext';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
+import OrderScreen from './Components/OrderScreen';
 function App() {
   return (
     <Router>
@@ -19,7 +20,10 @@ function App() {
           <Route path='/cart' element ={<Cart/>}/>
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/checkout' element={<ProtectedRoute>
+            <Checkout/>
+          </ProtectedRoute>}/>
+          <Route path='/order' element={<OrderScreen/>}/>
         </Routes>
       </AuthContext>
     </Router>
