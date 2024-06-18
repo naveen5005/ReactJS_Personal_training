@@ -1,0 +1,107 @@
+[
+    {
+      "Topic Title": "Introduction to React",
+      "Topic Description": "React is a JavaScript library for building user interfaces. It enables developers to create large web applications that can update and render efficiently in response to data changes.",
+      "Assignments": [
+        "Set up a new React project using Create React App.",
+        "Create a simple React component that displays 'Hello, World!'."
+      ]
+    },
+    {
+      "Topic Title": "JSX",
+      "Topic Description": "JSX is a syntax extension for JavaScript. It looks similar to HTML and is used with React to describe what the UI should look like.",
+      "Assignments": [
+        "Write a JSX expression to display a greeting message.",
+        "Create a JSX element that includes attributes and nested elements."
+      ]
+    },
+    {
+      "Topic Title": "Components and Props",
+      "Topic Description": "Components are the building blocks of a React application. Props are used to pass data from one component to another.",
+      "Assignments": [
+        "Create a functional component that accepts props and displays them.",
+        "Build a parent component that passes data to a child component via props."
+      ]
+    },
+    {
+      "Topic Title": "State and Lifecycle",
+      "Topic Description": "State is a built-in object used to hold data or information about the component. Lifecycle methods are used to run code at particular times in a component's life.",
+      "Assignments": [
+        "Create a class component with state that toggles between 'ON' and 'OFF'.",
+        "Use the `componentDidMount` lifecycle method to fetch data when a component mounts."
+      ]
+    },
+    {
+      "Topic Title": "Event Handling",
+      "Topic Description": "Handling events with React elements is very similar to handling events on DOM elements. React provides a way to handle events using JSX.",
+      "Assignments": [
+        "Add an onClick event to a button that updates the component's state.",
+        "Create a form with an onSubmit event that prevents the default form submission."
+      ]
+    },
+    {
+      "Topic Title": "Conditional Rendering",
+      "Topic Description": "Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like `if` or the conditional (ternary) operator to create elements representing the current state.",
+      "Assignments": [
+        "Render a component conditionally based on the state value.",
+        "Use the ternary operator to conditionally render elements."
+      ]
+    },
+    {
+      "Topic Title": "Lists and Keys",
+      "Topic Description": "Rendering lists of data is a common pattern in React. Keys help React identify which items have changed, are added, or are removed.",
+      "Assignments": [
+        "Create a list of items from an array and display them using the `map` function.",
+        "Assign unique keys to each list item."
+      ]
+    },
+    {
+      "Topic Title": "Forms",
+      "Topic Description": "Handling form elements in React involves maintaining and updating form state.",
+      "Assignments": [
+        "Create a controlled form component with input fields.",
+        "Handle form submission and display the input values."
+      ]
+    },
+    {
+      "Topic Title": "Lifting State Up",
+      "Topic Description": "Lifting state up involves moving state to a common ancestor of the components that need it, enabling shared state between components.",
+      "Assignments": [
+        "Lift the state up from a child component to a parent component.",
+        "Share the state between multiple child components."
+      ]
+    },
+    {
+      "Topic Title": "Hooks",
+      "Topic Description": "Hooks are functions that let you use state and other React features without writing a class. Common hooks include `useState`, `useEffect`, and `useContext`.",
+      "Assignments": [
+        "Use the `useState` hook to manage component state in a functional component.",
+        "Implement the `useEffect` hook to perform side effects in a functional component."
+      ]
+    },
+    {
+      "Topic Title": "Context API",
+      "Topic Description": "The Context API is used to share state across the entire app (or part of it) without passing props down manually at every level.",
+      "Assignments": [
+        "Create a context to share a theme across multiple components.",
+        "Consume the context value in a child component using the `useContext` hook."
+      ]
+    },
+    {
+      "Topic Title": "React Router",
+      "Topic Description": "React Router is a library for routing in React applications. It allows navigation between different components in a React application, changing the browser URL and keeping the UI in sync with the URL.",
+      "Assignments": [
+        "Set up React Router and create routes for different components.",
+        "Implement navigation links to switch between routes."
+      ]
+    },
+    {
+      "Topic Title": "Performance Optimization",
+      "Topic Description": "Performance optimization in React involves techniques like memoization and code splitting to improve the performance of a React application.",
+      "Assignments": [
+        "Use `React.memo` to prevent unnecessary re-renders of functional components.",
+        "Implement code splitting using React.lazy and Suspense."
+      ]
+    }
+  ]
+  

@@ -1,0 +1,99 @@
+[
+    {
+      "Topic Title": "JavaScript Basics",
+      "Topic Description": "JavaScript is a programming language that allows you to implement complex features on web pages. It enables dynamic content, control multimedia, animate images, and much more.",
+      "Assignments": [
+        "Create a simple JavaScript file and link it to an HTML document.",
+        "Write a script to display a greeting message using `alert`."
+      ]
+    },
+    {
+      "Topic Title": "Variables and Data Types",
+      "Topic Description": "Variables store data values and are declared using `var`, `let`, or `const`. JavaScript supports various data types including strings, numbers, booleans, objects, and arrays.",
+      "Assignments": [
+        "Declare variables using `var`, `let`, and `const`.",
+        "Create variables of different data types and log them to the console."
+      ]
+    },
+    {
+      "Topic Title": "Operators and Expressions",
+      "Topic Description": "Operators are used to perform operations on variables and values. Expressions combine values and operators to produce a new value.",
+      "Assignments": [
+        "Use arithmetic operators to perform basic math operations.",
+        "Create expressions using assignment, comparison, and logical operators."
+      ]
+    },
+    {
+      "Topic Title": "Functions",
+      "Topic Description": "Functions are blocks of code designed to perform a particular task. They are executed when something invokes them (calls them).",
+      "Assignments": [
+        "Create a function to calculate the sum of two numbers.",
+        "Write a function that takes an argument and returns a greeting message."
+      ]
+    },
+    {
+      "Topic Title": "Control Structures",
+      "Topic Description": "Control structures such as conditionals (`if`, `else`, `switch`) and loops (`for`, `while`, `do...while`) control the flow of execution in a program.",
+      "Assignments": [
+        "Write an `if` statement to check if a number is positive, negative, or zero.",
+        "Create a `for` loop to iterate through an array of numbers."
+      ]
+    },
+    {
+      "Topic Title": "Objects and Arrays",
+      "Topic Description": "Objects are collections of related data and functionality, and arrays are used to store multiple values in a single variable.",
+      "Assignments": [
+        "Create an object to store information about a person (name, age, etc.).",
+        "Create an array of fruits and iterate through it using a loop."
+      ]
+    },
+    {
+      "Topic Title": "DOM Manipulation",
+      "Topic Description": "The Document Object Model (DOM) is a programming interface for HTML documents. It represents the page so that programs can change the document structure, style, and content.",
+      "Assignments": [
+        "Select an HTML element and change its content using `innerHTML`.",
+        "Add a new element to the DOM using `createElement` and `appendChild`."
+      ]
+    },
+    {
+      "Topic Title": "Event Handling",
+      "Topic Description": "Events are actions that occur when a user interacts with a web page. JavaScript can capture these events and respond to them.",
+      "Assignments": [
+        "Add a click event listener to a button that displays an alert.",
+        "Create a form validation script that checks if all fields are filled."
+      ]
+    },
+    {
+      "Topic Title": "ES6 Features",
+      "Topic Description": "ECMAScript 6 (ES6) introduced new features and syntax such as arrow functions, template literals, destructuring, and modules.",
+      "Assignments": [
+        "Rewrite a function using an arrow function.",
+        "Use template literals to create a multi-line string."
+      ]
+    },
+    {
+      "Topic Title": "Asynchronous JavaScript",
+      "Topic Description": "Asynchronous programming allows you to write code that doesn't block the main thread. Promises and async/await are used to handle asynchronous operations.",
+      "Assignments": [
+        "Create a promise that resolves after 2 seconds.",
+        "Write an async function that fetches data from an API."
+      ]
+    },
+    {
+      "Topic Title": "Error Handling",
+      "Topic Description": "Error handling in JavaScript is performed using `try...catch` blocks. It allows you to gracefully handle errors and take appropriate action.",
+      "Assignments": [
+        "Use `try...catch` to handle errors in a function.",
+        "Throw a custom error and catch it."
+      ]
+    },
+    {
+      "Topic Title": "Debugging",
+      "Topic Description": "Debugging is the process of finding and fixing errors in your code. Tools like browser developer tools and debugging methods help in this process.",
+      "Assignments": [
+        "Use `console.log` to debug a script.",
+        "Set breakpoints and step through code using browser developer tools."
+      ]
+    }
+  ]
+  
